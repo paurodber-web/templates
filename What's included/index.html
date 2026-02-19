@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's Included — Design Library</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #F8FAFC;
+            color: #0F172A;
+            min-height: 100vh;
+            padding: 64px 0 80px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        /* PAGE HEADER */
+        .page-header {
+            margin-bottom: 56px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .breadcrumb {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #94A3B8;
+            margin-bottom: 16px;
+        }
+
+        .breadcrumb span {
+            color: #CBD5E1;
+            margin: 0 6px;
+        }
+
+        .page-header h1 {
+            font-family: 'Lora', serif;
+            font-size: 2.6rem;
+            font-weight: 600;
+            color: #0F172A;
+            letter-spacing: -0.025em;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            font-size: 0.95rem;
+            color: #64748B;
+            line-height: 1.6;
+            max-width: 520px;
+        }
+
+        /* GRID */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        /* CARD */
+        .card {
+            background: #fff;
+            border: 1px solid #E2E8F0;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .card:hover {
+            border-color: #CBD5E1;
+            box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+        }
+
+        /* PREVIEW */
+        .card-preview {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        /* Preview unique per card */
+        .preview-252 {
+            background: #ffffff;
+            border-bottom: 1px solid #F1F5F9;
+        }
+
+        .preview-253 {
+            background: #FAFAFA;
+            border-bottom: 1px solid #F1F5F9;
+        }
+
+        .preview-254 {
+            background: #ffffff;
+            border-bottom: 1px solid #F1F5F9;
+        }
+
+        /* Miniature representation */
+        .mini {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            width: 80%;
+        }
+
+        .mini-head {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .mini-tag {
+            height: 5px;
+            width: 60px;
+            border-radius: 3px;
+            background: #E2E8F0;
+        }
+
+        .mini-title {
+            height: 12px;
+            width: 120px;
+            border-radius: 4px;
+        }
+
+        .preview-252 .mini-title {
+            background: #0F172A;
+        }
+
+        .preview-253 .mini-title {
+            background: #09090B;
+        }
+
+        .preview-254 .mini-title {
+            background: #0F172A;
+        }
+
+        .mini-tabs {
+            display: flex;
+            gap: 4px;
+            margin: 4px 0;
+        }
+
+        .mini-tab {
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        .preview-252 .mini-tab {
+            width: 44px;
+            background: transparent;
+            border-bottom: 2px solid #0F172A;
+        }
+
+        .preview-252 .mini-tab:not(:first-child) {
+            border-bottom-color: #E2E8F0;
+        }
+
+        .preview-253 .mini-tab {
+            width: 36px;
+            background: #F4F4F5;
+        }
+
+        .preview-253 .mini-tab:first-child {
+            background: #fff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .preview-254 .mini-tab {
+            width: 44px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .preview-254 .mini-tab:first-child {
+            border-bottom-color: #0F172A;
+        }
+
+        .mini-cols {
+            display: flex;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .mini-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .mini-col-head {
+            height: 4px;
+            border-radius: 2px;
+            background: #E2E8F0;
+            margin-bottom: 2px;
+        }
+
+        .mini-col-line {
+            height: 6px;
+            border-radius: 2px;
+            background: #F1F5F9;
+        }
+
+        .mini-col-line:nth-child(3) {
+            width: 75%;
+        }
+
+        .mini-col-line:nth-child(4) {
+            width: 60%;
+        }
+
+        /* CARD BODY */
+        .card-body {
+            padding: 20px 22px 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+        }
+
+        .card-num {
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #94A3B8;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #0F172A;
+        }
+
+        .card-desc {
+            font-size: 0.82rem;
+            color: #64748B;
+            line-height: 1.5;
+        }
+
+        /* TAGS */
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 6px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 9px;
+            border-radius: 6px;
+            background: #F1F5F9;
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: #64748B;
+            letter-spacing: 0.03em;
+        }
+
+        /* OPEN BUTTON */
+        .card-footer {
+            padding: 0 22px 18px;
+        }
+
+        .open-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            width: 100%;
+            padding: 10px;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 9px;
+            background: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #475569;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            text-decoration: none;
+        }
+
+        .open-btn:hover {
+            background: #0F172A;
+            border-color: #0F172A;
+            color: #fff;
+        }
+
+        .open-btn svg {
+            width: 13px;
+            height: 13px;
+        }
+
+        @media (max-width: 860px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="page-header">
+            <div class="breadcrumb">Maid At Home <span>›</span> Design Library <span>›</span> What's Included</div>
+            <h1>What's Included</h1>
+            <p>Section designs for displaying service contents. Meant to follow immediately after the hero. Clean
+                backgrounds, no photography, no stats.</p>
+        </div>
+
+        <div class="cards-grid">
+
+            <!-- 252 -->
+            <div class="card">
+                <div class="card-preview preview-252">
+                    <div class="mini">
+                        <div class="mini-head">
+                            <div class="mini-tag"></div>
+                            <div class="mini-title"></div>
+                        </div>
+                        <div class="mini-tabs">
+                            <div class="mini-tab"></div>
+                            <div class="mini-tab"></div>
+                            <div class="mini-tab"></div>
+                        </div>
+                        <div class="mini-cols">
+                            <div class="mini-col">
+                                <div class="mini-col-head"></div>
+                                <div class="mini-col-line"></div>
+                                <div class="mini-col-line"></div>
+                                <div class="mini-col-line"></div>
+                            </div>
+                            <div class="mini-col">
+                                <div class="mini-col-head"></div>
+                                <div class="mini-col-line"></div>
+                                <div class="mini-col-line"></div>
+                                <div class="mini-col-line"></div>
+                            </div>
+                            <div class="mini-col">
+                                <div class="mini-col-head"></div>
+                                <div class="mini-col-line"></div>
+                                <div class="mini-col-line"></div>
+                                <div class="mini-col-line"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-num">#252</div>
+                    <div class="card-title">Pure Typography</div>
+                    <div class="card-desc">Serif headline centrado, tabs underline minimalistas, 3 columnas separadas
+                        por líneas finas. Fondo blanco.</div>
+                    <div class="card-tags">
+                        <span class="tag">Centered</span>
+                        <span class="tag">Underline tabs</span>
+                        <span class="tag">White bg</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a class="open-btn" href="252-Included-Pure-Typography.html" target="_blank">
+                        Open
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 253 -->
+            <div class="card">
+                <div class="card-preview preview-253">
+                    <div class="mini">
+                        <div class="mini-head"
+                            style="flex-direction:row; justify-content:space-between; width:100%; align-items:flex-end;">
+                            <div class="mini-title" style="width:90px; height:10px;"></div>
+                            <div class="mini-tabs">
+                                <div class="mini-tab" style="width:28px; height:16px; border-radius:5px;"></div>
+                                <div class="mini-tab" style="width:28px; height:16px; border-radius:5px;"></div>
+                                <div class="mini-tab" style="width:28px; height:16px; border-radius:5px;"></div>
+                            </div>
+                        </div>
+                        <div style="height:1px; background:#E4E4E7; width:100%; margin:6px 0;"></div>
+                        <div class="mini-cols">
+                            <div class="mini-col">
+                                <div class="mini-col-head"></div>
+                                <div class="mini-col-line"></div>
+                                <div class="mini-col-line"></div>
+                                <div class="mini-col-line"></div>
+                            </div>
+                            <div class="mini-col">
+                                <div class="mini-col-head"></div>
+                                <div class="mini-col-line"></div>
+                                <div class="mini-col-line"></div>
+                                <div class="mini-col-line"></div>
+                            </div>
+                            <div class="mini-col">
+                                <div class="mini-col-head"></div>
+                                <div class="mini-col-line"></div>
+                                <div class="mini-col-line"></div>
+                                <div class="mini-col-line"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-num">#253</div>
+                    <div class="card-title">Aurora Minimalist</div>
+                    <div class="card-desc">Header asimétrico con título izquierda y segmented control derecha. Regla
+                        horizontal. Fondo gris muy suave.</div>
+                    <div class="card-tags">
+                        <span class="tag">Asymmetric</span>
+                        <span class="tag">Segmented tabs</span>
+                        <span class="tag">Gray bg</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a class="open-btn" href="253-Included-Aurora-Minimalist.html" target="_blank">
+                        Open
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 254 -->
+            <div class="card">
+                <div class="card-preview preview-254">
+                    <div class="mini">
+                        <div class="mini-head">
+                            <div class="mini-title" style="width:100px;"></div>
+                        </div>
+                        <div class="mini-tabs" style="gap:8px;">
+                            <div class="mini-tab" style="width:48px; border-bottom:2px solid #0F172A;"></div>
+                            <div class="mini-tab" style="width:48px;"></div>
+                            <div class="mini-tab" style="width:48px;"></div>
+                        </div>
+                        <div class="mini-cols">
+                            <div class="mini-col">
+                                <div
+                                    style="height:16px; background:#F8FAFC; border:1px solid #F1F5F9; border-radius:4px; margin-bottom:4px;">
+                                </div>
+                                <div class="mini-col-line" style="display:flex; gap:4px; height:6px;"></div>
+                                <div class="mini-col-line"></div>
+                                <div class="mini-col-line"></div>
+                            </div>
+                            <div class="mini-col">
+                                <div
+                                    style="height:16px; background:#F8FAFC; border:1px solid #F1F5F9; border-radius:4px; margin-bottom:4px;">
+                                </div>
+                                <div class="mini-col-line"></div>
+                                <div class="mini-col-line"></div>
+                                <div class="mini-col-line"></div>
+                            </div>
+                            <div class="mini-col">
+                                <div
+                                    style="height:16px; background:#F8FAFC; border:1px solid #F1F5F9; border-radius:4px; margin-bottom:4px;">
+                                </div>
+                                <div class="mini-col-line"></div>
+                                <div class="mini-col-line"></div>
+                                <div class="mini-col-line"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-num">#254</div>
+                    <div class="card-title">Column Checklist</div>
+                    <div class="card-desc">Tabs con badges numéricos, icon por categoría, cada ítem con checkmark verde.
+                        Más visual y accesible.</div>
+                    <div class="card-tags">
+                        <span class="tag">Checkmarks</span>
+                        <span class="tag">Icons</span>
+                        <span class="tag">Numbered tabs</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a class="open-btn" href="254-Included-Cinematic-Zen.html" target="_blank">
+                        Open
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

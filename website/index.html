@@ -1129,7 +1129,7 @@
             });
         }, { threshold: 0.15 });
 
-        document.querySelectorAll('.ext-col').forEach(col => observer.observe(col));
+        document.querySelectorAll('.ext-grid').forEach(grid => observer.observe(grid));
 
         // Global Reveal Observer
         const revealObserver = new IntersectionObserver((entries) => {

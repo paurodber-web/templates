@@ -351,10 +351,8 @@
         /* --- INCLUDED SECTION STYLES --- */
         .included-section {
             background: #FAFAF7;
-            min-height: 100vh;
             padding: 140px 0;
             display: flex;
-            align-items: center;
             justify-content: center;
             position: relative;
             z-index: 5;
@@ -427,23 +425,21 @@
 
         .inc-content-area {
             position: relative;
-            min-height: 260px;
+            width: 100%;
         }
 
         .inc-panel {
-            position: absolute;
-            inset: 0;
-            display: grid;
+            display: none;
             grid-template-columns: repeat(3, 1fr);
+            gap: 0;
             opacity: 0;
-            pointer-events: none;
             transform: translateY(14px);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
         .inc-panel.active {
+            display: grid;
             opacity: 1;
-            pointer-events: all;
             transform: translateY(0);
         }
 
@@ -587,7 +583,6 @@
             background: #fff;
             padding: 140px 0;
             display: flex;
-            align-items: center;
             justify-content: center;
             position: relative;
             z-index: 5;

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maid At Home — Premium Cleaning</title>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Merriweather+Sans:wght@500;600;700;800&display=swap"
         rel="stylesheet">
     <style>
         :root {
@@ -15,7 +15,7 @@
             --text-dark: #0F172A;
             --text-sub: #64748B;
             --font-main: 'Outfit', sans-serif;
-            --font-serif: 'Plus Jakarta Sans', sans-serif;
+            --font-serif: 'Merriweather Sans', sans-serif;
         }
 
         * {
@@ -132,14 +132,15 @@
             background: #60A5FA;
         }
 
+        .hero-headline h1,
         .island-left h1 {
             font-family: var(--font-serif);
-            font-size: 2.8rem;
-            font-weight: 600;
-            line-height: 1.1;
-            color: #fff;
+            font-size: clamp(2.2rem, 4vw, 3.1rem);
+            font-weight: 500;
+            line-height: 1.15;
             letter-spacing: -0.02em;
-            margin-bottom: 14px;
+            color: #fff;
+            margin-bottom: 24px;
         }
 
         .island-left p {
@@ -371,21 +372,22 @@
         }
 
         .inc-header-left p {
-            font-size: 0.72rem;
-            font-weight: 800;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            text-transform: none;
             color: #A1A1AA;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
+        /* H2 Semantic: Section Header */
         .inc-header-left h2 {
             font-family: var(--font-serif);
             font-size: 2.8rem;
-            font-weight: 800;
+            font-weight: 500;
             color: #09090B;
-            letter-spacing: -0.04em;
-            line-height: 1.05;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
         }
 
         .inc-tabs-nav {
@@ -466,10 +468,10 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            font-size: 0.68rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-transform: none;
+            letter-spacing: -0.01em;
             color: #3B82F6;
             background: #EFF6FF;
             padding: 5px 12px;
@@ -486,7 +488,7 @@
         }
 
         .inc-item {
-            font-size: 0.94rem;
+            font-size: 0.98rem;
             color: #3F3F46;
             line-height: 1.5;
             display: flex;
@@ -592,20 +594,20 @@
         }
 
         .ext-header-left p {
-            font-size: 0.7rem;
-            font-weight: 800;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            text-transform: none;
             color: #A1A1AA;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .ext-header-left h2 {
             font-family: var(--font-serif);
-            font-size: 3rem;
-            font-weight: 600;
+            font-size: 2.8rem;
+            font-weight: 500;
             color: #09090B;
-            letter-spacing: -0.025em;
+            letter-spacing: -0.02em;
             line-height: 1.1;
         }
 
@@ -638,26 +640,32 @@
         }
 
         .ext-cat-title {
-            font-size: 0.66rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
-            color: #A1A1AA;
-            padding-bottom: 14px;
-            border-bottom: 1px solid #E4E4E7;
-            margin-bottom: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-transform: none;
+            letter-spacing: -0.01em;
+            color: #3B82F6;
+            background: #EFF6FF;
+            padding: 5px 12px;
+            border-radius: 6px;
+            margin-bottom: 18px;
+            align-self: flex-start;
         }
 
         .ext-item {
+            font-size: 0.98rem;
+            color: #3F3F46;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 13px 0;
-            border-bottom: 1px solid #F4F4F5;
-            gap: 12px;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #EFEFE9;
             opacity: 0;
             transform: translateY(10px);
-            transition: opacity 0.4s ease, transform 0.4s ease;
+            transition: all 0.5s ease;
         }
 
         .ext-item.visible {
@@ -670,13 +678,13 @@
         }
 
         .ext-name {
-            font-size: 0.92rem;
+            font-size: 0.98rem;
             color: #3F3F46;
             line-height: 1.4;
         }
 
         .ext-price {
-            font-size: 0.92rem;
+            font-size: 0.98rem;
             font-weight: 700;
             color: #09090B;
             white-space: nowrap;
@@ -743,8 +751,10 @@
                         <div class="il-dot"></div>Deep relaxation
                     </div>
                     <!-- SINGLE H1 for the page -->
-                    <h1>A home that<br>feels like new.</h1>
-                    <p>Premium cleaners for high-end homes. Experience the difference of deep blue excellence.</p>
+                    <div class="hero-headline">
+                        <h1>A home that<br>feels like new.</h1>
+                        <p>Premium cleaners for high-end homes. Experience the difference of deep blue excellence.</p>
+                    </div>
                 </div>
                 <div class="il-bottom">
                     <div class="il-stats">
@@ -780,7 +790,7 @@
                 <div class="inc-header-left">
                     <p>Transparency in detail</p>
                     <!-- H2 for Section Title -->
-                    <h2>Service Protocol</h2>
+                    <h2>What's included in our services</h2>
                 </div>
                 <nav class="inc-tabs-nav">
                     <button class="inc-tab-btn active" onclick="showIncTab('std')" id="inc-btn-std">Standard</button>

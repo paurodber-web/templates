@@ -1080,9 +1080,8 @@ const p=d.createElement('div');p.className='page-progress';p.setAttribute('aria-
  const d=document,desktop=matchMedia("(min-width:1251px)"),reduced=matchMedia("(prefers-reduced-motion: reduce)"),header=d.querySelector("body > .header"),toggle=header.querySelector(".menu-toggle"),desktopNav=header.querySelector("nav"),menu=d.getElementById("cl-dv-menu"),links=[...menu.querySelectorAll(".cl-dv-link")],rail=menu.querySelector(".cl-dv-index"),scrollBox=menu.querySelector(".cl-dv-scroll");
  let state="closed",closeTimer,focusTimer,savedScroll=0,bodyStyle,inertStates=new Map();
  const pad=n=>String(n).padStart(2,"0");
- function index(i){rail.textContent=pad(i+1)+" / "+pad(links.length)}
- links.forEach((link,i)=>{link.addEventListener("focus",()=>index(i));link.addEventListener("pointerenter",()=>index(i))});
- index(Math.max(0,links.findIndex(a=>a.hasAttribute("aria-current"))));
+ const today=new Date();
+ rail.textContent=pad(today.getDate())+"/"+pad(today.getMonth()+1);
  function lock(){savedScroll=scrollY;bodyStyle={position:d.body.style.position,top:d.body.style.top,left:d.body.style.left,right:d.body.style.right,width:d.body.style.width,overflow:d.body.style.overflow};Object.assign(d.body.style,{position:"fixed",top:-savedScroll+"px",left:"0",right:"0",width:"100%",overflow:"hidden"});for(const node of d.body.children)if(node!==header&&node!==menu&&node.tagName!=="SCRIPT"&&node.tagName!=="STYLE"){inertStates.set(node,node.inert);node.inert=true}d.documentElement.classList.add("menu-open")}
  function unlock(){if(bodyStyle){Object.assign(d.body.style,bodyStyle);bodyStyle=null;scrollTo({top:savedScroll,left:0,behavior:"instant"})}inertStates.forEach((value,node)=>node.inert=value);inertStates.clear();d.documentElement.classList.remove("menu-open")}
  function finish(){state="closed";header.classList.remove("cl-dv-header-open");unlock()}

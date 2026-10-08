@@ -992,18 +992,18 @@ body.site-page > .header .nav-cta { border-color: currentColor !important; }
 @media(max-width:767px){
  .site-page .float-cta{display:none!important}
  body.site-page{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
- #sbar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:0 calc(14px + env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) calc(14px + env(safe-area-inset-left,0px));background:none;border:0;box-shadow:none;pointer-events:none;font:600 14px/1 "Plus Jakarta Sans",Arial,sans-serif}
+ #sbar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:0 calc(14px + env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) calc(14px + env(safe-area-inset-left,0px));background:none;border:0;box-shadow:none;pointer-events:none;font:600 14px/1 "Plus Jakarta Sans",Arial,sans-serif;transform:translateZ(0)}
  #sbar[hidden],html.menu-open #sbar,body:has(#ck:not([hidden])) #sbar{display:none!important}
- #sbar .sb-in{display:flex;justify-content:space-between;align-items:flex-end;pointer-events:none}
- #sbar a{display:flex;align-items:center;justify-content:center;gap:10px;pointer-events:auto;height:56px;border-radius:999px;box-shadow:0 8px 22px rgba(18,60,87,.3);font-size:15px;text-decoration:none;-webkit-tap-highlight-color:transparent}
- #sbar a:focus-visible{outline:3px solid #8ec9ee;outline-offset:3px}
- #sbar svg{width:22px;height:22px;flex:none;fill:currentColor}
- #sbar .sb-wa{width:56px;flex:none;background:#25d366;color:#fff}
- #sbar .sb-wa span{display:none}
- #sbar .sb-wa svg{width:28px;height:28px}
- #sbar .sb-rs{padding:0 24px;background:#075c87;color:#fff}
- #sbar .sb-rs svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
- #sbar .sb-rs i{display:none}
+ #sbar[data-v="7"] .sb-in{display:flex;justify-content:space-between;align-items:flex-end;pointer-events:none}
+ #sbar[data-v="7"] a{display:flex;align-items:center;justify-content:center;gap:10px;pointer-events:auto;height:56px;border-radius:999px;box-shadow:0 8px 22px rgba(18,60,87,.3);font-size:15px;text-decoration:none;-webkit-tap-highlight-color:transparent}
+ #sbar a:focus-visible{outline:3px solid #8ec9ee;outline-offset:-3px}
+ #sbar[data-v="7"] svg{width:22px;height:22px;flex:none;fill:currentColor}
+ #sbar[data-v="7"] .sb-wa{width:56px;flex:none;background:#25d366;color:#fff}
+ #sbar[data-v="7"] .sb-wa span{display:none}
+ #sbar[data-v="7"] .sb-wa svg{width:28px;height:28px}
+ #sbar[data-v="7"] .sb-rs{padding:0 24px;background:#075c87;color:#fff}
+ #sbar[data-v="7"] .sb-rs svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+ #sbar[data-v="7"] .sb-rs i{display:none}
 }
 </style>
 </head>

@@ -1013,6 +1013,25 @@ body.site-page > .header .nav-cta { border-color: currentColor !important; }
  #cl-dv-menu,#cl-dv-menu *,body.site-page>.header.cl-dv-header-open{transition:none!important}
 }
 </style>
+<style id="sticky-bar">
+#sbar{display:none}
+@media(max-width:767px){
+ .site-page .float-cta{display:none!important}
+ body.site-page{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+ #sbar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:0 calc(14px + env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) calc(14px + env(safe-area-inset-left,0px));background:none;border:0;box-shadow:none;pointer-events:none;font:600 14px/1 "Plus Jakarta Sans",Arial,sans-serif}
+ #sbar[hidden],html.menu-open #sbar,body:has(#ck:not([hidden])) #sbar{display:none!important}
+ #sbar .sb-in{display:flex;justify-content:space-between;align-items:flex-end;pointer-events:none}
+ #sbar a{display:flex;align-items:center;justify-content:center;gap:10px;pointer-events:auto;height:56px;border-radius:999px;box-shadow:0 8px 22px rgba(18,60,87,.3);font-size:15px;text-decoration:none;-webkit-tap-highlight-color:transparent}
+ #sbar a:focus-visible{outline:3px solid #8ec9ee;outline-offset:3px}
+ #sbar svg{width:22px;height:22px;flex:none;fill:currentColor}
+ #sbar .sb-wa{width:56px;flex:none;background:#25d366;color:#fff}
+ #sbar .sb-wa span{display:none}
+ #sbar .sb-wa svg{width:28px;height:28px}
+ #sbar .sb-rs{padding:0 24px;background:#075c87;color:#fff}
+ #sbar .sb-rs svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+ #sbar .sb-rs i{display:none}
+}
+</style>
 </head>
 <body class="site-page about-page pr-page sv-page" id="top"><a class="site-skip" href="#content">Saltar al contingut</a>
 <main id="content">
@@ -1079,6 +1098,7 @@ const p=d.createElement('div');p.className='page-progress';p.setAttribute('aria-
    Enllaç per reobrir el panell:  <a href="#" data-ck-open>Cookies</a> */
 (()=>{
 const KEY='contrallum_cookies',VER=1,d=document;
+let memoryChoice=null;
 const CATS=[
  {id:'necessary',name:'Necessàries',desc:'Imprescindibles per al funcionament de la web, com recordar aquesta mateixa elecció. No es poden desactivar.',locked:true},
  {id:'analytics',name:'Analítiques',desc:'Ens ajuden a entendre com s’usa la web, de forma agregada, per millorar-la.'},
@@ -1094,7 +1114,7 @@ function records(){
  const values=[];
  try{values.push(localStorage.getItem(KEY))}catch(e){}
  try{const entry=d.cookie.split(';').map(x=>x.trim()).find(x=>x.startsWith(KEY+'='));if(entry)values.push(decodeURIComponent(entry.slice(KEY.length+1)))}catch(e){}
- return values.map(raw=>{try{return JSON.parse(raw)}catch(e){return null}})
+ return values.map(raw=>{try{return JSON.parse(raw)}catch(e){return null}}).concat(memoryChoice?[memoryChoice]:[])
 }
 function valid(v,now){
  if(!v||v.v!==VER||typeof v.t!=='string'||!v.c||typeof v.c.analytics!=='boolean'||typeof v.c.marketing!=='boolean')return false;
@@ -1107,7 +1127,7 @@ const save=c=>{const prev=get()||{},val={analytics:!!c.analytics,marketing:!!c.m
  try{localStorage.setItem(KEY,raw)}catch(e){}
  try{d.cookie=KEY+'='+encodeURIComponent(raw)+'; Path=/; SameSite=Lax; Expires='+new Date(expiresAt(Date.parse(choice.t))).toUTCString()+(location.protocol==='https:'?'; Secure':'')}catch(e){}
  const persisted=records().some(v=>valid(v,Date.now())&&v.t===choice.t&&v.c.analytics===val.analytics&&v.c.marketing===val.marketing);
- return{prev,val,persisted}};
+ memoryChoice=choice;return{prev,val,persisted}};
 function run(c){if(!c)return;
  d.querySelectorAll('script[type="text/plain"][data-cookie]').forEach(s=>{const cat=s.dataset.cookie;if(!c[cat])return;
   const n=d.createElement('script');for(const a of s.attributes){if(a.name!=='type'&&a.name!=='data-cookie')n.setAttribute(a.name,a.value)}
@@ -1140,13 +1160,33 @@ function show(v){el.querySelectorAll('[data-view]').forEach(x=>x.hidden=x.datase
 function open(v){clearTimeout(promptTimer);promptTimer=null;ui();const c=get()||{};el.querySelectorAll('[data-cat]').forEach(i=>i.checked=!!c[i.dataset.cat]);show(v);el.hidden=false;
  const f=el.querySelector(`[data-view=${v}] [data-act]`);f&&f.focus({preventScroll:true})}
 function hide(){if(el)el.hidden=true}
-function decide(c){const {prev,val,persisted}=save(c);const error=el.querySelector(".ck-error");error.hidden=persisted;if(!persisted)return;hide();
- if(Object.keys(val).some(k=>prev[k]===true&&!val[k])){location.reload();return}
+function decide(c){const {prev,val,persisted}=save(c);const error=el.querySelector(".ck-error");error.hidden=true;if(!persisted)console.warn("La preferència de cookies només es conservarà en aquesta pàgina perquè el navegador no permet desar-la.");hide();
+ if(persisted&&Object.keys(val).some(k=>prev[k]===true&&!val[k])){location.reload();return}
  run(val);d.dispatchEvent(new CustomEvent('cookiechange',{detail:val}))}
 d.addEventListener('click',e=>{const t=e.target.closest('[data-ck-open]');if(t){e.preventDefault();open('config')}});
 window.ContrallumCookies={open:()=>open('config'),get,reset(){try{localStorage.removeItem(KEY)}catch(e){}try{d.cookie=KEY+'=; Path=/; SameSite=Lax; Max-Age=0'+(location.protocol==='https:'?'; Secure':'')}catch(e){}location.reload()}};
 function schedule(){const c=get();if(c){run(c);return}promptTimer=setTimeout(()=>{promptTimer=null;const saved=get();if(saved)run(saved);else open('main')},3000)}
 if(d.readyState==='loading')d.addEventListener('DOMContentLoaded',schedule,{once:true});else schedule();
+})();
+</script>
+<script id="sticky-bar-js">
+(function(){
+var WA='34600000000',MSG='Hola, voldria reservar una neteja',d=document,r=d.documentElement;
+var IW='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>';
+var IC='<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>';
+var bar=d.createElement('div');bar.id='sbar';bar.className='sbar';bar.setAttribute('role','region');bar.setAttribute('aria-label','Contacte ràpid');
+bar.innerHTML='<div class="sb-in"><a class="sb-wa" href="https://wa.me/'+WA+'?text='+encodeURIComponent(MSG)+'" target="_blank" rel="noopener" aria-label="Escriu-nos per WhatsApp">'+IW+'<span>WhatsApp</span></a><a class="sb-rs" href="reserva.html">'+IC+'<span>Reserva</span> <i aria-hidden="true">↗</i></a></div>';
+
+bar.dataset.v='7';d.body.appendChild(bar);
+var mobile=matchMedia('(max-width:767px)');
+function sync(){var cookies=d.getElementById('ck'),blocked=!mobile.matches||r.classList.contains('menu-open')||!!(cookies&&!cookies.hidden);
+ if(bar.hidden!==blocked)bar.hidden=blocked;
+ if(bar.inert!==blocked)bar.inert=blocked;
+ bar.setAttribute('aria-hidden',String(blocked))}
+var observer=new MutationObserver(sync);
+observer.observe(r,{attributes:true,attributeFilter:['class']});
+observer.observe(d.body,{childList:true,subtree:true,attributes:true,attributeFilter:['hidden']});
+mobile.addEventListener('change',sync);sync();
 })();
 </script>
 </body></html>

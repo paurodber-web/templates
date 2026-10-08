@@ -1031,15 +1031,24 @@ function expiresAt(timestamp){
  const lastDay=new Date(Date.UTC(expiry.getUTCFullYear(),expiry.getUTCMonth()+1,0)).getUTCDate();
  expiry.setUTCDate(Math.min(day,lastDay));return expiry.getTime()
 }
-const get=()=>{try{
- const v=JSON.parse(localStorage.getItem(KEY)),now=Date.now();
- if(!v||v.v!==VER||typeof v.t!=='string'||!v.c||typeof v.c.analytics!=='boolean'||typeof v.c.marketing!=='boolean')return null;
+function records(){
+ const values=[];
+ try{values.push(localStorage.getItem(KEY))}catch(e){}
+ try{const entry=d.cookie.split(';').map(x=>x.trim()).find(x=>x.startsWith(KEY+'='));if(entry)values.push(decodeURIComponent(entry.slice(KEY.length+1)))}catch(e){}
+ return values.map(raw=>{try{return JSON.parse(raw)}catch(e){return null}})
+}
+function valid(v,now){
+ if(!v||v.v!==VER||typeof v.t!=='string'||!v.c||typeof v.c.analytics!=='boolean'||typeof v.c.marketing!=='boolean')return false;
  const chosen=Date.parse(v.t);
- return Number.isFinite(chosen)&&chosen<=now&&now<expiresAt(chosen)?v.c:null
-}catch(e){return null}};
+ return Number.isFinite(chosen)&&chosen<=now&&now<expiresAt(chosen)
+}
+const get=()=>{const now=Date.now(),saved=records().filter(v=>valid(v,now)).sort((a,b)=>Date.parse(b.t)-Date.parse(a.t))[0];return saved?saved.c:null};
 const save=c=>{const prev=get()||{},val={analytics:!!c.analytics,marketing:!!c.marketing};
- try{localStorage.setItem(KEY,JSON.stringify({v:VER,t:new Date().toISOString(),c:val}))}catch(e){}
- return{prev,val}};
+ const choice={v:VER,t:new Date().toISOString(),c:val},raw=JSON.stringify(choice);
+ try{localStorage.setItem(KEY,raw)}catch(e){}
+ try{d.cookie=KEY+'='+encodeURIComponent(raw)+'; Path=/; SameSite=Lax; Expires='+new Date(expiresAt(Date.parse(choice.t))).toUTCString()+(location.protocol==='https:'?'; Secure':'')}catch(e){}
+ const persisted=records().some(v=>valid(v,Date.now())&&v.t===choice.t&&v.c.analytics===val.analytics&&v.c.marketing===val.marketing);
+ return{prev,val,persisted}};
 function run(c){if(!c)return;
  d.querySelectorAll('script[type="text/plain"][data-cookie]').forEach(s=>{const cat=s.dataset.cookie;if(!c[cat])return;
   const n=d.createElement('script');for(const a of s.attributes){if(a.name!=='type'&&a.name!=='data-cookie')n.setAttribute(a.name,a.value)}
@@ -1057,8 +1066,8 @@ function ui(){if(el)return el;
  <div class="ck-view" data-view="config" hidden>
   <p class="ck-eyebrow">Preferències</p><h2 class="ck-title">Tria què acceptes</h2>
   <ul class="ck-cats">${CATS.map(c=>`<li><div><strong>${c.name}</strong><span>${c.desc}</span></div>${c.locked?'<span class="ck-always">Sempre actives</span>':`<label class="ck-sw"><input type="checkbox" role="switch" data-cat="${c.id}" aria-label="${c.name}"><i aria-hidden="true"></i></label>`}</li>`).join('')}</ul>
-  <div class="ck-btns"><button type="button" class="ck-b" data-act="reject">Rebutjar tot</button><button type="button" class="ck-b" data-act="save">Desar preferències</button><button type="button" class="ck-b" data-act="back">Enrere</button></div>
- </div></div>`;
+  <div class="ck-btns"><button type="button" class="ck-b" data-act="reject">Rebutjar tot</button><button type="button" class="ck-b" data-act="save">Desar preferències</button><button type="button" class="ck-b ghost" data-act="back">Enrere</button></div>
+ </div><p class="ck-error" role="alert" hidden>No hem pogut desar la teva elecció. Comprova que el navegador permeti guardar dades d’aquest lloc i torna-ho a provar.</p></div>`;
  d.body.append(el);
  el.addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(!b)return;const a=b.dataset.act;
   if(a==='config'){show('config');el.querySelector('[data-view=config] [data-act=save]').focus();return}
@@ -1072,11 +1081,11 @@ function show(v){el.querySelectorAll('[data-view]').forEach(x=>x.hidden=x.datase
 function open(v){clearTimeout(promptTimer);promptTimer=null;ui();const c=get()||{};el.querySelectorAll('[data-cat]').forEach(i=>i.checked=!!c[i.dataset.cat]);show(v);el.hidden=false;
  const f=el.querySelector(`[data-view=${v}] [data-act]`);f&&f.focus({preventScroll:true})}
 function hide(){if(el)el.hidden=true}
-function decide(c){const {prev,val}=save(c);hide();
+function decide(c){const {prev,val,persisted}=save(c);const error=el.querySelector(".ck-error");error.hidden=persisted;if(!persisted)return;hide();
  if(Object.keys(val).some(k=>prev[k]===true&&!val[k])){location.reload();return}
  run(val);d.dispatchEvent(new CustomEvent('cookiechange',{detail:val}))}
 d.addEventListener('click',e=>{const t=e.target.closest('[data-ck-open]');if(t){e.preventDefault();open('config')}});
-window.ContrallumCookies={open:()=>open('config'),get,reset(){try{localStorage.removeItem(KEY)}catch(e){}location.reload()}};
+window.ContrallumCookies={open:()=>open('config'),get,reset(){try{localStorage.removeItem(KEY)}catch(e){}try{d.cookie=KEY+'=; Path=/; SameSite=Lax; Max-Age=0'+(location.protocol==='https:'?'; Secure':'')}catch(e){}location.reload()}};
 function schedule(){const c=get();if(c){run(c);return}promptTimer=setTimeout(()=>{promptTimer=null;const saved=get();if(saved)run(saved);else open('main')},3000)}
 if(d.readyState==='loading')d.addEventListener('DOMContentLoaded',schedule,{once:true});else schedule();
 })();

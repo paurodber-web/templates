@@ -1,0 +1,86 @@
+---
+import services from '../content/shared-services-source.txt?raw';
+import landing from '../../public/versio-nova.html?raw';
+import pricing from '../content/imported/preus.html?raw';
+
+const files = import.meta.glob('../content/imported/*.html', { eager: true, query: '?raw', import: 'default' });
+export function getStaticPaths() {
+const routes = {
+  'blog': 'blog', 'faqs': 'faqs', 'contacte': 'contacte', 'reserva': 'reserva',
+  'politica-de-privacitat': 'politica-de-privacitat', 'termes-i-condicions': 'termes-i-condicions',
+  'blog/neteja-profunda-o-de-manteniment': 'neteja-profunda-o-de-manteniment',
+  'serveis': 'serveis', 'serveis/neteja-estandard': 'neteja-estandard',
+  'serveis/full-home': 'full-home', 'serveis/kitchen-detox': 'kitchen-detox', 'preus': 'preus',
+};
+  return Object.entries(routes).map(([imported, file]) => ({ params: { imported }, props: { file } }));
+}
+const { file } = Astro.props;
+const source = files[`../content/imported/${file}.html`];
+const get = (text, pattern, label) => {
+  const found = text.match(pattern);
+  if (!found) throw new Error(`Missing ${label} in ${file}`);
+  return found[1];
+};
+const header = get(services, /(<header class="v5-top">[\s\S]*?<\/header>)/, 'header');
+const footer = get(services, /(<footer class="site-footer">[\s\S]*?<\/footer>)/, 'footer');
+const sharedCta = get(services, /(<section class="section cta-section alt" id="cta">[\s\S]*?<\/section>)/, 'CTA');
+const sharedSteps = get(landing, /(<section\b[^>]*id="como-funciona"[^>]*>[\s\S]*?<\/section>)/, 'steps');
+const sharedServices = get(landing, /(<section\b[^>]*id="servicios"[^>]*>[\s\S]*?<\/section>)/, 'services');
+const sharedModalities = get(pricing, /(<section\b[^>]*id="modalitats"[^>]*>[\s\S]*?<\/section>)/, 'modalities')
+  .replace('section alt', 'section alt shared-modalitats').replaceAll(' reveal', '').replaceAll('href="#calculadora"', 'href="/preus/#calculadora"');
+const pageCss = get(source, /<style>([\s\S]*?)<\/style>/, 'styles');
+const serviceCss = get(services, /<style is:inline>([\s\S]*?)<\/style>/, 'shared styles');
+const headerCss = get(services, /<style is:inline>(\.v5-top\{[\s\S]*?)<\/style>/, 'header styles');
+const footerCss = get(serviceCss, /(\/\* Footer \*\/[\s\S]*?)(?:\.js \.reveal)/, 'footer styles');
+const ctaCss = get(serviceCss, /(\/\* CTA \*\/[\s\S]*?)(?:\/\* Footer \*\/)/, 'CTA styles');
+const landingCss = get(landing, /<style>([\s\S]*?)<\/style>/, 'landing styles');
+const title = get(source, /<title>([\s\S]*?)<\/title>/, 'title');
+const description = source.match(/<meta name="description" content="([^"]*)"/)?.[1] || '';
+let main = get(source, /<main>([\s\S]*?)<\/main>/, 'main');
+main = main.replace(/<section\b[^>]*id="modalitats"[^>]*>[\s\S]*?<\/section>/, sharedModalities);
+main = main.replace(/<section\b[^>]*id="como-funciona"[^>]*>[\s\S]*?<\/section>/, `<div class="landing-scope"><div class="page-content">${sharedSteps}</div></div>`);
+if (file === 'serveis') {
+  main = main.replace(/<section\b[^>]*id="serveis"[^>]*>[\s\S]*?<\/section>/, `<div id="serveis" class="landing-scope"><div class="page-content">${sharedServices}</div></div>`);
+  main = main.replace(/<section\b[^>]*id="proces"[^>]*>[\s\S]*?<\/section>/, `<div class="landing-scope"><div class="page-content">${sharedSteps}</div></div>`);
+}
+main = main.replace(/<section\b[^>]*id="cta"[^>]*>[\s\S]*?<\/section>/, sharedCta);
+const paths = {
+  'index.html': '/', 'serveis.html': '/serveis/', 'sobre-nosaltres.html': '/sobre-nosaltres/',
+  'blog.html': '/blog/', 'faqs.html': '/faqs/', 'contacte.html': '/contacte/', 'reserva.html': '/reserva/',
+  'preus.html': '/preus/', 'politica-de-privacitat.html': '/politica-de-privacitat/',
+  'termes-i-condicions.html': '/termes-i-condicions/',
+  'neteja-profunda-o-de-manteniment.html': '/blog/neteja-profunda-o-de-manteniment/',
+  'full-home.html': '/serveis/full-home/',
+  'neteja-estandard.html': '/serveis/neteja-estandard/', 'kitchen-detox.html': '/serveis/neteja-estandard/',
+  'bath-renewal.html': '/serveis/bath-renewal/', 'extra-finishing.html': '/serveis/extra-finishing/',
+  'suite-reset.html': '/serveis/suite-reset/', 'living-care.html': '/serveis/living-care/',
+};
+main = main.replace(/href="((?:\.\.\/)?(?:(?:blog|serveis)\/)?([^"/#]+\.html))(#[^"]*)?"/g, (original, _path, name, hash = '') => paths[name] ? `href="${paths[name]}${hash}"` : original);
+if (file === 'reserva') main = main.replace('Tria la franja que prefereixis per al diagnòstic (uns 30 minuts). Te la confirmem en 24 hores.', 'Tria el dia i l’hora que prefereixis per al diagnòstic (uns 30 minuts). La disponibilitat es confirmarà després de rebre la teva sol·licitud.');
+const scripts = [...source.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/g)].map(match => match[1]);
+const pageScript = scripts.at(-1);
+---
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title}</title><meta name="description" content={description}>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <style is:inline set:html={pageCss}></style>
+  <style is:inline set:html={footerCss + ctaCss}></style>
+  <style is:inline set:html={`@scope (.landing-scope) { ${landingCss} }`}></style>
+  <link rel="stylesheet" href="/sticky-header.css"><style is:inline set:html={headerCss}></style>
+  <link rel="stylesheet" href="/section-spacing.css"><link rel="stylesheet" href="/step-number-variants.css">
+  <link rel="stylesheet" href="/shared-modalitats.css">
+  <script is:inline>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <Fragment set:html={header} />
+  <main set:html={main}></main>
+  <Fragment set:html={footer} />
+  <script is:inline set:html={pageScript}></script>
+  <script is:inline src="/sticky-header.js" defer></script>
+  <script is:inline src="/step-number-variants.js" defer></script>
+</body>
+</html>

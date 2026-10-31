@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reserva · El Setè Cel</title>
+<meta name="description" content="Reserva el teu diagnòstic gratuït amb El Setè Cel a Vic i Osona. Tria dia i hora; et confirmem en 24 hores.">
+<meta name="theme-color" content="#FBFAF6">
+<meta property="og:type" content="website"><meta property="og:locale" content="ca_ES">
+<meta property="og:title" content="Reserva · El Setè Cel">
+<meta property="og:description" content="Reserva el teu diagnòstic gratuït amb El Setè Cel a Vic i Osona. Tria dia i hora; et confirmem en 24 hores.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23FBFAF6' stroke='%2323201B' stroke-width='1.5'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23B08D57'/%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --ivory:#F7F4EE;--ivory-soft:#FBFAF6;--ink:#23201B;--ink-soft:#4A453C;
+  --moss:#2E4638;--moss-deep:#1E332A;--brass:#B08D57;--brass-text:#8A6A38;
+  --line:rgba(35,32,27,.14);--ease:cubic-bezier(.22,.8,.24,1);
+  --gutter:clamp(1.4rem,6vw,6rem);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--ivory-soft);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--brass);color:var(--ivory)}
+h1,h2,h3{font-weight:400;letter-spacing:-.015em}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{text-decoration:none;color:inherit}
+:focus-visible{outline:3px solid var(--moss-deep);outline-offset:4px}
+
+.eyebrow{font-size:.7rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--brass-text);display:inline-flex;align-items:center;gap:.75rem}
+.rule{width:44px;height:1px;background:var(--brass);opacity:.6;display:block}
+.lead{font-weight:300;font-size:1rem;line-height:1.8;color:var(--ink-soft);max-width:54ch}
+.section-title{font-size:clamp(1.8rem,3.2vw,2.7rem);line-height:1.22}
+em{font-style:italic;font-weight:300;color:var(--brass)}
+.section-head{max-width:1080px;margin:0 auto clamp(2.5rem,6vh,4rem);display:flex;flex-direction:column;align-items:flex-start;gap:1.2rem}
+.section{padding:clamp(4.5rem,11vh,7.5rem) var(--gutter);border-top:1px solid var(--line)}
+.section.alt{background:var(--ivory)}
+
+.btn{display:inline-flex;align-items:center;gap:.7rem;font-family:inherit;font-size:.76rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:1rem 1.8rem;border-radius:999px;border:1px solid transparent;cursor:pointer;transition:all .45s var(--ease)}
+.btn svg{transition:transform .45s var(--ease)}
+.btn:hover svg{transform:translateX(5px)}
+.btn-solid{background:var(--moss);color:var(--ivory)}
+.btn-solid:hover{background:var(--moss-deep);box-shadow:0 12px 32px -12px rgba(30,51,42,.45)}
+.btn-ghost{border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink);background:rgba(35,32,27,.03)}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.9rem clamp(1.5rem,4vw,3.4rem);background:rgba(251,250,246,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:.7rem;font-size:.76rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase}
+.logo-mark{width:28px;height:28px;border-radius:50%;border:1px solid var(--ink);display:grid;place-items:center}
+.logo-mark::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--brass)}
+.site-nav{display:flex;gap:1.8rem;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
+.site-nav a{color:var(--ink-soft);padding:.3rem 0;border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
+.site-nav a:hover,.site-nav a[aria-current="page"]{color:var(--ink);border-color:var(--brass)}
+.header-cta{font-size:.68rem;padding:.65rem 1.2rem}
+
+/* Hero (componente común a todas las páginas secundarias) */
+.hero{padding:clamp(3.5rem,9vh,6rem) var(--gutter) clamp(3.5rem,8vh,5.5rem)}
+.hero-grid{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.hero-text{display:flex;flex-direction:column;gap:1.4rem;align-items:flex-start}
+.hero h1{font-size:clamp(2rem,3.8vw,3.2rem);line-height:1.2;max-width:18ch}
+.hero-actions{display:flex;gap:.9rem;flex-wrap:wrap;margin-top:.4rem}
+.hero-media{position:relative;aspect-ratio:4/5;max-height:460px;width:100%;border-radius:2px;overflow:hidden;background:var(--ivory)}
+.hero-media::after{content:"";position:absolute;inset:14px;border:1px solid rgba(247,244,238,.55);pointer-events:none}
+@media(max-width:980px){.hero-grid{grid-template-columns:1fr}.hero-media{aspect-ratio:16/10;max-height:340px}}
+
+/* Footer */
+.site-footer{background:#F1EEE6;border-top:1px solid var(--line);padding:clamp(3rem,7vh,4.5rem) var(--gutter) 2rem}
+.footer-grid{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.5rem;padding-bottom:2.6rem;border-bottom:1px solid var(--line)}
+.footer-brand p{font-size:.85rem;font-weight:300;line-height:1.75;color:var(--ink-soft);margin-top:1.1rem;max-width:30ch}
+.footer-col h4{font-size:.62rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--brass-text);margin-bottom:1.1rem}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.footer-col a,.footer-col li>span{font-size:.84rem;font-weight:300;color:var(--ink-soft);transition:color .3s}
+.footer-col a:hover{color:var(--ink)}
+.footer-bottom{max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding-top:1.6rem;font-size:.7rem;color:var(--ink-soft)}
+.footer-legal{display:flex;gap:1.6rem;flex-wrap:wrap}
+.footer-legal a:hover{color:var(--ink)}
+
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.js .reveal.in{opacity:1;transform:none}
+.js .reveal[data-d="1"]{transition-delay:.12s}
+.js .reveal[data-d="2"]{transition-delay:.24s}
+.js .reveal[data-d="3"]{transition-delay:.36s}
+
+@media (max-width:980px){
+  .site-nav{display:none}
+  .mod-grid,.faq-layout{grid-template-columns:1fr}
+  .faq-layout .section-head{position:static}
+  .always,.steps{grid-template-columns:1fr 1fr}
+  .freq{grid-template-columns:1fr 1fr}
+  .freq-item{border-bottom:1px solid var(--line)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:620px){
+  .always,.steps,.freq{grid-template-columns:1fr}
+  .freq-item{border-right:0}
+  .footer-grid{grid-template-columns:1fr}
+  .header-cta{padding:.6rem 1rem}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0s!important;transition-duration:0s!important;scroll-behavior:auto!important}}
+
+[hidden]{display:none!important}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+button.btn-ghost{background:transparent}
+@media(max-width:620px){.cta-desktop-break{display:none}}
+.badge{display:inline-block;font-size:.62rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:.4rem .8rem;border-radius:999px;background:var(--moss);color:var(--ivory)}
+.checks{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+.checks li{display:flex;gap:.7rem;align-items:flex-start;font-size:.88rem;font-weight:300;line-height:1.6;color:var(--ink-soft)}
+.checks svg{flex:none;margin-top:.3rem}
+.split{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:.8fr 1.4fr;gap:clamp(3rem,6vw,6rem);align-items:start}
+.split .section-head{position:sticky;top:6rem;margin:0}
+@media(max-width:980px){.split{grid-template-columns:1fr}.split .section-head{position:static}}
+
+.field{display:flex;flex-direction:column;gap:.5rem}
+.field.wide{grid-column:1/-1}
+.field label,.lbl-s{font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--brass-text)}
+.field input,.field select,.field textarea{font-family:inherit;font-size:.92rem;font-weight:300;color:var(--ink);background:var(--ivory-soft);border:1px solid var(--line);border-radius:2px;padding:.85rem 1rem;width:100%;transition:border-color .3s}
+.field select{appearance:none;-webkit-appearance:none;cursor:pointer;padding-right:2.4rem;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%234A453C' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
+.field textarea{min-height:110px;resize:vertical;line-height:1.6}
+.field input:hover,.field select:hover,.field textarea:hover{border-color:var(--ink)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--moss-deep);outline-offset:2px;border-color:var(--moss)}
+
+/* Reserva */
+.book{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.5fr .85fr;gap:clamp(1.6rem,3vw,2.6rem);align-items:start}
+.book-main{border:1px solid var(--line);background:var(--ivory-soft);padding:clamp(1.6rem,3.5vw,2.8rem)}
+.stepper{list-style:none;display:flex;gap:0;margin-bottom:2rem;border-bottom:1px solid var(--line)}
+.stepper li{flex:1;display:flex;align-items:center;gap:.7rem;padding:0 0 1.1rem;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);position:relative}
+.stepper .n{width:24px;height:24px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:.64rem;font-weight:600;flex:none;transition:all .4s var(--ease)}
+.stepper li[aria-current="step"]{color:var(--ink)}
+.stepper li[aria-current="step"] .n{background:var(--moss);border-color:var(--moss);color:var(--ivory)}
+.stepper li.done .n{border-color:var(--moss);color:var(--moss)}
+.stepper li[aria-current="step"]::after{content:"";position:absolute;left:0;right:1rem;bottom:-1px;height:2px;background:var(--brass)}
+.panel{border:0;min-width:0}
+.panel[hidden]{display:none}
+.panel-title{font-size:clamp(1.3rem,2.2vw,1.7rem);font-weight:400;margin-bottom:.5rem}
+.panel-sub{font-size:.88rem;font-weight:300;line-height:1.7;color:var(--ink-soft);margin-bottom:1.6rem;max-width:52ch}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.6rem}
+.opt{position:relative;cursor:pointer;display:block}
+.opt input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.opt-body{display:flex;flex-direction:column;gap:.4rem;height:100%;border:1px solid var(--line);border-radius:2px;padding:1.2rem 1.3rem;background:var(--ivory-soft);transition:all .35s var(--ease)}
+.opt-body b{font-size:.98rem;font-weight:500}
+.opt-body span{font-size:.8rem;font-weight:300;line-height:1.55;color:var(--ink-soft)}
+.opt:hover .opt-body{border-color:var(--ink)}
+.opt input:checked+.opt-body{border-color:var(--moss);background:var(--ivory);box-shadow:inset 0 0 0 1px var(--moss)}
+.opt input:focus-visible+.opt-body{outline:3px solid var(--moss-deep);outline-offset:3px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:1.3rem 1.5rem;margin-bottom:1.4rem}
+.fields[hidden]{display:none}
+.checks-row{grid-column:1/-1;display:flex;gap:.6rem;flex-wrap:wrap}
+.pill{position:relative;cursor:pointer}
+.pill input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.pill span{display:inline-block;font-size:.8rem;font-weight:300;padding:.6rem 1rem;border-radius:999px;border:1px solid var(--line);transition:all .3s var(--ease)}
+.pill:hover span{border-color:var(--ink)}
+.pill input:checked+span{background:var(--moss);border-color:var(--moss);color:var(--ivory)}
+.pill input:focus-visible+span{outline:3px solid var(--moss-deep);outline-offset:3px}
+.days{display:grid;grid-template-columns:repeat(auto-fill,minmax(74px,1fr));gap:.6rem;margin-bottom:1.6rem}
+.times{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.6rem}
+.day span{display:flex;flex-direction:column;align-items:center;gap:.15rem;padding:.8rem .4rem;border-radius:2px;border:1px solid var(--line);transition:all .3s var(--ease);text-align:center}
+.day small{font-size:.6rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-text)}
+.day b{font-size:1.15rem;font-weight:400}
+.day em{font-size:.7rem;font-style:normal;font-weight:300;color:var(--ink-soft)}
+.day{position:relative;cursor:pointer}.day input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.day:hover span{border-color:var(--ink)}
+.day input:checked+span{background:var(--moss);border-color:var(--moss);color:var(--ivory)}
+.day input:checked+span small,.day input:checked+span em{color:rgba(247,244,238,.8)}
+.day input:focus-visible+span{outline:3px solid var(--moss-deep);outline-offset:3px}
+.consent{grid-column:1/-1;display:flex;gap:.8rem;align-items:flex-start;font-size:.78rem;font-weight:300;line-height:1.6;color:var(--ink-soft)}
+.consent input{margin-top:.25rem;accent-color:var(--moss)}
+.consent a{border-bottom:1px solid var(--line)}
+.nav-row{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:.6rem;flex-wrap:wrap}
+.err{font-size:.8rem;color:#8A3A2A;min-height:1.2em;margin-bottom:.8rem}
+.done{text-align:center;display:flex;flex-direction:column;align-items:center;gap:1.2rem;padding:2rem 0}
+.done[hidden]{display:none}
+.done .ok{width:54px;height:54px;border-radius:50%;border:1px solid var(--brass);display:grid;place-items:center;color:var(--brass-text)}
+.sum{position:sticky;top:6rem;border:1px solid var(--line);background:var(--ivory);padding:clamp(1.5rem,3vw,2.2rem);display:flex;flex-direction:column;gap:1.2rem}
+.sum h2{font-size:1.05rem;font-weight:500}
+.sum dl{display:grid;grid-template-columns:auto 1fr;gap:.7rem 1rem;font-size:.84rem}
+.sum dt{font-weight:300;color:var(--ink-soft)}
+.sum dd{text-align:right;font-weight:400}
+.sum-price{border-top:1px solid var(--line);padding-top:1.1rem}
+.sum-price .lbl-s{display:block;margin-bottom:.5rem}
+.sum-total{font-size:clamp(1.9rem,3vw,2.5rem);letter-spacing:-.03em;line-height:1}
+.sum-detail{font-size:.78rem;font-weight:300;line-height:1.6;color:var(--ink-soft);margin-top:.6rem}
+.sum ul{list-style:none;display:flex;flex-direction:column;gap:.6rem;font-size:.8rem;font-weight:300;color:var(--ink-soft)}
+.sum li{display:flex;gap:.6rem;align-items:flex-start}.sum li svg{flex:none;margin-top:.2rem}
+@media(max-width:980px){.book{grid-template-columns:1fr}.sum{position:static}}
+@media(max-width:620px){.opts,.fields{grid-template-columns:1fr}.stepper li span.t{display:none}}
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="index.html"><span class="logo-mark"></span>El Setè Cel</a>
+  <nav class="site-nav" aria-label="Navegació">
+    <a href="serveis.html">Serveis</a>
+    <a href="preus.html">Preus</a>
+    <a href="index.html#como-funciona">Com funciona</a>
+    <a href="sobre-nosaltres.html">Sobre nosaltres</a>
+    <a href="blog.html">Blog</a>
+  </nav>
+  <a class="btn btn-solid header-cta" href="contacte.html">Contacte</a>
+</header>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <span class="eyebrow">Reserva</span>
+      <h1>Reserva el teu <em>diagnòstic gratuït</em>.</h1>
+      <p class="lead">Tria el que necessites i quan et va bé. Et confirmem la visita en 24 hores i, després, rebràs la fitxa tècnica i el preu tancat per escrit.</p>
+      <div class="hero-actions">
+        <a class="btn btn-solid" href="#reserva">Començar la reserva <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg></a>
+        <a class="btn btn-ghost" href="tel:+34910000000">Prefereixo trucar</a>
+      </div>
+    </div>
+    <div class="hero-media">
+      <img src="https://kimi-web-img.kimi.ai/img/img.magnific.com/09ae2cbe7090526d6ec65bfff862d2d58a51a79a.jpg" alt="Dormitori serè amb lli verd sàlvia" loading="eager" decoding="async">
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESERVA ============ -->
+<section class="section alt" id="reserva">
+  <div class="book">
+    <div class="book-main reveal">
+      <ol class="stepper" aria-label="Passos de la reserva">
+        <li aria-current="step" data-s="1"><span class="n">1</span><span class="t">El teu habitatge</span></li>
+        <li data-s="2"><span class="n">2</span><span class="t">Dia i hora</span></li>
+        <li data-s="3"><span class="n">3</span><span class="t">Les teves dades</span></li>
+      </ol>
+      <form id="bform" novalidate>
+        <fieldset class="panel" data-step="1">
+          <legend class="vh">Pas 1: el teu habitatge</legend>
+          <h2 class="panel-title">Què necessites?</h2>
+          <p class="panel-sub">Amb això preparem el diagnòstic. No és un compromís: el preu tancat te'l donem per escrit després de la visita.</p>
+          <div class="opts" role="radiogroup" aria-label="Modalitat">
+            <label class="opt"><input type="radio" name="mod" value="rooms" checked><span class="opt-body"><b>Tota la casa</b><span>Preu tancat segons habitacions i banys.</span></span></label>
+            <label class="opt"><input type="radio" name="mod" value="hours"><span class="opt-body"><b>Una part de casa</b><span>Per hores: la cuina, un bany o unes quantes estances.</span></span></label>
+          </div>
+          <div class="fields" id="g-rooms">
+            <div class="field"><label for="b-hab">Habitacions</label><select id="b-hab" name="hab"></select></div>
+            <div class="field"><label for="b-ban">Banys</label><select id="b-ban" name="ban"><option value="0">1 bany</option><option value="1">2 banys</option><option value="2">3 o més banys</option></select></div>
+          </div>
+          <div class="fields" id="g-hours" hidden>
+            <div class="field"><label for="b-dur">Durada estimada</label><select id="b-dur" name="dur"></select></div>
+            <div class="field wide"><span class="lbl-s" id="pri">Què vols prioritzar</span>
+              <div class="checks-row" role="group" aria-labelledby="pri">
+                <label class="pill"><input type="checkbox" name="pri" value="Cuina"><span>Cuina</span></label>
+                <label class="pill"><input type="checkbox" name="pri" value="Banys"><span>Banys</span></label>
+                <label class="pill"><input type="checkbox" name="pri" value="Dormitoris"><span>Dormitoris</span></label>
+                <label class="pill"><input type="checkbox" name="pri" value="Saló"><span>Saló</span></label>
+                <label class="pill"><input type="checkbox" name="pri" value="Vidres"><span>Vidres</span></label>
+              </div></div>
+          </div>
+          <div class="fields">
+            <div class="field"><label for="b-freq">Freqüència</label>
+              <select id="b-freq" name="freq">
+                <option value="0.10">Setmanal (−10%)</option><option value="0.10" selected>Quinzenal (−10%)</option>
+                <option value="0.05">Cada 3 setmanes (−5%)</option><option value="0.05">Mensual (−5%)</option><option value="0">Puntual</option></select></div>
+          </div>
+          <div class="nav-row"><span></span><button class="btn btn-solid" type="button" data-next>Continuar <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg></button></div>
+        </fieldset>
+
+        <fieldset class="panel" data-step="2" hidden>
+          <legend class="vh">Pas 2: dia i hora</legend>
+          <h2 class="panel-title">Quan et va bé la visita?</h2>
+          <p class="panel-sub">Tria la franja que prefereixis per al diagnòstic (uns 30 minuts). Te la confirmem en 24 hores.</p>
+          <span class="lbl-s" id="lbl-day">Dia</span>
+          <div class="days" id="days" role="radiogroup" aria-labelledby="lbl-day" style="margin-top:.7rem"></div>
+          <span class="lbl-s" id="lbl-time">Hora</span>
+          <div class="times" id="times" role="radiogroup" aria-labelledby="lbl-time" style="margin-top:.7rem"><span style="font-size:.84rem;font-weight:300;color:var(--ink-soft)">Tria primer un dia.</span></div>
+          <p class="err" id="err2" role="alert"></p>
+          <div class="nav-row"><button class="btn btn-ghost" type="button" data-prev>Enrere</button><button class="btn btn-solid" type="button" data-next>Continuar <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg></button></div>
+        </fieldset>
+
+        <fieldset class="panel" data-step="3" hidden>
+          <legend class="vh">Pas 3: les teves dades</legend>
+          <h2 class="panel-title">Gairebé fet.</h2>
+          <p class="panel-sub">On et trobem i com et contactem.</p>
+          <div class="fields">
+            <div class="field"><label for="b-nom">Nom</label><input id="b-nom" name="nom" type="text" autocomplete="name" required></div>
+            <div class="field"><label for="b-tel">Telèfon</label><input id="b-tel" name="tel" type="tel" autocomplete="tel" required></div>
+            <div class="field wide"><label for="b-mail">Correu electrònic</label><input id="b-mail" name="mail" type="email" autocomplete="email" required></div>
+            <div class="field"><label for="b-adr">Adreça</label><input id="b-adr" name="adr" type="text" autocomplete="street-address" required></div>
+            <div class="field"><label for="b-mun">Municipi</label><input id="b-mun" name="mun" type="text" placeholder="Vic, Manlleu, Tona…" required></div>
+            <div class="field wide"><label for="b-msg">Comentaris <span style="text-transform:none;letter-spacing:0;font-weight:300">(opcional)</span></label><textarea id="b-msg" name="msg" placeholder="Mascotes, materials delicats, com accedir a l'habitatge…"></textarea></div>
+            <label class="consent"><input type="checkbox" name="ok" required><span>He llegit la <a href="politica-de-privacitat.html">política de privadesa</a> i accepto que em contacteu per gestionar aquesta reserva.</span></label>
+          </div>
+          <p class="err" id="err3" role="alert"></p>
+          <div class="nav-row"><button class="btn btn-ghost" type="button" data-prev>Enrere</button><button class="btn btn-solid" type="submit">Reservar el diagnòstic <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg></button></div>
+        </fieldset>
+
+        <div class="done" id="done" hidden role="status">
+          <span class="ok"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="m5 12 5 5L20 7" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg></span>
+          <h2 class="panel-title">Sol·licitud preparada.</h2>
+          <p class="panel-sub" style="margin:0 auto">S'ha obert el teu programa de correu amb la reserva. Només cal que premis enviar i te la confirmem en 24 hores. Si no s'ha obert, fes clic aquí:</p>
+          <a class="btn btn-solid" id="mailto" href="#">Obrir el correu <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg></a>
+        </div>
+      </form>
+    </div>
+
+    <aside class="sum reveal" data-d="1" aria-label="Resum de la reserva" aria-live="polite">
+      <h2>El teu resum</h2>
+      <dl>
+        <dt>Modalitat</dt><dd id="s-mod">—</dd>
+        <dt>Habitatge</dt><dd id="s-viv">—</dd>
+        <dt>Freqüència</dt><dd id="s-freq">—</dd>
+        <dt>Diagnòstic</dt><dd id="s-data">Per triar</dd>
+      </dl>
+      <div class="sum-price"><span class="lbl-s">Preu orientatiu per visita</span><div class="sum-total" id="s-total">—</div><p class="sum-detail" id="s-detail"></p></div>
+      <ul>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m5 12 5 5L20 7" stroke="#B08D57" stroke-linecap="round" stroke-width="2.4"/></svg>Diagnòstic gratuït i sense compromís</li>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m5 12 5 5L20 7" stroke="#B08D57" stroke-linecap="round" stroke-width="2.4"/></svg>Preu tancat per escrit en 24 h</li>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m5 12 5 5L20 7" stroke="#B08D57" stroke-linecap="round" stroke-width="2.4"/></svg>Sense permanència</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo"><span class="logo-mark"></span>El Setè Cel</div>
+      <p>Cura integral de la llar amb equip fix, fitxa tècnica per habitatge i garantia de reposició en 24 hores.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Serveis</h4>
+      <ul>
+        <li><a href="serveis.html#kitchen-detox">Kitchen Detox</a></li>
+        <li><a href="serveis.html#suite-reset">Suite Reset</a></li>
+        <li><a href="serveis.html#living-care">Living Care</a></li>
+        <li><a href="serveis.html#bath-renewal">Bath Renewal</a></li>
+        <li><a href="serveis.html#full-home">Full Home</a></li>
+        <li><a href="serveis.html#extra-finishing">Extra Finishing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Companyia</h4>
+      <ul>
+        <li><a href="sobre-nosaltres.html">Sobre nosaltres</a></li>
+        <li><a href="preus.html">Preus</a></li>
+        <li><a href="reserva.html">Reserva el diagnòstic</a></li>
+        <li><a href="index.html#como-funciona">Com funciona</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="faqs.html">Preguntes freqüents</a></li>
+        <li><a href="index.html#municipio">Zona de cobertura</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacte</h4>
+      <ul>
+        <li><a href="mailto:hola@casaserena.es">hola@casaserena.es</a></li>
+        <li><a href="tel:+34910000000">+34 910 00 00 00</a></li>
+        <li><span>Dl–Dv 8:30–19:00</span></li>
+        <li><span>Ds 9:00–14:00</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 El Setè Cel</span>
+    <div class="footer-legal"><a href="termes-i-condicions.html">Termes i condicions</a><a href="politica-de-privacitat.html">Privadesa</a><a href="#">Cookies</a></div>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+document.querySelectorAll('.faq-item').forEach((item, i) => {
+  const q = item.querySelector('.faq-q'), a = item.querySelector('.faq-a');
+  a.id = 'faq-a-' + i; q.id = 'faq-q-' + i;
+  q.setAttribute('aria-controls', a.id); q.setAttribute('aria-expanded', 'false');
+  a.setAttribute('role', 'region'); a.setAttribute('aria-labelledby', q.id);
+  q.addEventListener('click', () => {
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o => {
+      o.classList.remove('open');
+      o.querySelector('.faq-a').style.maxHeight = 0;
+      o.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+    });
+    if (!open) { item.classList.add('open'); q.setAttribute('aria-expanded', 'true'); a.style.maxHeight = a.scrollHeight + 'px'; }
+  });
+});
+
+const ROOMS=[["Estudi · 1 habitació", [79, null, null]], ["2 habitacions", [96, null, null]], ["3 habitacions", [118, null, null]], ["4+ habitacions", [142, null, null]]];
+const HOURS=[['2 hores',44],['3 hores',66],['4 hores',88],['Jornada completa (8 h)',168]];
+const MONTHS=['gener','febrer','març','abril','maig','juny','juliol','agost','setembre','octubre','novembre','desembre'];
+const WD=['dg','dl','dt','dc','dj','dv','ds'], WDL=['diumenge','dilluns','dimarts','dimecres','dijous','divendres','dissabte'];
+const f=document.getElementById('bform'), $=id=>document.getElementById(id);
+const eur=n=>n.toLocaleString('ca-ES',{minimumFractionDigits:Number.isInteger(+n.toFixed(2))?0:2,maximumFractionDigits:2})+' €';
+$('b-hab').innerHTML=ROOMS.map((r,i)=>`<option value="${i}">${r[0]}</option>`).join('');
+$('b-dur').innerHTML=HOURS.map((h,i)=>`<option value="${i}">${h[0]}</option>`).join('');
+// dies disponibles: els propers 14 dies, sense diumenges
+const days=[]; const d0=new Date(); d0.setHours(12,0,0,0);
+for(let i=1;days.length<12;i++){ const d=new Date(d0); d.setDate(d0.getDate()+i); if(d.getDay()!==0) days.push(d); }
+$('days').innerHTML=days.map((d,i)=>`<label class="day"><input type="radio" name="day" value="${i}"><span><small>${WD[d.getDay()]}</small><b>${d.getDate()}</b><em>${MONTHS[d.getMonth()].slice(0,3)}</em></span></label>`).join('');
+const SLOTS={wk:['9:00','10:00','11:00','12:00','15:00','16:00','17:00','18:00'],sa:['9:00','10:00','11:00','12:00','13:00']};
+$('days').addEventListener('change',()=>{
+  const d=days[+f.elements.day.value]; const s=d.getDay()===6?SLOTS.sa:SLOTS.wk;
+  $('times').innerHTML=s.map(t=>`<label class="pill"><input type="radio" name="time" value="${t}"><span>${t}</span></label>`).join('');
+  update();
+});
+$('times').addEventListener('change',update);
+function mode(){ return f.elements.mod.value; }
+function update(){
+  const m=mode(); $('g-rooms').hidden=m!=='rooms'; $('g-hours').hidden=m!=='hours';
+  const fi=$('b-freq'), disc=+fi.value, freqTxt=fi.options[fi.selectedIndex].text.replace(/ \(.*\)/,'');
+  let base, viv;
+  if(m==='rooms'){ const r=ROOMS[+$('b-hab').value]; base=r[1][+$('b-ban').value]; viv=r[0]+' · '+$('b-ban').options[$('b-ban').selectedIndex].text; }
+  else { const h=HOURS[+$('b-dur').value]; base=h[1]; viv=h[0]; }
+  $('s-mod').textContent=m==='rooms'?'Tota la casa':'Per hores';
+  $('s-viv').textContent=viv; $('s-freq').textContent=freqTxt;
+  const dd=f.elements.day.value!==''?days[+f.elements.day.value]:null;
+  const tt=f.elements.time&&f.elements.time.value;
+  $('s-data').textContent=dd?(WDL[dd.getDay()]+' '+dd.getDate()+' '+MONTHS[dd.getMonth()]+(tt?' · '+tt:'')):'Per triar';
+  if(base==null){ $('s-total').textContent='A consultar'; $('s-detail').textContent="Aquesta combinació es pressuposta al diagnòstic."; }
+  else { const p=base*(1-disc); $('s-total').textContent=(m==='rooms'&&$('b-hab').value==='3'?'des de ':'')+eur(p);
+    $('s-detail').textContent='Tarifa base '+eur(base)+(disc?', amb −'+Math.round(disc*100)+'% per freqüència':'')+'. IVA inclòs. Estimació: el preu final el tanquem al diagnòstic.'; }
+}
+f.addEventListener('change',update); update();
+
+let step=1;
+function go(n){
+  step=n;
+  f.querySelectorAll('.panel').forEach(p=>p.hidden=+p.dataset.step!==n);
+  document.querySelectorAll('.stepper li').forEach(li=>{ const s=+li.dataset.s; li.classList.toggle('done',s<n); if(s===n) li.setAttribute('aria-current','step'); else li.removeAttribute('aria-current'); });
+  document.querySelector('.book-main').scrollIntoView({behavior:'smooth',block:'start'});
+}
+f.querySelectorAll('[data-next]').forEach(b=>b.addEventListener('click',()=>{
+  if(step===2 && (f.elements.day.value===''||!f.elements.time||f.elements.time.value==='')){ $('err2').textContent='Tria un dia i una hora per continuar.'; return; }
+  $('err2').textContent=''; go(step+1);
+}));
+f.querySelectorAll('[data-prev]').forEach(b=>b.addEventListener('click',()=>go(step-1)));
+f.addEventListener('submit',e=>{
+  e.preventDefault();
+  if(!f.checkValidity()){ $('err3').textContent='Revisa els camps marcats: falta alguna dada.'; f.reportValidity(); return; }
+  $('err3').textContent='';
+  const v=n=>f.elements[n].value.trim(), m=mode();
+  const dd=days[+f.elements.day.value];
+  const pri=[...f.querySelectorAll('input[name=pri]:checked')].map(x=>x.value).join(', ');
+  const lines=['RESERVA DE DIAGNÒSTIC GRATUÏT','',
+    'Dia i hora: '+WDL[dd.getDay()]+' '+dd.getDate()+' '+MONTHS[dd.getMonth()]+' · '+f.elements.time.value,
+    'Modalitat: '+$('s-mod').textContent,'Habitatge: '+$('s-viv').textContent,
+    m==='hours'&&pri?'Prioritats: '+pri:'', 'Freqüència: '+$('s-freq').textContent,
+    'Preu orientatiu: '+$('s-total').textContent,'',
+    'Nom: '+v('nom'),'Telèfon: '+v('tel'),'Correu: '+v('mail'),'Adreça: '+v('adr')+', '+v('mun'),'','Comentaris:',v('msg')].filter(x=>x!==undefined).join('\n');
+  // Mentre no hi hagi un servei de reserves/formularis, s'obre el correu del client.
+  const href='mailto:hola@casaserena.es?subject='+encodeURIComponent('Reserva de diagnòstic · '+v('nom'))+'&body='+encodeURIComponent(lines);
+  $('mailto').href=href;
+  f.querySelectorAll('.panel').forEach(p=>p.hidden=true); $('done').hidden=false;
+  document.querySelector('.stepper').hidden=true;
+  window.location.href=href;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Termes i condicions · El Setè Cel</title>
+<meta name="description" content="Termes i condicions d'ús del web i de contractació dels serveis d'El Setè Cel: preus, execució, garantia, desistiment i reclamacions.">
+<meta name="theme-color" content="#FBFAF6">
+<meta property="og:type" content="website"><meta property="og:locale" content="ca_ES">
+<meta property="og:title" content="Termes i condicions · El Setè Cel">
+<meta property="og:description" content="Termes i condicions d'ús del web i de contractació dels serveis d'El Setè Cel: preus, execució, garantia, desistiment i reclamacions.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23FBFAF6' stroke='%2323201B' stroke-width='1.5'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23B08D57'/%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --ivory:#F7F4EE;--ivory-soft:#FBFAF6;--ink:#23201B;--ink-soft:#4A453C;
+  --moss:#2E4638;--moss-deep:#1E332A;--brass:#B08D57;--brass-text:#8A6A38;
+  --line:rgba(35,32,27,.14);--ease:cubic-bezier(.22,.8,.24,1);
+  --gutter:clamp(1.4rem,6vw,6rem);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--ivory-soft);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--brass);color:var(--ivory)}
+h1,h2,h3{font-weight:400;letter-spacing:-.015em}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{text-decoration:none;color:inherit}
+:focus-visible{outline:3px solid var(--moss-deep);outline-offset:4px}
+
+.eyebrow{font-size:.7rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--brass-text);display:inline-flex;align-items:center;gap:.75rem}
+.rule{width:44px;height:1px;background:var(--brass);opacity:.6;display:block}
+.lead{font-weight:300;font-size:1rem;line-height:1.8;color:var(--ink-soft);max-width:54ch}
+.section-title{font-size:clamp(1.8rem,3.2vw,2.7rem);line-height:1.22}
+em{font-style:italic;font-weight:300;color:var(--brass)}
+.section-head{max-width:1080px;margin:0 auto clamp(2.5rem,6vh,4rem);display:flex;flex-direction:column;align-items:flex-start;gap:1.2rem}
+.section{padding:clamp(4.5rem,11vh,7.5rem) var(--gutter);border-top:1px solid var(--line)}
+.section.alt{background:var(--ivory)}
+
+.btn{display:inline-flex;align-items:center;gap:.7rem;font-family:inherit;font-size:.76rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:1rem 1.8rem;border-radius:999px;border:1px solid transparent;cursor:pointer;transition:all .45s var(--ease)}
+.btn svg{transition:transform .45s var(--ease)}
+.btn:hover svg{transform:translateX(5px)}
+.btn-solid{background:var(--moss);color:var(--ivory)}
+.btn-solid:hover{background:var(--moss-deep);box-shadow:0 12px 32px -12px rgba(30,51,42,.45)}
+.btn-ghost{border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink);background:rgba(35,32,27,.03)}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.9rem clamp(1.5rem,4vw,3.4rem);background:rgba(251,250,246,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:.7rem;font-size:.76rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase}
+.logo-mark{width:28px;height:28px;border-radius:50%;border:1px solid var(--ink);display:grid;place-items:center}
+.logo-mark::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--brass)}
+.site-nav{display:flex;gap:1.8rem;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
+.site-nav a{color:var(--ink-soft);padding:.3rem 0;border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
+.site-nav a:hover,.site-nav a[aria-current="page"]{color:var(--ink);border-color:var(--brass)}
+.header-cta{font-size:.68rem;padding:.65rem 1.2rem}
+
+/* Hero (componente común a todas las páginas secundarias) */
+.hero{padding:clamp(3.5rem,9vh,6rem) var(--gutter) clamp(3.5rem,8vh,5.5rem)}
+.hero-grid{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.hero-text{display:flex;flex-direction:column;gap:1.4rem;align-items:flex-start}
+.hero h1{font-size:clamp(2rem,3.8vw,3.2rem);line-height:1.2;max-width:18ch}
+.hero-actions{display:flex;gap:.9rem;flex-wrap:wrap;margin-top:.4rem}
+.hero-media{position:relative;aspect-ratio:4/5;max-height:460px;width:100%;border-radius:2px;overflow:hidden;background:var(--ivory)}
+.hero-media::after{content:"";position:absolute;inset:14px;border:1px solid rgba(247,244,238,.55);pointer-events:none}
+@media(max-width:980px){.hero-grid{grid-template-columns:1fr}.hero-media{aspect-ratio:16/10;max-height:340px}}
+
+/* Footer */
+.site-footer{background:#F1EEE6;border-top:1px solid var(--line);padding:clamp(3rem,7vh,4.5rem) var(--gutter) 2rem}
+.footer-grid{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.5rem;padding-bottom:2.6rem;border-bottom:1px solid var(--line)}
+.footer-brand p{font-size:.85rem;font-weight:300;line-height:1.75;color:var(--ink-soft);margin-top:1.1rem;max-width:30ch}
+.footer-col h4{font-size:.62rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--brass-text);margin-bottom:1.1rem}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.footer-col a,.footer-col li>span{font-size:.84rem;font-weight:300;color:var(--ink-soft);transition:color .3s}
+.footer-col a:hover{color:var(--ink)}
+.footer-bottom{max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding-top:1.6rem;font-size:.7rem;color:var(--ink-soft)}
+.footer-legal{display:flex;gap:1.6rem;flex-wrap:wrap}
+.footer-legal a:hover{color:var(--ink)}
+
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.js .reveal.in{opacity:1;transform:none}
+.js .reveal[data-d="1"]{transition-delay:.12s}
+.js .reveal[data-d="2"]{transition-delay:.24s}
+.js .reveal[data-d="3"]{transition-delay:.36s}
+
+@media (max-width:980px){
+  .site-nav{display:none}
+  .mod-grid,.faq-layout{grid-template-columns:1fr}
+  .faq-layout .section-head{position:static}
+  .always,.steps{grid-template-columns:1fr 1fr}
+  .freq{grid-template-columns:1fr 1fr}
+  .freq-item{border-bottom:1px solid var(--line)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:620px){
+  .always,.steps,.freq{grid-template-columns:1fr}
+  .freq-item{border-right:0}
+  .footer-grid{grid-template-columns:1fr}
+  .header-cta{padding:.6rem 1rem}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0s!important;transition-duration:0s!important;scroll-behavior:auto!important}}
+
+[hidden]{display:none!important}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+button.btn-ghost{background:transparent}
+@media(max-width:620px){.cta-desktop-break{display:none}}
+.badge{display:inline-block;font-size:.62rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:.4rem .8rem;border-radius:999px;background:var(--moss);color:var(--ivory)}
+.checks{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+.checks li{display:flex;gap:.7rem;align-items:flex-start;font-size:.88rem;font-weight:300;line-height:1.6;color:var(--ink-soft)}
+.checks svg{flex:none;margin-top:.3rem}
+.split{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:.8fr 1.4fr;gap:clamp(3rem,6vw,6rem);align-items:start}
+.split .section-head{position:sticky;top:6rem;margin:0}
+@media(max-width:980px){.split{grid-template-columns:1fr}.split .section-head{position:static}}
+
+.ph{background:rgba(176,141,87,.22);color:var(--ink);padding:.05em .35em;border-radius:2px;font-style:normal;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.article-wrap{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:.7fr 1.6fr;gap:clamp(2.5rem,6vw,6rem);align-items:start}
+.toc{position:sticky;top:6rem;display:flex;flex-direction:column;gap:1rem}
+.toc .lbl-s{font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--brass-text)}
+.toc ul{list-style:none;display:flex;flex-direction:column}
+.toc a{display:block;padding:.6rem 0 .6rem 1rem;border-left:1px solid var(--line);font-size:.82rem;font-weight:300;line-height:1.5;color:var(--ink-soft);transition:all .3s}
+.toc a:hover{color:var(--ink)}
+.toc a.on{border-color:var(--brass);color:var(--ink)}
+.art{max-width:68ch}
+.art-meta{display:flex;gap:1rem;flex-wrap:wrap;font-size:.66rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--brass-text);margin-bottom:2rem;padding-bottom:1.4rem;border-bottom:1px solid var(--line)}
+.art h2{font-size:clamp(1.25rem,2.1vw,1.55rem);line-height:1.3;margin:2.6rem 0 1rem;scroll-margin-top:6rem}
+.art h2:first-of-type{margin-top:0}
+.art p{font-size:.96rem;font-weight:300;line-height:1.85;color:var(--ink-soft);margin-bottom:1.1rem}
+.art strong{font-weight:500;color:var(--ink)}
+.art a{border-bottom:1px solid var(--brass)}
+.art ul{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin:0 0 1.3rem}
+.art li{display:block;position:relative;padding-left:1.4rem;font-size:.96rem;font-weight:300;line-height:1.75;color:var(--ink-soft)}
+.art li::before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:50%;background:var(--brass)}
+.idl{display:grid;grid-template-columns:auto 1fr;gap:.7rem 1.6rem;border:1px solid var(--line);background:var(--ivory);padding:1.4rem 1.6rem;margin:1.2rem 0 1.6rem;font-size:.9rem}
+.idl dt{font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--brass-text);padding-top:.2rem}
+.idl dd{font-weight:300;color:var(--ink)}
+.mini{width:100%;border-collapse:collapse;margin:1rem 0 2rem;font-size:.86rem}
+.mini th,.mini td{text-align:left;vertical-align:top;padding:.85rem .8rem .85rem 0;border-bottom:1px solid var(--line);font-weight:300;color:var(--ink-soft);line-height:1.6}
+.mini th{font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--brass-text)}
+.mini td:first-child{color:var(--ink)}
+.callout{border-left:2px solid var(--brass);background:var(--ivory);padding:1.3rem 1.6rem;margin:1.6rem 0}
+.callout p{margin:0;color:var(--ink)}
+.mini-wrap{overflow-x:auto}
+@media(max-width:980px){.article-wrap{grid-template-columns:1fr}.toc{position:static}.toc ul{flex-direction:row;flex-wrap:wrap;gap:.4rem}.toc a{border:1px solid var(--line);border-radius:999px;padding:.45rem .85rem}.toc a.on{border-color:var(--brass)}.idl{grid-template-columns:1fr;gap:.2rem}.idl dd{margin-bottom:.8rem}}
+
+</style>
+</head>
+<!-- AVÍS: els textos ressaltats [entre claudàtors] són dades per completar. Revisa tot el document amb un assessor legal abans de publicar-lo. -->
+<body>
+
+<header class="site-header">
+  <a class="logo" href="index.html"><span class="logo-mark"></span>El Setè Cel</a>
+  <nav class="site-nav" aria-label="Navegació">
+    <a href="serveis.html">Serveis</a>
+    <a href="preus.html">Preus</a>
+    <a href="index.html#como-funciona">Com funciona</a>
+    <a href="sobre-nosaltres.html">Sobre nosaltres</a>
+    <a href="blog.html">Blog</a>
+  </nav>
+  <a class="btn btn-solid header-cta" href="contacte.html">Contacte</a>
+</header>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <span class="eyebrow">Termes i condicions</span>
+      <h1>Les regles del joc, <em>clares</em> i per escrit.</h1>
+      <p class="lead">Com es contracten i es presten els nostres serveis, què inclouen els preus i què pots esperar de nosaltres.</p>
+      <div class="hero-actions">
+        <a class="btn btn-solid" href="#contingut">Veure el contingut <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg></a>
+        <a class="btn btn-ghost" href="contacte.html">Contacta'ns</a>
+      </div>
+    </div>
+    <div class="hero-media">
+      <img src="https://kimi-web-img.kimi.ai/img/images.pexels.com/49d1279387ffb810ac03567e606db3ce891e753a.jpeg" alt="Saló lluminós i ordenat amb llum natural" loading="eager" decoding="async">
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTINGUT ============ -->
+<section class="section alt" id="contingut">
+  <div class="article-wrap">
+    <nav class="toc reveal" aria-label="Contingut del document"><span class="lbl-s">Contingut</span><ul id="toc"></ul></nav>
+    <article class="art reveal" data-d="1" id="art">
+      <div class="art-meta"><span>Termes i condicions</span><span>Darrera actualització: <mark class="ph">[data]</mark></span></div>
+      <h2>1. Dades d'identificació</h2>
+      <p>En compliment de la Llei 34/2002, de serveis de la societat de la informació i de comerç electrònic, t'informem que el titular d'aquest web i prestador dels serveis és:</p>
+      <dl class="idl">
+        <dt>Titular</dt><dd><mark class="ph">[Nom legal de l'empresa o del titular]</mark></dd>
+        <dt>NIF</dt><dd><mark class="ph">[NIF / CIF]</mark></dd>
+        <dt>Domicili</dt><dd><mark class="ph">[Adreça completa, Vic (Barcelona)]</mark></dd>
+        <dt>Correu</dt><dd><a href="mailto:hola@casaserena.es">hola@casaserena.es</a></dd>
+        <dt>Telèfon</dt><dd><a href="tel:+34910000000">+34 910 00 00 00</a></dd>
+      </dl>
+      <p><mark class="ph">[Dades d'inscripció al Registre Mercantil, si escau]</mark></p>
+
+      <h2>2. Objecte i àmbit</h2>
+      <p>Aquests termes regulen l'ús del web i la contractació dels serveis de neteja i cura de la llar d'El Setè Cel, que prestem a Vic i la comarca d'Osona. El contingut del web és informatiu i no constitueix una oferta vinculant: el contracte es perfecciona quan acceptes el pressupost per escrit que et lliurem.</p>
+
+      <h2>3. Com es contracta</h2>
+      <ul>
+        <li><strong>Diagnòstic gratuït.</strong> Visitem l'habitatge (uns 30 minuts), mesurem superfícies, identifiquem materials i escoltem les teves prioritats, sense compromís.</li>
+        <li><strong>Fitxa tècnica i pressupost.</strong> En 24 hores et lliurem per escrit la fitxa tècnica (productes per superfície i checklist de 27 punts) i el preu final. El pressupost té una validesa de <mark class="ph">[dies]</mark>.</li>
+        <li><strong>Acceptació.</strong> El contracte queda formalitzat quan acceptes el pressupost per escrit. A partir d'aquí t'assignem l'equip fix i acordem les dates.</li>
+      </ul>
+
+      <h2>4. Preus i pagament</h2>
+      <p>Tots els preus inclouen l'IVA, els productes, el material i el trasllat.</p>
+      <ul>
+        <li><strong>Habitatge complet, preu tancat:</strong> el preu depèn del nombre d'habitacions i de banys i es fixa al pressupost. Si la feina triga més del previst, el preu no canvia.</li>
+        <li><strong>Una part de casa, per hores:</strong> 22 € l'hora, amb un mínim de 2 hores per visita, sense preu tancat.</li>
+        <li><strong>Descomptes per freqüència:</strong> −10% en visites setmanals i quinzenals; −5% cada tres setmanes o mensuals. Les visites puntuals tenen tarifa estàndard.</li>
+        <li><strong>Suplements:</strong> +20% els dissabtes al matí i +30% els diumenges i festius. Els plans setmanals i quinzenals es presten de dilluns a divendres.</li>
+      </ul>
+      <p>Els preus que veus al web, a la calculadora o al resum de la reserva són <strong>orientatius</strong>: el preu que t'obliga és el del pressupost acceptat. Formes i terminis de pagament: <mark class="ph">[p. ex. targeta, transferència, domiciliació; pagament per visita o mensual]</mark>.</p>
+
+      <h2>5. Com prestem el servei</h2>
+      <ul>
+        <li>Cada habitatge té un cap d'equip i una parella de treball fixos. Només canvien per baixa o vacances, amb avís previ.</li>
+        <li>Reps un avís d'entrada i de sortida per WhatsApp i un reportatge fotogràfic en finalitzar.</li>
+        <li>Ens has de garantir l'accés a l'habitatge a l'hora acordada (claus, codi o presència) i els subministraments bàsics, com aigua i electricitat.</li>
+        <li>Has d'informar-nos de qualsevol condició especial: materials delicats, objectes de valor, mascotes, al·lèrgies o zones que no s'han de tocar. Ho recollim a la fitxa tècnica.</li>
+        <li>Si ho prefereixes, treballem amb una línia de productes 100% ecològics i biodegradables sense cost addicional; cal indicar-ho abans de començar.</li>
+      </ul>
+
+      <h2>6. Garantia de reposició en 24 hores</h2>
+      <p>Si algun punt de la checklist no està ben executat, tornem a repassar-lo sense cost l'endemà hàbil. Per activar la garantia, cal que ens ho comuniquis <mark class="ph">[termini i canal, p. ex. dins de les 24 hores posteriors a la visita, per WhatsApp o correu, preferiblement amb fotos]</mark>.</p>
+
+      <h2>7. Canvis i cancel·lacions</h2>
+      <p><mark class="ph">[Indica el preavís mínim per cancel·lar o canviar una visita, si hi ha cost per cancel·lació tardana, què passa si ningú no és a casa a l'hora acordada i com es gestiona la baixa d'un pla recurrent]</mark>. En cap cas hi ha permanència ni quota mensual.</p>
+
+      <h2>8. Responsabilitat i assegurança</h2>
+      <p>Tots els serveis inclouen una assegurança de responsabilitat civil que cobreix els danys accidentals causats pel nostre equip, que gestionem directament perquè no hagis de tramitar res. <mark class="ph">[Revisa amb l'assessor les exclusions que vulguis incloure: danys anteriors a la visita, objectes de valor especial no comunicats, materials en mal estat o instal·lacions defectuoses, límit de cobertura de la pòlissa…]</mark></p>
+
+      <h2>9. Dret de desistiment</h2>
+      <p>Si ets consumidor, tens dret a desistir del contracte en un termini de 14 dies naturals sense haver de justificar-ho, comunicant-nos-ho per escrit a <a href="mailto:hola@casaserena.es">hola@casaserena.es</a>. Si ens demanes expressament que comencem la prestació abans que acabi aquest termini i després desisteixes, hauràs de pagar la part proporcional del servei ja prestat fins a aquell moment. Un cop el servei s'ha executat completament, el dret de desistiment ja no es pot exercir si ho has consentit expressament.</p>
+
+      <h2>10. Queixes i reclamacions</h2>
+      <p>Si no estàs conforme amb el servei, escriu-nos a <a href="mailto:hola@casaserena.es">hola@casaserena.es</a> o truca'ns i ho resoldrem tan aviat com puguem. Disposem de fulls oficials de queixa i reclamació <mark class="ph">[confirma que els tens a disposició i on]</mark>. També pots adreçar-te a l'Agència Catalana del Consum.</p>
+
+      <h2>11. Propietat intel·lectual</h2>
+      <p>Els textos, imatges, logotips, dissenys i la resta de continguts d'aquest web són d'El Setè Cel o s'utilitzen amb autorització, i no es poden reproduir, distribuir ni transformar sense permís exprés.</p>
+
+      <h2>12. Protecció de dades</h2>
+      <p>El tractament de les teves dades personals es regeix per la nostra <a href="politica-de-privacitat.html">política de privadesa</a>.</p>
+
+      <h2>13. Legislació aplicable i jurisdicció</h2>
+      <p>Aquests termes es regeixen per la legislació espanyola. Per a qualsevol controvèrsia, si ets consumidor, seran competents els jutjats i tribunals del teu domicili; en la resta de casos, els de <mark class="ph">[població, p. ex. Vic]</mark>.</p>
+
+      <h2>14. Modificacions</h2>
+      <p>Podem modificar aquests termes per adaptar-los a canvis legals o del servei. La versió aplicable a cada contracte és la vigent en el moment d'acceptar el pressupost.</p>
+    </article>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo"><span class="logo-mark"></span>El Setè Cel</div>
+      <p>Cura integral de la llar amb equip fix, fitxa tècnica per habitatge i garantia de reposició en 24 hores.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Serveis</h4>
+      <ul>
+        <li><a href="serveis.html#kitchen-detox">Kitchen Detox</a></li>
+        <li><a href="serveis.html#suite-reset">Suite Reset</a></li>
+        <li><a href="serveis.html#living-care">Living Care</a></li>
+        <li><a href="serveis.html#bath-renewal">Bath Renewal</a></li>
+        <li><a href="serveis.html#full-home">Full Home</a></li>
+        <li><a href="serveis.html#extra-finishing">Extra Finishing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Companyia</h4>
+      <ul>
+        <li><a href="sobre-nosaltres.html">Sobre nosaltres</a></li>
+        <li><a href="preus.html">Preus</a></li>
+        <li><a href="reserva.html">Reserva el diagnòstic</a></li>
+        <li><a href="index.html#como-funciona">Com funciona</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="faqs.html">Preguntes freqüents</a></li>
+        <li><a href="index.html#municipio">Zona de cobertura</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacte</h4>
+      <ul>
+        <li><a href="mailto:hola@casaserena.es">hola@casaserena.es</a></li>
+        <li><a href="tel:+34910000000">+34 910 00 00 00</a></li>
+        <li><span>Dl–Dv 8:30–19:00</span></li>
+        <li><span>Ds 9:00–14:00</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 El Setè Cel</span>
+    <div class="footer-legal"><a href="termes-i-condicions.html">Termes i condicions</a><a href="politica-de-privacitat.html">Privadesa</a><a href="#">Cookies</a></div>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+document.querySelectorAll('.faq-item').forEach((item, i) => {
+  const q = item.querySelector('.faq-q'), a = item.querySelector('.faq-a');
+  a.id = 'faq-a-' + i; q.id = 'faq-q-' + i;
+  q.setAttribute('aria-controls', a.id); q.setAttribute('aria-expanded', 'false');
+  a.setAttribute('role', 'region'); a.setAttribute('aria-labelledby', q.id);
+  q.addEventListener('click', () => {
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o => {
+      o.classList.remove('open');
+      o.querySelector('.faq-a').style.maxHeight = 0;
+      o.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+    });
+    if (!open) { item.classList.add('open'); q.setAttribute('aria-expanded', 'true'); a.style.maxHeight = a.scrollHeight + 'px'; }
+  });
+});
+
+const heads=[...document.querySelectorAll('#art h2')], toc=document.getElementById('toc');
+heads.forEach((h,i)=>{ h.id='s'+(i+1); const li=document.createElement('li'); li.innerHTML='<a href="#'+h.id+'">'+h.textContent+'</a>'; toc.appendChild(li); });
+const links=[...toc.querySelectorAll('a')];
+const spy=new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id)); } }); },{rootMargin:'-20% 0px -70% 0px'});
+heads.forEach(h=>spy.observe(h));
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+/* Cartes 11–15: paper de carta i notes personals. */
+.section-selector { min-width: 0; flex-wrap: wrap; }
+.manifest-tabs { min-width: 0; }
+.manifest-tabs button:focus-visible { outline-color: #243746; outline-offset: -3px; }
+.manifest-panel.letter-extra:not([hidden]) { display: block; }
+.letter-extra .letter-layout {
+  max-width: 850px;
+  width: 100%;
+  margin-inline: auto;
+  padding: clamp(32px, 6vw, 76px);
+  text-align: center;
+}
+.letter-extra .letter-meta { justify-content: center; color: #52616a; }
+.letter-extra .letter-content { max-width: 590px; margin: 38px auto 0; text-align: center; }
+.letter-extra .letter-greeting { font-size: clamp(28px, 3.4vw, 44px); text-wrap: balance; }
+.letter-extra .letter-content p { text-wrap: pretty; }
+.letter-extra .letter-signoff { margin-top: 40px; }
+.letter-extra .letter-signoff span { font-size: clamp(26px, 3vw, 34px); }
+
+/* Correspondència amb una línia fina a la capçalera. */
+.letter-extra-11 .letter-layout { padding-block: 0; }
+.letter-extra-11 .letter-meta { padding-bottom: 24px; border-bottom: 1px solid #d8c2a7; }
+
+/* Una nota oberta amb un traç abans de la firma. */
+.letter-extra-12 .letter-layout { padding-block: 0; }
+.letter-extra-12 .letter-content { margin-top: 48px; }
+.letter-extra-12 .letter-signoff::before {
+  content: ''; display: block; width: 1px; height: 42px;
+  background: #52616a; margin: 0 auto 28px;
+}
+
+/* Carta amb un marc discret. */
+.letter-extra-13 .letter-layout { border: 1px solid #d8c2a7; }
+.letter-extra-13 .letter-meta { padding-bottom: 12px; }
+.letter-extra-13 .letter-greeting { max-width: 480px; margin-inline: auto; }
+.letter-extra-13 .letter-signoff { padding-top: 28px; border-top: 1px solid #d8c2a7; }
+
+/* Una nota delimitada per dues línies fines. */
+.letter-extra-14 .letter-layout { padding-block: 0; border-block: 1px solid #d8c2a7; }
+.letter-extra-14 .letter-meta { padding-top: 26px; }
+.letter-extra-14 .letter-content { padding-bottom: 48px; }
+.letter-extra-14 .letter-signoff::before {
+  content: ''; display: block; width: 44px; height: 1px;
+  background: #d8c2a7; margin: 0 auto 30px;
+}
+
+/* Nota oberta, amb la firma com a tancament. */
+.letter-extra-15 .letter-layout { max-width: 760px; padding-inline: clamp(0px, 3vw, 36px); }
+.letter-extra-15 .letter-meta { padding-bottom: 28px; border-bottom: 1px solid #243746; }
+.letter-extra-15 .letter-content, .letter-extra-15 .letter-signoff { margin-top: 48px; }
+.letter-extra-15 .letter-signoff span { font-size: clamp(32px, 4vw, 48px); }
+@media (max-width: 760px) {
+  .letter-extra .letter-layout { padding: 35px 24px; }
+  .letter-extra .letter-content { margin-top: 32px; }
+  .letter-extra-15 .letter-layout { padding-inline: 0; }
+}

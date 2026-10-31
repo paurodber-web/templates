@@ -1,0 +1,9 @@
+.page-content .section,main > .section{padding-left:calc((max(clamp(1.4rem,4vw,3.4rem),calc((100vw - 1080px)/2)) + clamp(2rem,8vw,8rem))/2);padding-right:calc((max(clamp(1.4rem,4vw,3.4rem),calc((100vw - 1080px)/2)) + clamp(2rem,8vw,8rem))/2)}
+.hero, .about-hero-body, .hero-points{padding-left:calc((max(clamp(1.4rem,4vw,3.4rem),calc((100vw - 1080px)/2)) + clamp(2rem,8vw,8rem))/2);padding-right:calc((max(clamp(1.4rem,4vw,3.4rem),calc((100vw - 1080px)/2)) + clamp(2rem,8vw,8rem))/2)}
+main > .hero > .hero-grid,
+main > .section > :is(.section-head,.always,.freq,.why,.exp,.exp-note,.team,.values,.diff),
+.page-content .section > :is(.section-head,.founders,.mosaic,.stats,.steps,.freq-layout,.diff-cards){max-width:none;margin-left:0;margin-right:0}
+main > .section > :not(.section-head),
+.page-content .section > :not(.section-head){max-width:none;width:100%;margin-left:0;margin-right:0}
+@media(max-width:620px){.page-content .section,main > .section{padding-left:1.4rem;padding-right:1.4rem}}
+@media(max-width:620px){.hero,.about-hero-body,.hero-points{padding-left:1.4rem;padding-right:1.4rem}}

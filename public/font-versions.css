@@ -1,0 +1,51 @@
+html[data-type-version="1"] .v5-mid h1,html[data-type-version="1"] .hero-mid h1{font-size:clamp(1.7rem,3vw,2.6rem)!important}
+html[data-type-version="2"] .v5-mid h1,html[data-type-version="2"] .hero-mid h1{font-size:clamp(1.9rem,3.6vw,3.1rem)!important}
+html[data-type-version="1"] .section-title{font-size:clamp(1.7rem,3vw,2.5rem)!important}
+html[data-type-version="2"] .section-title{font-size:clamp(1.8rem,3.2vw,2.7rem)!important}
+html[data-type-version="1"] .manifesto-big,html[data-type-version="1"] .manifesto-statement{font-size:clamp(1.5rem,2.8vw,2.3rem)!important}
+html[data-type-version="2"] .manifesto-big,html[data-type-version="2"] .manifesto-statement{font-size:clamp(1.4rem,2.6vw,2.2rem)!important}
+html[data-type-version="1"] .manifesto-big,html[data-type-version="1"] .manifesto-statement{font-weight:400!important}
+html[data-type-version="2"] .manifesto-big,html[data-type-version="2"] .manifesto-statement{font-weight:300!important}
+html[data-type-version="1"] .service-body h3,html[data-type-version="1"] .service-meta h3{font-weight:400!important}
+html[data-type-version="2"] .service-body h3,html[data-type-version="2"] .service-meta h3{font-weight:500!important}
+html[data-type-version="1"] .faq-q{font-weight:500!important}
+html[data-type-version="2"] .faq-q{font-weight:400!important}
+html[data-type-version="1"] .section-title em{font-weight:inherit!important}
+html[data-type-version="2"] .section-title em{font-weight:300!important}
+html[data-type-version="1"] .principle h3{font-size:1.05rem!important}
+html[data-type-version="2"] .principle h3{font-size:1rem!important}
+html[data-type-version="1"] .principle p{font-size:.88rem!important}
+html[data-type-version="2"] .principle p{font-size:.85rem!important}
+html[data-type-version="1"] .service-body h3,html[data-type-version="1"] .service-meta h3{font-size:1.15rem!important}
+html[data-type-version="2"] .service-body h3,html[data-type-version="2"] .service-meta h3{font-size:1.05rem!important}
+html[data-type-version="1"] .service-body p,html[data-type-version="1"] .service>p{font-size:.8rem!important}
+html[data-type-version="2"] .service-body p,html[data-type-version="2"] .service>p{font-size:.86rem!important}
+html[data-type-version="1"] .mod-name{font-size:1.25rem!important}
+html[data-type-version="2"] .mod-name{font-size:1.15rem!important}
+html[data-type-version="1"] .mod-desc{font-size:.9rem!important}
+html[data-type-version="2"] .mod-desc{font-size:.88rem!important}
+html[data-type-version="1"] .mod-price{font-size:clamp(1.9rem,3vw,2.6rem)!important}
+html[data-type-version="2"] .mod-price{font-size:clamp(1.8rem,3vw,2.4rem)!important}
+html[data-type-version="1"] .freq-info b{font-size:.98rem!important}
+html[data-type-version="2"] .freq-info b{font-size:1rem!important}
+html[data-type-version="1"] .freq-info span{font-size:.74rem!important}
+html[data-type-version="2"] .freq-info span{font-size:.76rem!important}
+html[data-type-version="1"] .freq-note{font-size:.78rem!important}
+html[data-type-version="2"] .freq-note{font-size:.82rem!important}
+html[data-type-version="1"] .cross-card h3{font-size:1.2rem!important}
+html[data-type-version="2"] .cross-card h3{font-size:1.15rem!important}
+html[data-type-version="1"] .cross-list li{font-size:.85rem!important}
+html[data-type-version="2"] .cross-list li{font-size:.84rem!important}
+html[data-type-version="1"] .cross-verdict p{font-size:.88rem!important}
+html[data-type-version="2"] .cross-verdict p{font-size:.9rem!important}
+html[data-type-version="1"] .step h3{font-size:1.05rem!important}
+html[data-type-version="2"] .step h3{font-size:1rem!important}
+html[data-type-version="1"] .step .num{font-size:.72rem!important}
+html[data-type-version="2"] .step .num{font-size:.62rem!important}
+html[data-type-version="1"] .cta-title{font-size:clamp(1.9rem,4vw,3.1rem)!important}
+html[data-type-version="2"] .cta-title{font-size:clamp(1.8rem,3.8vw,3rem)!important}
+html[data-type-version="1"] .footer-col h4{font-size:.66rem!important}
+html[data-type-version="2"] .footer-col h4{font-size:.62rem!important}
+html[data-type-version="1"] .footer-col a{font-size:.85rem!important}
+html[data-type-version="2"] .footer-col a{font-size:.84rem!important}
+@media(max-width:620px){html[data-type-version] .v5-mid h1,html[data-type-version] .hero-mid h1{font-size:clamp(1.5rem,7vw,2rem)!important}}

@@ -450,6 +450,7 @@ p.lead{font-weight:300;font-size:1rem;line-height:1.8;color:var(--ink-soft);max-
 .guarantee-detail .btn{margin-top:1.25rem}
 @media(max-width:760px){.guarantee-content{grid-template-columns:1fr;gap:1.5rem}}
 .page-content #modalidades :is(.mods,.sec-sub,.cmp){width:100%;max-width:none;margin-left:0;margin-right:0}
+.page-content #modalidades .checks li::before{content:'✓';color:var(--brass);flex:none}
 @media(max-width:620px){.cta-desktop-break{display:none}}
 .page-content :is(#servicios,#modalidades,#frecuencias,#contaminacion,#como-funciona) .section-head{margin-left:0}
 .subtitle-layout-controls{position:absolute;top:.6rem;right:1rem;z-index:3;display:flex;gap:.2rem;padding:.25rem;border:1px solid var(--line);border-radius:999px;background:var(--ivory-soft);font:600 .68rem 'Plus Jakarta Sans',sans-serif}
@@ -732,39 +733,37 @@ html{scroll-padding-top:4.5rem}
 <section class="section alt shared-modalitats" id="modalidades">
   <div class="section-head">
     <span class="eyebrow">Modalitats</span><span class="rule"></span>
-    <h2 class="section-title">Casa sencera, <em>preu tancat</em>. Una part, per hores.</h2>
-    <p class="lead">Dues maneres de contractar, segons quanta casa vulguis cuidar. En totes dues, productes, equip i trasllat van inclosos i els preus porten l'IVA.</p>
+    <h2 class="section-title">Tria entre <em>preu tancat</em> o per hores.</h2>
+    <p class="lead">Dues maneres de contractar la neteja estàndard o profunda: amb totes les tasques incloses o prioritzant el que necessites dins del temps contractat.</p>
   </div>
   <div class="mods">
     <div class="mod-c featured">
       <div class="mod-top"><span class="mod-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/></svg></span><span class="badge">Casa sencera</span></div>
       <h3>Preu tancat</h3>
-      <p>Per a tot l'habitatge, segons el nombre d'habitacions i de banys. No importa si triguem 3 hores o 5: pagues el que s'ha acordat.</p>
-      <div class="mod-big"><span class="fr">des de</span><b>79 €</b><small>per visita · IVA inclòs</small></div>
-      <ul class="checks"><li><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m5 12 5 5L20 7" stroke="#B08D57" stroke-linecap="round" stroke-width="2.4"/></svg>Preu inamovible, encara que la visita s'allargui</li><li><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m5 12 5 5L20 7" stroke="#B08D57" stroke-linecap="round" stroke-width="2.4"/></svg>Checklist de 27 punts per estança</li><li><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m5 12 5 5L20 7" stroke="#B08D57" stroke-linecap="round" stroke-width="2.4"/></svg>Descomptes per freqüència</li></ul>
-      <a class="btn btn-solid" href="/preus/#calculadora">Calcular el meu preu <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg></a>
+      <p>Inclou totes les tasques del checklist del servei escollit. La neteja no acaba fins que estan fetes, independentment del temps necessari.</p>
+      <div class="mod-big"><span class="fr">des de</span><b>49 €</b><small>neteja estàndard · profunda des de 99 € · entrega de claus des de 149 €</small></div>
+      <ul class="checks"><li>Checklist complet del servei</li><li>Preu tancat, encara que calgui més temps</li><li>Els extres es contracten a part</li></ul>
+      <a class="btn btn-solid" href="https://wa.me/34616237123">Consulta el teu preu <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg></a>
     </div>
     <div class="mod-c" data-d="1">
-      <div class="mod-top"><span class="mod-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span class="badge" style="background:transparent;color:var(--brass-text);border:1px solid rgba(176,141,87,.55)">Una part de casa</span></div>
+      <div class="mod-top"><span class="mod-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span class="badge" style="background:transparent;color:var(--brass-text);border:1px solid rgba(176,141,87,.55)">Tu tries les prioritats</span></div>
       <h3>Per hores</h3>
-      <p>Si només necessites la cuina, un bany o unes quantes estances. Tu decideixes a cada visita què prioritzem, sense preu tancat.</p>
-      <div class="mod-big"><b>22 €</b><small>per hora · mínim 2 h · IVA inclòs</small></div>
-      <ul class="checks"><li><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m5 12 5 5L20 7" stroke="#B08D57" stroke-linecap="round" stroke-width="2.4"/></svg>Tu marques les prioritats de cada sessió</li><li><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m5 12 5 5L20 7" stroke="#B08D57" stroke-linecap="round" stroke-width="2.4"/></svg>Blocs d'una hora, mínim 2 hores per visita</li><li><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m5 12 5 5L20 7" stroke="#B08D57" stroke-linecap="round" stroke-width="2.4"/></svg>Descomptes per freqüència</li></ul>
-      <a class="btn btn-ghost" href="/preus/#calculadora">Calcular el meu preu</a>
+      <p>Tries les tasques i el temps. Comencem pel que més t'importa i continuem en l'ordre que ens indiquis fins que s'acaben les hores contractades.</p>
+      <div class="mod-big"><b>16 €</b><small>per hora · mínim 2 h · sense descompte per freqüència</small></div>
+      <ul class="checks"><li>Tu marques l'ordre de les tasques</li><li>Pots incloure tasques que són extres a preu tancat</li><li>Com més tasques vulguis, més temps pot caldre</li></ul>
+      <a class="btn btn-ghost" href="https://wa.me/34616237123">Consulta el teu preu</a>
     </div>
   </div>
   <div class="sec-sub">En resum</div>
   <div class="cmp">
     <div class="cmp-row cmp-head"><div></div>
       <div><span class="tag">Casa sencera</span><b>Preu tancat</b></div>
-      <div><span class="tag">Una part de casa</span><b>Per hores</b></div></div>
-    <div class="cmp-row"><div class="task">Ideal per a</div><div class="txt">Tota la casa</div><div class="txt">Cuina, un bany o unes quantes estances</div></div>
-    <div class="cmp-row"><div class="task">Com es calcula</div><div class="txt">Habitacions i banys</div><div class="txt">Hores de feina</div></div>
-    <div class="cmp-row"><div class="task">Preu tancat per escrit</div><div><span class="mk full"></span><span class="vh">Inclòs</span></div><div><span class="mk none"></span><span class="vh">No inclòs</span></div></div>
-    <div class="cmp-row"><div class="task">Tries què prioritzem a cada visita</div><div><span class="mk none"></span><span class="vh">No inclòs</span></div><div><span class="mk full"></span><span class="vh">Inclòs</span></div></div>
-    <div class="cmp-row"><div class="task">Descomptes per freqüència</div><div><span class="mk full"></span><span class="vh">Inclòs</span></div><div><span class="mk full"></span><span class="vh">Inclòs</span></div></div>
-    <div class="cmp-row"><div class="task">Sense permanència</div><div><span class="mk full"></span><span class="vh">Inclòs</span></div><div><span class="mk full"></span><span class="vh">Inclòs</span></div></div>
-    <div class="cmp-row"><div class="task">Mínim per visita</div><div class="txt">Sense mínim</div><div class="txt">2 hores</div></div>
+      <div><span class="tag">Les teves prioritats</span><b>Per hores</b></div></div>
+    <div class="cmp-row"><div class="task">Tasques</div><div class="txt">Checklist complet del servei</div><div class="txt">Les que triïs, per ordre de prioritat</div></div>
+    <div class="cmp-row"><div class="task">Quan acaba la visita</div><div class="txt">Quan s'han completat les tasques incloses</div><div class="txt">Quan s'acaba el temps contractat</div></div>
+    <div class="cmp-row"><div class="task">Extres</div><div class="txt">Es contracten a part</div><div class="txt">Es poden fer dins del temps contractat</div></div>
+    <div class="cmp-row"><div class="task">Què determina el servei</div><div class="txt">Les tasques incloses</div><div class="txt">Les hores contractades</div></div>
+    <div class="cmp-row"><div class="task">Temps mínim</div><div class="txt">Fins a completar el checklist</div><div class="txt">2 hores</div></div>
   </div>
 </section>
 <!-- ============ FRECUENCIAS ============ -->

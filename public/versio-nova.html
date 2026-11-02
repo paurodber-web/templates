@@ -326,6 +326,28 @@ p.lead{font-weight:300;font-size:1rem;line-height:1.8;color:var(--ink-soft);max-
   transition:all .3s var(--ease);background:none;font-family:inherit;cursor:pointer;
 }
 .town-chips button:hover{border-color:var(--brass);color:var(--ink)}
+.town-section{position:relative}
+.town-version-controls{position:absolute;top:.6rem;right:1rem;display:flex;align-items:center;gap:.25rem;padding:.25rem;border:1px solid var(--line);border-radius:999px;background:var(--ivory-soft);font:600 .68rem 'Plus Jakarta Sans',sans-serif;z-index:3}
+.town-version-controls span{padding:0 .35rem}
+.town-version-controls button{width:2rem;height:2rem;border:0;border-radius:50%;background:transparent;color:var(--ink);font:inherit;cursor:pointer}
+.town-version-controls button[aria-pressed="true"]{background:var(--moss);color:var(--ivory)}
+.town-version-controls button:focus-visible{outline:2px solid var(--moss);outline-offset:2px}
+@media(min-width:981px){
+  #municipio[data-town-version="2"]{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(3rem,6vw,6rem);align-items:start}
+  #municipio[data-town-version="2"] .section-head{margin:0!important;text-align:left!important;align-items:flex-start!important}
+  #municipio[data-town-version="2"] .section-title{text-align:left}
+}
+#municipio[data-town-version="2"] .town-box{background:var(--ivory);border:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(1.5rem,3vw,2.5rem)}
+#municipio[data-town-version="2"] .town-input{border-radius:2px;text-align:left}
+#municipio[data-town-version="2"] .town-chips-label{text-align:left}
+#municipio[data-town-version="2"] .town-chips{justify-content:flex-start}
+#municipio[data-town-version="3"] .town-box{background:transparent;border:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(1.5rem,3vw,2.5rem) 0}
+#municipio[data-town-version="3"] .town-form{gap:1rem}
+#municipio[data-town-version="3"] .town-input{border:0;border-bottom:1px solid var(--ink-soft);border-radius:0;background:transparent;text-align:left;padding-left:0}
+#municipio[data-town-version="3"] .town-input:focus{border-color:var(--moss);outline:2px solid var(--moss);outline-offset:3px}
+#municipio[data-town-version="3"] .town-chips-label{text-align:left}
+#municipio[data-town-version="3"] .town-chips{justify-content:flex-start}
+#municipio[data-town-version="3"] .town-chips button{border-radius:2px}
 
 /* ============================================================
    FAQS
@@ -891,7 +913,8 @@ html{scroll-padding-top:4.5rem}
 <div class="cross-verdict process-payment-note"><svg fill="none" height="20" viewBox="0 0 24 24" width="20" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#B08D57" stroke-width="1.6"/><path d="M3 10h18" stroke="#B08D57" stroke-width="1.6"/></svg><p><b>Per què fem una retenció?</b> Ens permet comprovar que l'import està disponible sense cobrar-lo abans del servei. Si falla, ho tornem a intentar 24 hores després; si el segon intent també falla, la reserva es cancel·la automàticament.</p></div>
 </section>
 <!-- ============ COMPROBADOR DE MUNICIPIO ============ -->
-<section class="section town-section" id="municipio">
+<section class="section town-section" id="municipio" data-town-version="1">
+<div class="town-version-controls" role="group" aria-label="Versió del comprovador de municipi"><span>Versió</span><button type="button" data-town-choice="1" aria-pressed="true">1</button><button type="button" data-town-choice="2" aria-pressed="false">2</button><button type="button" data-town-choice="3" aria-pressed="false">3</button></div>
 <div class="section-head" style="text-align:center;align-items:center;margin-left:auto;margin-right:auto">
 <span class="eyebrow" style="justify-content:center">Comprovador de municipi</span><span class="rule"></span>
 <h2 class="section-title">Arribem <em>al teu poble</em>?</h2>
@@ -1205,6 +1228,23 @@ addEventListener('resize', () => {
 
 </script>
 
+<script>
+(() => {
+  const section = document.getElementById('municipio');
+  const buttons = [...section.querySelectorAll('[data-town-choice]')];
+  const key = 'el-sete-cel-town-version';
+  const apply = value => {
+    section.dataset.townVersion = value;
+    buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.townChoice === value)));
+  };
+  try { const saved = localStorage.getItem(key); if (buttons.some(button => button.dataset.townChoice === saved)) apply(saved); } catch (_) {}
+  buttons.forEach(button => button.addEventListener('click', () => {
+    const value = button.dataset.townChoice;
+    apply(value);
+    try { localStorage.setItem(key, value); } catch (_) {}
+  }));
+})();
+</script>
 <script>
 (() => {
   const showControls = new URLSearchParams(location.search).has('layout');

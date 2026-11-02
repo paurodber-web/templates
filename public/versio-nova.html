@@ -774,18 +774,17 @@ html{scroll-padding-top:4.5rem}
 <div class="section-head">
 <span class="eyebrow">Freqüències i descomptes</span><span class="rule"></span>
 <h2 class="section-title">Com més ens veiem, <em>menys pagues</em>.</h2>
-<p class="lead">El manteniment regular redueix l'esforç de cada visita i et tornem
-    aquest estalvi. Selecciona una freqüència i mira com quedaria el teu mes.</p>
+<p class="lead">Tria la freqüència que necessitis. El descompte s'aplica a partir del segon servei, tant a preu tancat com per hores. Pots canviar-la o cancel·lar-la quan vulguis, sense penalització.</p>
 </div>
 <div class="freq-layout">
 <div class="">
 <div class="freq-options" id="freqOptions">
 <button class="freq-option" data-freq="semanal">
-<span class="freq-info"><b>Setmanal</b><span>La mateixa franja cada setmana · màxima continuïtat</span></span>
+<span class="freq-info"><b>Setmanal</b><span>Una visita cada setmana</span></span>
 <span class="freq-disc">−10%</span>
 </button>
 <button class="freq-option active" data-freq="quincenal">
-<span class="freq-info"><b>Quinzenal <small class="freq-popular">La més habitual</small></b><span>Una visita cada dues setmanes, sempre el mateix dia</span></span>
+<span class="freq-info"><b>Quinzenal</b><span>Una visita cada dues setmanes</span></span>
 <span class="freq-disc">−10%</span>
 </button>
 <button class="freq-option" data-freq="tres_setmanes">
@@ -803,12 +802,12 @@ html{scroll-padding-top:4.5rem}
 </div>
 <div class="freq-note">
 <svg fill="none" height="14" viewbox="0 0 24 24" width="14"><circle cx="12" cy="12" r="9" stroke="#B08D57" stroke-width="1.8"></circle><path d="M12 8v5m0 3h.01" stroke="#B08D57" stroke-linecap="round" stroke-width="1.8"></path></svg>
-<span id="freqNoteText">En pla quinzenal, un habitatge de 2 habitacions passa de 96 € a <b>86,40 € per visita</b>. El descompte s'aplica automàticament a cada factura.</span>
+<span id="freqNoteText">La primera visita es cobra al preu complet. A partir de la segona, s'aplica el 10% de descompte.</span>
 </div>
 </div>
 <div class="calendar-wrap" data-d="1">
 <div class="calendar-head">
-<b id="calTitle">El teu mes en pla quinzenal</b>
+<b id="calTitle">Exemple de pla quinzenal</b>
 <div class="calendar-navigation"><button aria-label="Mes anterior" id="calPrev" type="button">‹</button><span aria-live="polite" id="calMonth"></span><button aria-label="Mes següent" id="calNext" type="button">›</button></div>
 </div>
 <div class="calendar" id="calendar"></div>
@@ -1084,22 +1083,22 @@ let selectedFrequency = 'quincenal';
 
 const FREQ_CONFIG = {
   semanal:   { step: 7,  dow: 1, nth: 0,  title: 'El teu mes en pla setmanal',
-               note: 'En el pla setmanal, un habitatge de 2 habitacions passa de 96&nbsp;€ a <b>86,40&nbsp;€ per visita</b>, el mateix dia i la mateixa franja cada setmana.' },
+               note: 'La primera visita es cobra al preu complet. A partir de la segona, s’aplica el <b>10% de descompte</b>.' },
   quincenal: { step: 14, dow: 1, nth: 0,  title: 'El teu mes en pla quinzenal',
-               note: 'En el pla quinzenal, un habitatge de 2 habitacions passa de 96&nbsp;€ a <b>86,40&nbsp;€ per visita</b>. El descompte s’aplica automàticament a cada factura.' },
+               note: 'La primera visita es cobra al preu complet. A partir de la segona, s’aplica el <b>10% de descompte</b>.' },
   tres_setmanes: { step: 21, dow: 1, nth: 0, title: 'El teu pla cada tres setmanes',
-               note: 'Amb una visita cada tres setmanes, un habitatge de 2 habitacions passa de 96&nbsp;€ a <b>91,20&nbsp;€ per visita</b>.' },
+               note: 'La primera visita es cobra al preu complet. A partir de la segona, s’aplica el <b>5% de descompte</b>.' },
   mensual:   { step: 28, dow: 1, nth: 1, title: 'El teu mes en pla mensual',
-               note: 'En el pla mensual, un habitatge de 2 habitacions passa de 96&nbsp;€ a <b>91,20&nbsp;€ per visita</b>. Una visita de manteniment a fons, ideal per posar la casa a punt.' },
+               note: 'La primera visita es cobra al preu complet. A partir de la segona, s’aplica el <b>5% de descompte</b>.' },
   puntual:   { step: 99, dow: 3, nth: 2, title: 'El teu mes amb visita puntual',
-               note: 'Sense descompte però sense compromís: reserva quan ho necessitis i tria el dia i la franja horària. Ideal abans d’arribades, esdeveniments o després d’obres.' }
+               note: 'Reserva una visita puntual quan la necessitis, al preu del servei i sense descompte per freqüència.' }
 };
 
 function renderCalendar(freq) {
   const cfg = FREQ_CONFIG[freq];
   const year = viewMonth.getFullYear();
   const month = viewMonth.getMonth();
-  calTitle.textContent = cfg.title;
+  calTitle.textContent = 'Exemple: ' + cfg.title.toLocaleLowerCase('ca');
   document.getElementById('calMonth').textContent = new Intl.DateTimeFormat('ca', { month: 'long', year: 'numeric' }).format(viewMonth);
   freqNoteText.innerHTML = cfg.note;
   calendar.innerHTML = DOW.map(d => `<span class="dow">${d}</span>`).join('');

@@ -183,24 +183,13 @@ p.lead{font-weight:300;font-size:1rem;line-height:1.8;color:var(--ink-soft);max-
 .service-version-controls button{min-width:2rem;height:2rem;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--ink);font:600 .68rem 'Plus Jakarta Sans',sans-serif;cursor:pointer}
 .service-version-controls button[aria-pressed="true"]{background:var(--moss);border-color:var(--moss);color:var(--ivory)}
 .service-version-controls button:focus-visible{outline:2px solid var(--moss);outline-offset:2px}
-#servicios:is([data-service-version="2"],[data-service-version="6"],[data-service-version="7"]) .service-checks{gap:0;border-top:1px solid var(--line)}
-#servicios:is([data-service-version="2"],[data-service-version="6"],[data-service-version="7"]) .service-checks li{padding:.55rem 0;border-bottom:1px solid var(--line)}
+#servicios[data-service-version="2"] .service-checks{gap:0;border-top:1px solid var(--line)}
+#servicios[data-service-version="2"] .service-checks li{padding:.55rem 0;border-bottom:1px solid var(--line)}
 #servicios[data-service-version="2"] .service .btn{padding:.65rem 1rem;border:1px solid var(--line);border-radius:3px}
-#servicios[data-service-version="3"] .service-checks{display:flex;flex-wrap:wrap;gap:.4rem}
-#servicios[data-service-version="3"] .service-checks li{padding:.35rem .65rem;border:1px solid var(--line);border-radius:999px;font-size:.75rem}
-#servicios[data-service-version="3"] .service-checks li::before{display:none}
-#servicios[data-service-version="3"] .service .btn{border:0;color:var(--moss);font-weight:600}
-#servicios[data-service-version="3"] .service .btn span{display:grid;place-items:center;width:1.8rem;height:1.8rem;border:1px solid currentColor;border-radius:50%}
-#servicios[data-service-version="4"] .service-meta{padding-top:.2rem}
-#servicios[data-service-version="4"] .service-checks{padding:1rem;background:var(--ivory-soft);gap:.65rem}
-#servicios[data-service-version="4"] .service .btn{padding:.7rem 1rem;background:var(--moss);border:1px solid var(--moss);border-radius:3px;color:var(--ivory)}
-#servicios[data-service-version="4"] .service .btn:hover{background:var(--moss-deep)}
 #servicios[data-service-version="5"] .service-checks{gap:.55rem;counter-reset:service-point}
 #servicios[data-service-version="5"] .service-checks li{counter-increment:service-point;gap:.8rem}
 #servicios[data-service-version="5"] .service-checks li::before{content:counter(service-point,decimal-leading-zero);font-size:.66rem;font-weight:600;letter-spacing:.08em}
-#servicios:is([data-service-version="5"],[data-service-version="6"]) .service .btn{width:100%;justify-content:space-between;padding:.8rem 0;border:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-#servicios[data-service-version="7"] .service-checks li::before{content:'—';font-size:.8rem}
-#servicios[data-service-version="7"] .service .btn{width:100%;justify-content:space-between;padding:.75rem 1rem;border:1px solid var(--line);border-radius:3px}
+#servicios[data-service-version="5"] .service .btn{width:100%;justify-content:space-between;padding:.8rem 0;border:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 #servicios[data-service-version="8"] .service-checks{gap:.75rem;counter-reset:service-point;padding:.9rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 #servicios[data-service-version="8"] .service-checks li{counter-increment:service-point;gap:.8rem}
 #servicios[data-service-version="8"] .service-checks li::before{content:counter(service-point,decimal-leading-zero);font-size:.66rem;font-weight:600;letter-spacing:.08em}
@@ -718,7 +707,7 @@ html{scroll-padding-top:4.5rem}
 <h2 class="section-title">La cura que necessita <em>casa teva</em>.</h2>
 <p class="lead">Tres serveis de neteja per a diferents moments i necessitats.</p>
 </div>
-<div class="service-version-controls" role="group" aria-label="Versió de les targetes de serveis"><span>Versió</span><button type="button" data-service-choice="1" aria-pressed="true">1</button><button type="button" data-service-choice="2" aria-pressed="false">2</button><button type="button" data-service-choice="3" aria-pressed="false">3</button><button type="button" data-service-choice="4" aria-pressed="false">4</button><button type="button" data-service-choice="5" aria-pressed="false">5</button><button type="button" data-service-choice="6" aria-pressed="false">6</button><button type="button" data-service-choice="7" aria-pressed="false">7</button><button type="button" data-service-choice="8" aria-pressed="false">8</button></div>
+<div class="service-version-controls" role="group" aria-label="Versió de les targetes de serveis"><span>Versió</span><button type="button" data-service-choice="1" aria-pressed="true">1</button><button type="button" data-service-choice="2" aria-pressed="false">2</button><button type="button" data-service-choice="5" aria-pressed="false">5</button><button type="button" data-service-choice="8" aria-pressed="false">8</button></div>
 <div class="services-grid">
 <div class="service">
 

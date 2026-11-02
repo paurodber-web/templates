@@ -1,4 +1,7 @@
 ---
 import landing from '../../public/versio-nova.html?raw';
+const html = import.meta.env.DEV
+  ? landing.replace('</head>', '<script type="module" src="/@vite/client"></script></head>')
+  : landing;
 ---
-<Fragment set:html={landing} />
+<Fragment set:html={html} />

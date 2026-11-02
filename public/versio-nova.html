@@ -454,9 +454,6 @@ p.lead{font-weight:300;font-size:1rem;line-height:1.8;color:var(--ink-soft);max-
 .page-content #modalidades .mod-prices{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:.8rem 0;display:grid;gap:.5rem}
 .page-content #modalidades .mod-price-row{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;font-size:.82rem;color:var(--ink-soft)}
 .page-content #modalidades .mod-price-row strong{font-size:.95rem;font-weight:500;color:var(--ink);white-space:nowrap}
-.page-content #modalidades .mod-hourly{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:1rem 0;display:flex;align-items:baseline;gap:.65rem;flex-wrap:wrap}
-.page-content #modalidades .mod-hourly strong{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:400;line-height:1}
-.page-content #modalidades .mod-hourly span{font-size:.8rem;color:var(--ink-soft)}
 @media(max-width:620px){.cta-desktop-break{display:none}}
 .page-content :is(#servicios,#modalidades,#frecuencias,#contaminacion,#como-funciona) .section-head{margin-left:0}
 .subtitle-layout-controls{position:absolute;top:.6rem;right:1rem;z-index:3;display:flex;gap:.2rem;padding:.25rem;border:1px solid var(--line);border-radius:999px;background:var(--ivory-soft);font:600 .68rem 'Plus Jakarta Sans',sans-serif}
@@ -755,7 +752,7 @@ html{scroll-padding-top:4.5rem}
       <div class="mod-top"><span class="mod-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span class="badge" style="background:transparent;color:var(--brass-text);border:1px solid rgba(176,141,87,.55)">Tu tries les prioritats</span></div>
       <h3>Per hores</h3>
       <p>Tries les tasques i l'ordre de prioritat. Pots incloure extres sense pagar-ne cap suplement, sempre que es puguin fer dins del temps reservat.</p>
-      <div class="mod-hourly"><strong>16 €</strong><span>per hora · mínim 2 h<br>Preu sense descompte per freqüència</span></div>
+      <div class="mod-prices" aria-label="Tarifa per hores"><div class="mod-price-row"><span>Preu per hora</span><strong>16 €</strong></div><div class="mod-price-row"><span>Temps mínim</span><strong>2 hores</strong></div><div class="mod-price-row"><span>Descompte per freqüència</span><strong>No aplicat</strong></div></div>
       <ul class="checks"><li>Tu marques l'ordre de les tasques</li><li>Extres sense cost addicional dins de les hores reservades</li><li>Com més tasques vulguis, més temps pot caldre</li></ul>
       <a class="btn btn-ghost" href="https://wa.me/34616237123">Consulta el teu preu</a>
     </div>

@@ -166,6 +166,7 @@ p.lead{font-weight:300;font-size:1rem;line-height:1.8;color:var(--ink-soft);max-
   gap:clamp(1.6rem,3vw,2.6rem) clamp(1.2rem,2.5vw,2rem);
 }
 .service{display:flex;flex-direction:column;gap:1rem}
+@supports (grid-template-rows:subgrid){.service{display:grid;grid-template-rows:subgrid;grid-row:span 5}}
 .service-img{position:relative;height:250px;overflow:hidden;border-radius:2px}
 .service-img img{transform:scale(1.02);transition:transform 1.6s var(--ease)}
 .service:hover .service-img img{transform:scale(1.07)}
@@ -173,7 +174,7 @@ p.lead{font-weight:300;font-size:1rem;line-height:1.8;color:var(--ink-soft);max-
 .service-meta h3{font-size:1.05rem;font-weight:500}
 .service-meta h3 a{color:inherit}.service-meta h3 a:hover{text-decoration:underline;text-underline-offset:.2em}.service-meta h3 a:focus-visible{outline:2px solid var(--moss);outline-offset:4px}
 .service-meta .price{font-size:.78rem;color:var(--brass);letter-spacing:.06em;white-space:nowrap}
-.service p{font-size:.86rem;font-weight:300;line-height:1.7;color:var(--ink-soft)}
+.service p{font-size:.86rem;font-weight:300;line-height:1.7;color:var(--ink-soft);min-height:3lh}
 .service-checks{list-style:none;display:grid;gap:.55rem;font-size:.82rem;font-weight:300;line-height:1.55;color:var(--ink-soft)}
 .service-checks li{display:flex;gap:.65rem;align-items:baseline}
 .service-checks li::before{content:'✓';color:var(--brass);flex:none}

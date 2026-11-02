@@ -201,7 +201,8 @@ p.lead{font-weight:300;font-size:1rem;line-height:1.8;color:var(--ink-soft);max-
 @media(max-width:620px){
   #servicios .service{padding-bottom:2rem;border-bottom:1px solid var(--line)}
   #servicios[data-service-version] .service .btn{width:100%;min-height:48px;align-self:stretch;justify-content:space-between;padding:.8rem 1rem;border:1px solid var(--line);border-radius:3px;color:var(--moss)}
-  #servicios .service .btn::after{left:1rem;right:1rem}
+  #servicios[data-service-version] .service .btn:hover{border-color:var(--line)}
+  #servicios .service .btn::after{display:none}
 }
 
 /* ============================================================

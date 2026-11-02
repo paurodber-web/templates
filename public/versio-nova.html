@@ -205,9 +205,10 @@ p.lead{font-weight:300;font-size:1rem;line-height:1.8;color:var(--ink-soft);max-
 #servicios[data-service-version="8"] .service-checks li{counter-increment:service-point;gap:.8rem}
 #servicios[data-service-version="8"] .service-checks li::before{content:counter(service-point,decimal-leading-zero);font-size:.66rem;font-weight:600;letter-spacing:.08em}
 #servicios[data-service-version="8"] .service .btn{width:100%;justify-content:space-between;padding:.8rem 0;border:0;border-bottom:1px solid var(--brass);color:var(--moss)}
-.service .svc-line{width:100%;height:1px;background:var(--line);margin-top:.4rem;position:relative}
-.service .svc-line::after{content:"";position:absolute;left:0;top:0;width:0;height:1px;background:var(--brass);transition:width .8s var(--ease)}
-.service:hover .svc-line::after{width:100%}
+.service .svc-line{display:none}
+.service .btn{position:relative}
+.service .btn::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--brass);transform:scaleX(0);transform-origin:left;transition:transform .8s var(--ease)}
+.service:hover .btn::after,.service .btn:focus-visible::after{transform:scaleX(1)}
 
 /* ============================================================
    MODALIDADES

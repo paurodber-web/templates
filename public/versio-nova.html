@@ -177,7 +177,8 @@ p.lead{font-weight:300;font-size:1rem;line-height:1.8;color:var(--ink-soft);max-
 .service-checks{list-style:none;display:grid;gap:.55rem;font-size:.82rem;font-weight:300;line-height:1.55;color:var(--ink-soft)}
 .service-checks li{display:flex;gap:.65rem;align-items:baseline}
 .service-checks li::before{content:'✓';color:var(--brass);flex:none}
-.service .btn{align-self:flex-start;margin-top:auto}
+.service .btn{align-self:flex-start;margin-top:auto;padding:.55rem 0;border:0;border-radius:0;border-bottom:1px solid var(--line);font-size:.7rem;letter-spacing:.08em}
+.service .btn:hover{background:none;border-color:var(--brass)}
 .service .svc-line{width:100%;height:1px;background:var(--line);margin-top:.4rem;position:relative}
 .service .svc-line::after{content:"";position:absolute;left:0;top:0;width:0;height:1px;background:var(--brass);transition:width .8s var(--ease)}
 .service:hover .svc-line::after{width:100%}

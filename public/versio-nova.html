@@ -198,6 +198,11 @@ p.lead{font-weight:300;font-size:1rem;line-height:1.8;color:var(--ink-soft);max-
 .service .btn{position:relative}
 .service .btn::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--brass);transform:scaleX(0);transform-origin:left;transition:transform .8s var(--ease)}
 .service:hover .btn::after,.service .btn:focus-visible::after{transform:scaleX(1)}
+@media(max-width:620px){
+  #servicios .service{padding-bottom:2rem;border-bottom:1px solid var(--line)}
+  #servicios[data-service-version] .service .btn{width:100%;min-height:48px;align-self:stretch;justify-content:space-between;padding:.8rem 1rem;border:1px solid var(--line);border-radius:3px;color:var(--moss)}
+  #servicios .service .btn::after{left:1rem;right:1rem}
+}
 
 /* ============================================================
    MODALIDADES

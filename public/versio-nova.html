@@ -177,7 +177,7 @@ p.lead{font-weight:300;font-size:1rem;line-height:1.8;color:var(--ink-soft);max-
 .service p{font-size:.86rem;font-weight:300;line-height:1.7;color:var(--ink-soft);min-height:3lh}
 .service-checks{list-style:none;display:grid;gap:.55rem;font-size:.82rem;font-weight:300;line-height:1.55;color:var(--ink-soft)}
 .service-checks li{display:flex;gap:.65rem;align-items:baseline}
-.service-checks li::before{content:'✓';color:var(--brass);flex:none}
+.service-checks li::before{content:'';width:1em;height:1em;flex:none;background:center/contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12l4 4L19 6' fill='none' stroke='%23B08D57' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
 .service .btn{align-self:flex-start;margin-top:auto;padding:.55rem 0;border:0;border-radius:0;border-bottom:1px solid var(--line);font-size:.7rem;letter-spacing:.08em}
 .service .btn:hover{background:none;border-color:var(--brass)}
 #servicios[data-service-version="8"] .service-checks{gap:.75rem;padding:.9rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -192,7 +192,6 @@ p.lead{font-weight:300;font-size:1rem;line-height:1.8;color:var(--ink-soft);max-
 .service .btn::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--brass);transform:scaleX(0);transform-origin:left;transition:transform .8s var(--ease)}
 .service:hover .btn::after,.service .btn:focus-visible::after{transform:scaleX(1)}
 @media(max-width:620px){
-  #servicios .service{padding-bottom:2rem;border-bottom:1px solid var(--line)}
   #servicios[data-service-version] .service .btn{width:100%;min-height:48px;align-self:stretch;justify-content:space-between;padding:.8rem 1rem;border:1px solid var(--line);border-radius:3px;color:var(--moss)}
   #servicios[data-service-version] .service .btn:hover{border-color:var(--line)}
   #servicios .service .btn::after{display:none}
@@ -228,11 +227,11 @@ p.lead{font-weight:300;font-size:1rem;line-height:1.8;color:var(--ink-soft);max-
 .freq-option{
   background:none;border:0;border-top:1px solid var(--line);cursor:pointer;
   padding:1.4rem .2rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;
-  font-family:inherit;text-align:left;transition:padding .4s var(--ease);
+  font-family:inherit;color:var(--ink);text-align:left;transition:padding .4s var(--ease);
 }
 .freq-option:last-child{border-bottom:1px solid var(--line)}
 .freq-option:hover .freq-info b{color:var(--brass)}
-.freq-info{display:flex;flex-direction:column;gap:.3rem}
+.freq-info{display:flex;flex:1;flex-direction:column;gap:.3rem}
 .freq-info b{font-size:1rem;font-weight:500;transition:color .3s var(--ease)}
 .freq-info span{font-size:.76rem;font-weight:300;color:var(--ink-soft)}
 .freq-disc{
@@ -242,6 +241,9 @@ p.lead{font-weight:300;font-size:1rem;line-height:1.8;color:var(--ink-soft);max-
 }
 .freq-option.active .freq-disc{background:var(--moss);border-color:var(--moss);color:var(--ivory)}
 .freq-option.active .freq-info b{color:var(--ink)}
+.freq-option.active .freq-info::after{content:"Seleccionada";margin-top:.2rem;color:var(--moss);font-size:.65rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.freq-option.active{background:rgba(46,70,56,.06);padding-left:.8rem;padding-right:.8rem}
+.freq-option:focus-visible{outline:2px solid var(--moss);outline-offset:2px}
 .freq-note{margin-top:1.5rem;font-size:.82rem;font-weight:300;color:var(--ink-soft);line-height:1.7}
 .freq-note b{font-weight:500;color:var(--ink)}
 
@@ -257,6 +259,10 @@ p.lead{font-weight:300;font-size:1rem;line-height:1.8;color:var(--ink-soft);max-
   background:rgba(35,32,27,.025);transition:all .5s var(--ease);
 }
 .cal-day.empty{background:transparent}
+button.cal-day{border:0;font-family:inherit;cursor:pointer}
+button.cal-day:hover{outline:1px solid var(--moss)}
+button.cal-day:focus-visible{outline:2px solid var(--moss);outline-offset:2px}
+.cal-day.start{box-shadow:inset 0 0 0 2px var(--brass)}
 .cal-day .dot{width:4px;height:4px;border-radius:50%;background:transparent;transition:background .5s var(--ease)}
 .cal-day.marked{background:var(--moss);color:var(--ivory);transform:scale(1.03)}
 .cal-day.marked .dot{background:var(--brass)}
@@ -429,7 +435,7 @@ p.lead{font-weight:300;font-size:1rem;line-height:1.8;color:var(--ink-soft);max-
 .page-content .calendar-navigation{display:flex;align-items:center;gap:.45rem}
 .page-content .calendar-navigation button{width:2rem;height:2rem;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--ink);font-size:1.2rem;cursor:pointer}
 .page-content .freq-popular{display:inline-block;margin-left:.5rem;padding:.3rem .6rem;border-radius:999px;background:var(--moss);color:var(--ivory);font-size:.66rem;font-weight:600;vertical-align:middle}
-.page-content .freq-option.active .freq-popular{background:var(--ivory);color:var(--moss-deep)}
+.page-content .freq-option.active .freq-popular{background:var(--moss);color:var(--ivory)}
 .page-content :is(#servicios,#modalidades,#frecuencias,#contaminacion,#como-funciona) .section-head{align-items:flex-start;text-align:left;margin-right:0}
 .page-content :is(#servicios,#modalidades,#frecuencias,#contaminacion,#como-funciona) .section-title,
 .page-content :is(#servicios,#modalidades,#frecuencias,#contaminacion,#como-funciona) .section-head .lead{text-align:left!important}
@@ -442,16 +448,35 @@ p.lead{font-weight:300;font-size:1rem;line-height:1.8;color:var(--ink-soft);max-
 .page-content .cross-verdict p{max-width:none}
 .page-content #manifiesto .section-head{max-width:none}
 .page-content .cta-inner{max-width:none}
-.guarantee-content{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:start}
-.guarantee-content p{font-size:.95rem;font-weight:300;line-height:1.8;color:var(--ink-soft)}
-.guarantee-content p+p{margin-top:1rem}
-.guarantee-detail{border-top:1px solid var(--line);padding-top:1.5rem}
-.guarantee-detail strong{display:block;margin-bottom:.7rem;color:var(--moss);font-size:1.15rem;font-weight:500}
-.guarantee-detail .btn{margin-top:1.25rem}
-@media(max-width:760px){.guarantee-content{grid-template-columns:1fr;gap:1.5rem}}
+#garantia{background:var(--moss-deep);color:var(--ivory)}
+.guarantee-layout{display:grid;grid-template-columns:5fr 7fr;gap:clamp(2.5rem,7vw,6.5rem);align-items:start}
+.guarantee-intro{display:flex;flex-direction:column;align-items:flex-start;gap:1.4rem}
+#garantia .eyebrow,#garantia .section-title em{color:#c9a872}
+#garantia .section-title{color:var(--ivory)}
+#garantia .lead{color:rgba(247,244,238,.78)}
+#garantia .guarantee-intro .btn{background:var(--ivory);color:var(--moss-deep);border-color:var(--ivory)}
+#garantia .guarantee-intro .btn:hover{background:#fff}
+.guarantee-clauses{list-style:none}
+.guarantee-clauses li{display:grid;grid-template-columns:2.6rem 1fr;gap:1rem;padding:1.6rem 0;border-top:1px solid rgba(247,244,238,.22);align-items:baseline}
+.guarantee-clauses li:last-child{border-bottom:1px solid rgba(247,244,238,.22)}
+.guarantee-clauses .number{font-size:.72rem;font-weight:600;letter-spacing:.2em;color:#c9a872}
+.guarantee-clauses p{font-size:clamp(1.15rem,2vw,1.45rem);font-weight:300;line-height:1.45;letter-spacing:-.01em}
+.guarantee-clauses b{font-weight:500;color:#c9a872}
+@media(max-width:820px){.guarantee-layout{grid-template-columns:1fr}}
 .page-content #modalidades :is(.mods,.sec-sub,.cmp){width:100%;max-width:none;margin-left:0;margin-right:0}
-.page-content #modalidades .checks li::before{content:'✓';color:var(--brass);flex:none}
-.page-content #contaminacion .cross-list li::before{content:'✓';color:var(--brass);flex:none}
+@media(max-width:620px){
+  #modalidades .cmp{display:grid;gap:.75rem;border:0;background:transparent}
+  #modalidades .cmp-row{grid-template-columns:repeat(2,minmax(0,1fr));border:1px solid var(--line);background:var(--ivory-soft)}
+  #modalidades .cmp-row:last-child{border-bottom:1px solid var(--line)}
+  #modalidades .cmp-row .task{grid-column:1/-1;padding:.8rem 1rem;background:var(--moss);color:var(--ivory);font-size:.8rem;font-weight:600}
+  #modalidades .cmp-row .txt{justify-content:flex-start;text-align:left;align-items:flex-start;padding:.75rem 1rem 1rem;font-size:.85rem}
+  #modalidades .cmp-row>:nth-child(2){border-left:0}
+  #modalidades .cmp-head>:first-child{display:none}
+  #modalidades .cmp-head>:nth-child(n+2){align-items:flex-start;text-align:left;padding:1rem}
+  #modalidades .cmp-head .tag{display:block;font-size:.6rem}
+  #modalidades .cmp-head b{font-size:.95rem}
+}
+.page-content #modalidades .checks li::before,.page-content #contaminacion .cross-list li::before{content:'';width:1em;height:1em;flex:none;background:center/contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12l4 4L19 6' fill='none' stroke='%23B08D57' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
 .page-content #modalidades .mod-prices{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:.8rem 0;display:grid;gap:.5rem}
 .page-content #modalidades .mod-price-row{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;font-size:.82rem;color:var(--ink-soft)}
 .page-content #modalidades .mod-price-row strong{font-size:.95rem;font-weight:500;color:var(--ink);white-space:nowrap}
@@ -642,6 +667,7 @@ html{scroll-padding-top:4.5rem}
 <link rel="stylesheet" href="/sticky-header.css">
 <link rel="stylesheet" href="/hero-variants.css">
 <link rel="stylesheet" href="/step-number-variants.css">
+<link rel="stylesheet" href="/town-variants.css">
 <link rel="stylesheet" href="/shared-modalitats.css">
 </head>
 <body>
@@ -722,15 +748,15 @@ html{scroll-padding-top:4.5rem}
 <div class="service">
 
 
-<div class="service-img"><img alt="Cuina blanca impecable i lluminosa" src="https://kimi-web-img.kimi.ai/img/img.magnific.com/da3d89b8f7c414e062ab7e45b69abee780ac96b2.jpg" loading="lazy" decoding="async"/></div><div class="service-meta"><h3 id="neteja-estandard">Neteja estàndard</h3></div><p>Una neteja per mantenir la casa cuidada i agradable, amb atenció als espais que fas servir cada dia i als detalls que fan més còmoda la rutina.</p><ul class="service-checks"><li>Per al manteniment de la llar</li><li>Servei puntual o recurrent</li><li>Freqüència adaptada a les teves necessitats</li></ul><a class="btn btn-ghost" href="/serveis/neteja-estandard/">Descobrir el servei <span aria-hidden="true">→</span></a><div class="svc-line"></div></div>
+<div class="service-img"><img alt="Cuina blanca impecable i lluminosa" src="https://kimi-web-img.kimi.ai/img/img.magnific.com/da3d89b8f7c414e062ab7e45b69abee780ac96b2.jpg" loading="lazy" decoding="async"/></div><div class="service-meta"><h3 id="neteja-estandard">Neteja estàndard</h3></div><p>Una neteja per mantenir la casa cuidada i agradable, amb atenció als espais que fas servir cada dia i als detalls que fan més còmoda la rutina.</p><ul class="service-checks"><li>Per al manteniment de la llar</li><li>Servei puntual o recurrent</li><li>Freqüència adaptada a les teves necessitats</li></ul><a class="btn btn-ghost" href="/serveis/neteja-estandard/">Veure neteja estàndard <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a><div class="svc-line"></div></div>
 <div class="service" data-d="1">
 
 
-<div class="service-img"><img alt="Dormitori serè amb lli verd sàlvia" src="https://kimi-web-img.kimi.ai/img/img.magnific.com/09ae2cbe7090526d6ec65bfff862d2d58a51a79a.jpg" loading="lazy" decoding="async"/></div><div class="service-meta"><h3 id="neteja-profunda">Neteja profunda</h3></div><p>Una neteja més a fons, pensada per dedicar més atenció als espais i als detalls de casa teva quan ho necessitis.</p><ul class="service-checks"><li>Per a una neteja més a fons</li><li>Servei puntual o recurrent</li><li>Una posada a punt quan la necessitis</li></ul><a class="btn btn-ghost" href="/serveis/full-home/">Descobrir el servei <span aria-hidden="true">→</span></a><div class="svc-line"></div></div>
+<div class="service-img"><img alt="Dormitori serè amb lli verd sàlvia" src="https://kimi-web-img.kimi.ai/img/img.magnific.com/09ae2cbe7090526d6ec65bfff862d2d58a51a79a.jpg" loading="lazy" decoding="async"/></div><div class="service-meta"><h3 id="neteja-profunda">Neteja profunda</h3></div><p>Una neteja més a fons, pensada per dedicar més atenció als espais i als detalls de casa teva quan ho necessitis.</p><ul class="service-checks"><li>Per a una neteja més a fons</li><li>Servei puntual o recurrent</li><li>Una posada a punt quan la necessitis</li></ul><a class="btn btn-ghost" href="/serveis/full-home/">Veure neteja profunda <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a><div class="svc-line"></div></div>
 <div class="service" data-d="2">
 
 
-<div class="service-img"><img alt="Saló amb terra d'espiga i llum d'hivern" src="https://kimi-web-img.kimi.ai/img/images.pexels.com/49d1279387ffb810ac03567e606db3ce891e753a.jpeg" loading="lazy" decoding="async"/></div><div class="service-meta"><h3 id="entrega-de-claus">Entrega de claus</h3></div><p>Preparem l'habitatge per a una nova etapa, tant si acabes de marxar com si vols trobar-lo net i a punt abans d'entrar-hi per primera vegada.</p><ul class="service-checks"><li>Abans d'entrar a un habitatge</li><li>Després de marxar i abans d'entregar-lo</li><li>Servei puntual per a una mudança</li></ul><a class="btn btn-ghost" href="/serveis/entrega-de-claus/">Descobrir el servei <span aria-hidden="true">→</span></a><div class="svc-line"></div></div>
+<div class="service-img"><img alt="Saló amb terra d'espiga i llum d'hivern" src="https://kimi-web-img.kimi.ai/img/images.pexels.com/49d1279387ffb810ac03567e606db3ce891e753a.jpeg" loading="lazy" decoding="async"/></div><div class="service-meta"><h3 id="entrega-de-claus">Neteja per a mudances</h3></div><p>Preparem l'habitatge per a una nova etapa, tant si acabes de marxar com si vols trobar-lo net i a punt abans d'entrar-hi per primera vegada.</p><ul class="service-checks"><li>Abans d'entrar a un habitatge</li><li>Després de marxar i abans d'entregar-lo</li><li>Servei puntual per a una mudança</li></ul><a class="btn btn-ghost" href="/serveis/entrega-de-claus/">Veure neteja per a mudances <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a><div class="svc-line"></div></div>
 </div>
 </section>
 <!-- ============ MODALIDADES ============ -->
@@ -744,9 +770,9 @@ html{scroll-padding-top:4.5rem}
     <div class="mod-c featured">
       <div class="mod-top"><span class="mod-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/></svg></span><span class="badge">Casa sencera</span></div>
       <h3>Preu tancat</h3>
-      <p>Inclou totes les tasques del checklist del servei escollit. La neteja no acaba fins que estan fetes, independentment del temps necessari.</p>
-      <div class="mod-prices" aria-label="Preus inicials per servei"><div class="mod-price-row"><span>Neteja estàndard</span><strong>des de 49 €</strong></div><div class="mod-price-row"><span>Neteja profunda</span><strong>des de 99 €</strong></div><div class="mod-price-row"><span>Entrega de claus</span><strong>des de 149 €</strong></div></div>
-      <ul class="checks"><li>Checklist complet del servei</li><li>Preu tancat, encara que calgui més temps</li><li>Els extres es contracten a part</li></ul>
+      <p>Inclou totes les tasques de la llista de comprovació del servei escollit. La neteja no acaba fins que estan fetes, independentment del temps necessari.</p>
+      <div class="mod-prices" aria-label="Preus inicials per servei"><div class="mod-price-row"><span>Neteja estàndard</span><strong>des de 49 €</strong></div><div class="mod-price-row"><span>Neteja profunda</span><strong>des de 99 €</strong></div><div class="mod-price-row"><span>Neteja per a mudances</span><strong>des de 149 €</strong></div></div>
+      <ul class="checks"><li>Llista completa de tasques del servei</li><li>Preu tancat, encara que calgui més temps</li><li>Els extres es contracten a part</li></ul>
       <a class="btn btn-solid" href="https://wa.me/34616237123">Consulta el teu preu <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg></a>
     </div>
     <div class="mod-c" data-d="1">
@@ -763,11 +789,11 @@ html{scroll-padding-top:4.5rem}
     <div class="cmp-row cmp-head"><div></div>
       <div><span class="tag">Casa sencera</span><b>Preu tancat</b></div>
       <div><span class="tag">Les teves prioritats</span><b>Per hores</b></div></div>
-    <div class="cmp-row"><div class="task">Tasques</div><div class="txt">Checklist complet del servei</div><div class="txt">Les que triïs, per ordre de prioritat</div></div>
+    <div class="cmp-row"><div class="task">Tasques</div><div class="txt">Llista completa de tasques del servei</div><div class="txt">Les que triïs, per ordre de prioritat</div></div>
     <div class="cmp-row"><div class="task">Quan acaba la visita</div><div class="txt">Quan s'han completat les tasques incloses</div><div class="txt">Quan s'acaba el temps contractat</div></div>
     <div class="cmp-row"><div class="task">Extres</div><div class="txt">Es contracten a part</div><div class="txt">Sense suplement dins del temps reservat</div></div>
     <div class="cmp-row"><div class="task">Què determina el servei</div><div class="txt">Les tasques incloses</div><div class="txt">Les hores contractades</div></div>
-    <div class="cmp-row"><div class="task">Temps mínim</div><div class="txt">Fins a completar el checklist</div><div class="txt">2 hores</div></div>
+    <div class="cmp-row"><div class="task">Temps mínim</div><div class="txt">Fins a completar la llista de tasques</div><div class="txt">2 hores</div></div>
   </div>
 </section>
 <!-- ============ FRECUENCIAS ============ -->
@@ -785,7 +811,7 @@ html{scroll-padding-top:4.5rem}
 <span class="freq-disc">−10%</span>
 </button>
 <button class="freq-option active" data-freq="quincenal">
-<span class="freq-info"><b>Quinzenal</b><span>Una visita cada dues setmanes</span></span>
+<span class="freq-info"><b>Quinzenal <span class="freq-popular">Més reservada</span></b><span>Una visita cada dues setmanes</span></span>
 <span class="freq-disc">−10%</span>
 </button>
 <button class="freq-option" data-freq="tres_setmanes">
@@ -808,8 +834,8 @@ html{scroll-padding-top:4.5rem}
 </div>
 <div class="calendar-wrap" data-d="1">
 <div class="calendar-head">
-<b id="calTitle">Exemple de pla quinzenal</b>
-<div class="calendar-navigation"><button aria-label="Mes anterior" id="calPrev" type="button">‹</button><span aria-live="polite" id="calMonth"></span><button aria-label="Mes següent" id="calNext" type="button">›</button></div>
+<b>Escull la data de la primera visita</b>
+<div class="calendar-navigation"><button aria-label="Mes anterior" id="calPrev" type="button"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m15 5-7 7 7 7"/></svg></button><span aria-live="polite" id="calMonth"></span><button aria-label="Mes següent" id="calNext" type="button"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m9 5 7 7-7 7"/></svg></button></div>
 </div>
 <div class="calendar" id="calendar"></div>
 <div class="cal-legend">
@@ -830,16 +856,16 @@ html{scroll-padding-top:4.5rem}
 <div class="cross-card yours">
 <span class="cross-tag">Si aportes la teva mopa i el teu aspirador</span>
 <h3>El teu equip, el nostre mètode</h3>
-<p>Després de la nostra experiència a Austràlia, sabem que moltes persones prefereixen que fem servir la seva mopa i el seu aspirador. Nosaltres portem els productes, els draps i la resta d'estris necessaris.</p>
+<p>Gràcies a la nostra experiència a Austràlia, sabem que moltes persones prefereixen que fem servir la seva mopa i el seu aspirador. Nosaltres portem els productes, els draps i la resta d'estris necessaris.</p>
 <ul class="cross-list">
-<li>Fem servir la teva pròpia mopa i el teu aspirador</li>
+<li>Fem servir la teva mopa i el teu aspirador</li>
 <li>Nosaltres aportem els productes i la resta d'estris</li>
 <li>Els draps i utensilis es diferencien segons la zona</li>
 <li>El preu del servei és el mateix</li>
 </ul>
 </div>
 <div class="cross-card ours" data-d="1">
-<span class="cross-tag">Si uses el nostre equip</span>
+<span class="cross-tag">Si fem servir el nostre equip</span>
 <h3>El nostre equip, a punt per a casa teva</h3>
 <p>Si ho prefereixes, portem també la mopa i l'aspirador, juntament amb els productes i la resta d'estris. Mantenim el nostre equip net i desinfectat perquè estigui a punt abans de cada servei.</p>
 <ul class="cross-list">
@@ -890,7 +916,7 @@ html{scroll-padding-top:4.5rem}
 <div class="cross-verdict process-payment-note"><svg fill="none" height="20" viewBox="0 0 24 24" width="20" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#B08D57" stroke-width="1.6"/><path d="M3 10h18" stroke="#B08D57" stroke-width="1.6"/></svg><p><b>Per què fem una retenció?</b> Ens permet comprovar que l'import està disponible sense cobrar-lo abans del servei. Si falla, ho tornem a intentar 24 hores després; si el segon intent també falla, la reserva es cancel·la automàticament.</p></div>
 </section>
 <!-- ============ COMPROBADOR DE MUNICIPIO ============ -->
-<section class="section town-section" id="municipio">
+<section class="section town-section" id="municipio" data-town-variant="3">
 <div class="section-head" style="text-align:center;align-items:center;margin-left:auto;margin-right:auto">
 <span class="eyebrow" style="justify-content:center">Comprovador de municipi</span><span class="rule"></span>
 <h2 class="section-title">Arribem <em>al teu poble</em>?</h2>
@@ -906,20 +932,26 @@ html{scroll-padding-top:4.5rem}
 </form>
 <div class="town-result" id="townResult" role="status" aria-live="polite"></div>
 <div>
-<p class="town-chips-label">Zona de cobertura actual</p>
+<p class="town-chips-label">Alguns dels principals municipis d'Osona</p>
 <div class="town-chips" id="townChips"></div>
+<p class="town-coverage-note">No hi veus el teu municipi? Escriu-lo al comprovador o <a href="https://wa.me/34616237123">contacta'ns</a> per consultar-ne la cobertura.</p>
 </div>
 </div>
 </section>
 <!-- ============ FAQS ============ -->
-<section class="section alt" id="garantia">
-<div class="section-head">
+<section class="section" id="garantia">
+<div class="guarantee-layout">
+<div class="guarantee-intro">
 <span class="eyebrow">Garantia de satisfacció</span><span class="rule"></span>
 <h2 class="section-title">Si alguna cosa no està bé, <em>ho arreglem</em>.</h2>
+<p class="lead">Volem que quedis tranquil amb el resultat.</p>
+<a class="btn btn-ivory" href="https://wa.me/34616237123">Contacta'ns per WhatsApp <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg></a>
 </div>
-<div class="guarantee-content">
-<p>Volem que quedis tranquil amb el resultat. Si després del servei hi ha alguna cosa de la neteja amb què no estàs satisfet, posa't en contacte amb nosaltres i explica'ns-ho.</p>
-<div class="guarantee-detail"><strong>Tens 48 hores per avisar-nos</strong><p>Des de la finalització del servei, disposes de 48 hores per contactar-nos. Organitzarem una visita per repassar allò que calgui, sense cap cost extra.</p><a class="btn btn-ghost" href="https://wa.me/34616237123">Contacta'ns per WhatsApp</a></div>
+<ol class="guarantee-clauses">
+<li><span class="number" aria-hidden="true">01</span><p>Si hi ha alguna cosa de la neteja amb què <b>no estàs satisfet</b>, explica'ns-ho.</p></li>
+<li><span class="number" aria-hidden="true">02</span><p>Tens <b>48 hores</b> per avisar-nos, des de la finalització del servei.</p></li>
+<li><span class="number" aria-hidden="true">03</span><p>Organitzem una visita per repassar allò que calgui, <b>sense cap cost extra</b>.</p></li>
+</ol>
 </div>
 </section>
 <section class="section" id="faqs">
@@ -998,7 +1030,7 @@ html{scroll-padding-top:4.5rem}
 <ul>
 <li><a href="/#neteja-estandard">Neteja estàndard</a></li>
 <li><a href="/#neteja-profunda">Neteja profunda</a></li>
-<li><a href="/#entrega-de-claus">Entrega de claus</a></li>
+<li><a href="/#entrega-de-claus">Neteja per a mudances</a></li>
 </ul>
 </div>
 <div class="footer-col">
@@ -1067,7 +1099,6 @@ document.querySelectorAll('.v5-menu a').forEach(a => a.addEventListener('click',
    FRECUENCIAS · CALENDARIO INTERACTIVO
    ============================================================ */
 const calendar = document.getElementById('calendar');
-const calTitle = document.getElementById('calTitle');
 const freqOptions = document.querySelectorAll('.freq-option');
 const DOW = ['Dl','Dt','Dc','Dj','Dv','Ds','Dg'];
 const now = new Date();
@@ -1075,6 +1106,7 @@ const anchorYear = now.getFullYear();
 const anchorMonth = now.getMonth();
 let viewMonth = new Date(anchorYear, anchorMonth, 1);
 let selectedFrequency = 'quincenal';
+let selectedStart = null;
 
 const FREQ_CONFIG = {
   semanal:   { step: 7,  dow: 1, nth: 0, title: 'El teu mes en pla setmanal' },
@@ -1088,21 +1120,31 @@ function renderCalendar(freq) {
   const cfg = FREQ_CONFIG[freq];
   const year = viewMonth.getFullYear();
   const month = viewMonth.getMonth();
-  calTitle.textContent = 'Exemple: ' + cfg.title.toLocaleLowerCase('ca');
   document.getElementById('calMonth').textContent = new Intl.DateTimeFormat('ca', { month: 'long', year: 'numeric' }).format(viewMonth);
   calendar.innerHTML = DOW.map(d => `<span class="dow">${d}</span>`).join('');
   const offset = (new Date(year, month, 1).getDay() + 6) % 7;
   const days = new Date(year, month + 1, 0).getDate();
   const firstDow = (new Date(anchorYear, anchorMonth, 1).getDay() + 6) % 7;
-  const anchor = Date.UTC(anchorYear, anchorMonth, 1 + ((cfg.dow - firstDow + 7) % 7) + cfg.nth * 7); // sempre dia laborable i mateix dia de la setmana
+  const anchor = selectedStart ?? Date.UTC(anchorYear, anchorMonth, 1 + ((cfg.dow - firstDow + 7) % 7) + cfg.nth * 7);
   for (let i = 0; i < offset; i++) calendar.insertAdjacentHTML('beforeend', '<span class="cal-day empty"></span>');
   for (let d = 1; d <= days; d++) {
     const difference = (Date.UTC(year, month, d) - anchor) / 86400000;
-    const marked = freq === 'puntual' ? difference === 0 : difference % cfg.step === 0;
+    const marked = freq === 'puntual' ? difference === 0 : difference >= 0 && difference % cfg.step === 0;
+    const isStart = selectedStart !== null && difference === 0;
+    const dateLabel = new Intl.DateTimeFormat('ca', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(Date.UTC(year, month, d)));
     calendar.insertAdjacentHTML('beforeend',
-      `<span class="cal-day${marked ? ' marked' : ''}">${d}<span class="dot"></span></span>`);
+      `<button type="button" class="cal-day${marked ? ' marked' : ''}${isStart ? ' start' : ''}" data-day="${d}" aria-label="${dateLabel}" aria-pressed="${isStart}">${d}<span class="dot" aria-hidden="true"></span></button>`);
   }
 }
+
+calendar.addEventListener('click', event => {
+  const day = event.target.closest('button[data-day]');
+  if (!day) return;
+  const date = Number(day.dataset.day);
+  selectedStart = Date.UTC(viewMonth.getFullYear(), viewMonth.getMonth(), date);
+  renderCalendar(selectedFrequency);
+  calendar.querySelector(`button[data-day="${date}"]`).focus();
+});
 
 freqOptions.forEach(b => b.setAttribute('aria-pressed', b.classList.contains('active')));
 freqOptions.forEach(btn => {

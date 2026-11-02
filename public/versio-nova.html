@@ -194,6 +194,9 @@ p.lead{font-weight:300;font-size:1rem;line-height:1.8;color:var(--ink-soft);max-
 #servicios[data-service-version="8"] .service-checks li{counter-increment:service-point;gap:.8rem}
 #servicios[data-service-version="8"] .service-checks li::before{content:counter(service-point,decimal-leading-zero);font-size:.66rem;font-weight:600;letter-spacing:.08em}
 #servicios[data-service-version="8"] .service .btn{width:100%;justify-content:space-between;padding:.8rem 0;border:0;border-bottom:1px solid var(--brass);color:var(--moss)}
+#servicios[data-service-version="9"] .service .btn{width:100%;min-height:48px;align-self:stretch;justify-content:space-between;padding:.8rem 1rem;border:1px solid var(--line);border-radius:3px;color:var(--moss)}
+#servicios[data-service-version="9"] .service .btn:hover{border-color:var(--line)}
+#servicios[data-service-version="9"] .service .btn::after{display:none}
 .service .svc-line{display:none}
 .service .btn{position:relative}
 .service .btn::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--brass);transform:scaleX(0);transform-origin:left;transition:transform .8s var(--ease)}
@@ -713,7 +716,7 @@ html{scroll-padding-top:4.5rem}
 <h2 class="section-title">La cura que necessita <em>casa teva</em>.</h2>
 <p class="lead">Tres serveis de neteja per a diferents moments i necessitats.</p>
 </div>
-<div class="service-version-controls" role="group" aria-label="Versió de les targetes de serveis"><span>Versió</span><button type="button" data-service-choice="1" aria-pressed="true">1</button><button type="button" data-service-choice="2" aria-pressed="false">2</button><button type="button" data-service-choice="5" aria-pressed="false">5</button><button type="button" data-service-choice="8" aria-pressed="false">8</button></div>
+<div class="service-version-controls" role="group" aria-label="Versió de les targetes de serveis"><span>Versió</span><button type="button" data-service-choice="1" aria-pressed="true">1</button><button type="button" data-service-choice="2" aria-pressed="false">2</button><button type="button" data-service-choice="5" aria-pressed="false">5</button><button type="button" data-service-choice="8" aria-pressed="false">8</button><button type="button" data-service-choice="9" aria-pressed="false">9</button></div>
 <div class="services-grid">
 <div class="service">
 

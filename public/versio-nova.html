@@ -802,7 +802,7 @@ html{scroll-padding-top:4.5rem}
 </div>
 <div class="freq-note">
 <svg fill="none" height="14" viewbox="0 0 24 24" width="14"><circle cx="12" cy="12" r="9" stroke="#B08D57" stroke-width="1.8"></circle><path d="M12 8v5m0 3h.01" stroke="#B08D57" stroke-linecap="round" stroke-width="1.8"></path></svg>
-<span id="freqNoteText">La primera visita es cobra al preu complet. A partir de la segona, s'aplica el 10% de descompte.</span>
+<span id="freqNoteText">El primer servei es cobra al preu complet. El descompte corresponent a la freqüència escollida s'aplica des del segon servei, inclòs.</span>
 </div>
 </div>
 <div class="calendar-wrap" data-d="1">
@@ -1072,7 +1072,6 @@ document.querySelectorAll('.v5-menu a').forEach(a => a.addEventListener('click',
    ============================================================ */
 const calendar = document.getElementById('calendar');
 const calTitle = document.getElementById('calTitle');
-const freqNoteText = document.getElementById('freqNoteText');
 const freqOptions = document.querySelectorAll('.freq-option');
 const DOW = ['Dl','Dt','Dc','Dj','Dv','Ds','Dg'];
 const now = new Date();
@@ -1082,16 +1081,11 @@ let viewMonth = new Date(anchorYear, anchorMonth, 1);
 let selectedFrequency = 'quincenal';
 
 const FREQ_CONFIG = {
-  semanal:   { step: 7,  dow: 1, nth: 0,  title: 'El teu mes en pla setmanal',
-               note: 'La primera visita es cobra al preu complet. A partir de la segona, s’aplica el <b>10% de descompte</b>.' },
-  quincenal: { step: 14, dow: 1, nth: 0,  title: 'El teu mes en pla quinzenal',
-               note: 'La primera visita es cobra al preu complet. A partir de la segona, s’aplica el <b>10% de descompte</b>.' },
-  tres_setmanes: { step: 21, dow: 1, nth: 0, title: 'El teu pla cada tres setmanes',
-               note: 'La primera visita es cobra al preu complet. A partir de la segona, s’aplica el <b>5% de descompte</b>.' },
-  mensual:   { step: 28, dow: 1, nth: 1, title: 'El teu mes en pla mensual',
-               note: 'La primera visita es cobra al preu complet. A partir de la segona, s’aplica el <b>5% de descompte</b>.' },
-  puntual:   { step: 99, dow: 3, nth: 2, title: 'El teu mes amb visita puntual',
-               note: 'Reserva una visita puntual quan la necessitis, al preu del servei i sense descompte per freqüència.' }
+  semanal:   { step: 7,  dow: 1, nth: 0, title: 'El teu mes en pla setmanal' },
+  quincenal: { step: 14, dow: 1, nth: 0, title: 'El teu mes en pla quinzenal' },
+  tres_setmanes: { step: 21, dow: 1, nth: 0, title: 'El teu pla cada tres setmanes' },
+  mensual:   { step: 28, dow: 1, nth: 1, title: 'El teu mes en pla mensual' },
+  puntual:   { step: 99, dow: 3, nth: 2, title: 'El teu mes amb visita puntual' }
 };
 
 function renderCalendar(freq) {
@@ -1100,7 +1094,6 @@ function renderCalendar(freq) {
   const month = viewMonth.getMonth();
   calTitle.textContent = 'Exemple: ' + cfg.title.toLocaleLowerCase('ca');
   document.getElementById('calMonth').textContent = new Intl.DateTimeFormat('ca', { month: 'long', year: 'numeric' }).format(viewMonth);
-  freqNoteText.innerHTML = cfg.note;
   calendar.innerHTML = DOW.map(d => `<span class="dow">${d}</span>`).join('');
   const offset = (new Date(year, month, 1).getDay() + 6) % 7;
   const days = new Date(year, month + 1, 0).getDate();

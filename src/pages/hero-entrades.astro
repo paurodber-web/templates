@@ -35,6 +35,16 @@ const choices = [
   ['clariana', 'Clariana'],
   ['portal', 'Portal'],
   ['primera', 'Primera llum'],
+  ['brisa', 'Brisa'],
+  ['acollida', 'Acollida'],
+  ['marge', 'Marge'],
+  ['casa', 'Casa'],
+  ['ordre', 'Ordre'],
+  ['calma', 'Calma'],
+  ['llumeta', 'Llumeta'],
+  ['ritual', 'Ritual'],
+  ['clos', 'Clos'],
+  ['obrir', 'Obrir'],
 ];
 ---
 <!doctype html>
@@ -74,9 +84,9 @@ const choices = [
       </section>
     </main>
     <details class="chooser">
-      <summary class="chooser-toggle"><span>Explora els dissenys</span><span class="chooser-current">01 / 30</span><span class="chooser-icon" aria-hidden="true">+</span></summary>
+      <summary class="chooser-toggle"><span>Explora els dissenys</span><span class="chooser-current">01 / 40</span><span class="chooser-icon" aria-hidden="true">+</span></summary>
       <div class="chooser-content">
-      <div class="chooser-heading"><span>Propostes d'entrada</span><span>01 — 30</span></div>
+      <div class="chooser-heading"><span>Propostes d'entrada</span><span>01 — 40</span></div>
       <div class="chooser-buttons" role="group" aria-label="Escull una entrada">
         {choices.map(([id, label], index) => (
           <button type="button" data-choice={id} aria-pressed={index === 0 ? 'true' : 'false'}><span>{String(index + 1).padStart(2, '0')}</span>{label}</button>
@@ -258,6 +268,48 @@ const choices = [
   .hero[data-layout='primera'] .hero-first, .hero[data-layout='primera'] .hero-last { left: 0; right: 0; width: max-content; max-width: 100%; margin-inline: auto; }
   .hero[data-layout='primera'] .hero-first { top: 16%; }
   .hero[data-layout='primera'] .hero-last { top: calc(16% + clamp(3.3rem, 8.5vw, 8rem)); bottom: auto; color: #deb59b; }
+  .hero:is([data-layout='brisa'],[data-layout='acollida'],[data-layout='marge'],[data-layout='casa'],[data-layout='ordre'],[data-layout='calma'],[data-layout='llumeta'],[data-layout='ritual'],[data-layout='clos'],[data-layout='obrir']) .hero-word { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(3.3rem, 8.5vw, 8rem); line-height: .98; letter-spacing: -.055em; }
+  .hero[data-layout='brisa'] .hero-photo { inset: 0 0 0 40%; }
+  .hero[data-layout='brisa'] .hero-shade { background: linear-gradient(90deg, #1b2336 15%, rgba(27,35,54,.7) 52%, rgba(27,35,54,.2)); }
+  .hero[data-layout='brisa'] .hero-first { top: 27%; left: 5%; }
+  .hero[data-layout='brisa'] .hero-last { top: calc(27% + clamp(3.3rem, 8.5vw, 8rem)); left: 5%; right: auto; bottom: auto; color: #deb59b; }
+  .hero[data-layout='acollida'] .hero-photo { inset: 23% 6% 24%; }
+  .hero[data-layout='acollida'] .hero-shade { background: linear-gradient(180deg, #1b2336 6%, rgba(27,35,54,.1) 45%, #1b2336 100%); }
+  .hero[data-layout='acollida'] .hero-first, .hero[data-layout='acollida'] .hero-last { left: 0; right: 0; width: max-content; max-width: 100%; margin-inline: auto; }
+  .hero[data-layout='acollida'] .hero-first { top: 28%; }
+  .hero[data-layout='acollida'] .hero-last { top: calc(28% + clamp(3.3rem, 8.5vw, 8rem)); bottom: auto; }
+  .hero[data-layout='marge'] .hero-photo { inset: 14% 5% 18% 45%; }
+  .hero[data-layout='marge'] .hero-shade { background: linear-gradient(90deg, #1b2336 24%, rgba(27,35,54,.55) 60%, rgba(27,35,54,.1)); }
+  .hero[data-layout='marge'] .hero-first { top: 20%; left: 5%; }
+  .hero[data-layout='marge'] .hero-last { left: 5%; right: auto; bottom: 30%; color: #deb59b; }
+  .hero[data-layout='casa'] .hero-photo { inset: 17% 21% 23%; }
+  .hero[data-layout='casa'] .hero-shade { background: linear-gradient(180deg, #1b2336 2%, rgba(27,35,54,.15) 40%, #1b2336 100%); }
+  .hero[data-layout='casa'] .hero-first { top: 25%; left: 5%; }
+  .hero[data-layout='casa'] .hero-last { right: 5%; bottom: 27%; }
+  .hero[data-layout='ordre'] .hero-photo { inset: 34% 4% 15%; }
+  .hero[data-layout='ordre'] .hero-shade { background: linear-gradient(180deg, #1b2336 8%, rgba(27,35,54,.2) 50%, #1b2336 100%); }
+  .hero[data-layout='ordre'] .hero-first { top: 16%; left: 4%; }
+  .hero[data-layout='ordre'] .hero-last { top: 16%; right: 4%; bottom: auto; color: #deb59b; }
+  .hero[data-layout='calma'] .hero-shade { background: linear-gradient(90deg, rgba(27,35,54,.88), rgba(27,35,54,.3)), linear-gradient(0deg, #1b2336, transparent 50%); }
+  .hero[data-layout='calma'] .hero-first { top: 24%; left: 5%; }
+  .hero[data-layout='calma'] .hero-last { top: calc(24% + clamp(3.3rem, 8.5vw, 8rem)); left: 5%; right: auto; bottom: auto; }
+  .hero[data-layout='calma'] .hero-bottom { right: auto; flex-direction: column; align-items: flex-start; }
+  .hero[data-layout='llumeta'] .hero-photo { inset: 28% 5% 20% 55%; }
+  .hero[data-layout='llumeta'] .hero-shade { background: linear-gradient(90deg, #1b2336 30%, rgba(27,35,54,.35) 75%, #1b2336); }
+  .hero[data-layout='llumeta'] .hero-first { top: 18%; left: 5%; }
+  .hero[data-layout='llumeta'] .hero-last { top: calc(18% + clamp(3.3rem, 8.5vw, 8rem)); left: 5%; right: auto; bottom: auto; color: #deb59b; }
+  .hero[data-layout='ritual'] .hero-photo { inset: 12% 17% 19%; }
+  .hero[data-layout='ritual'] .hero-shade { background: radial-gradient(ellipse at center, rgba(27,35,54,.18), #1b2336 80%); }
+  .hero[data-layout='ritual'] .hero-first, .hero[data-layout='ritual'] .hero-last { left: 0; right: 0; width: max-content; max-width: 100%; margin-inline: auto; }
+  .hero[data-layout='ritual'] .hero-first { top: 31%; }
+  .hero[data-layout='ritual'] .hero-last { top: calc(31% + clamp(3.3rem, 8.5vw, 8rem)); bottom: auto; }
+  .hero[data-layout='clos'] .hero-shade { background: linear-gradient(270deg, rgba(27,35,54,.82), rgba(27,35,54,.15) 75%), linear-gradient(0deg, #1b2336, transparent 50%); }
+  .hero[data-layout='clos'] .hero-first { top: 25%; left: auto; right: 5%; }
+  .hero[data-layout='clos'] .hero-last { top: calc(25% + clamp(3.3rem, 8.5vw, 8rem)); right: 5%; bottom: auto; color: #deb59b; }
+  .hero[data-layout='obrir'] .hero-photo { inset: 20% 4% 24%; }
+  .hero[data-layout='obrir'] .hero-shade { background: linear-gradient(180deg, #1b2336, rgba(27,35,54,.18) 44%, #1b2336); }
+  .hero[data-layout='obrir'] .hero-first { top: 19%; left: 4%; }
+  .hero[data-layout='obrir'] .hero-last { right: 4%; bottom: 28%; }
   .chooser { position: fixed; z-index: 10; right: 24px; top: 90px; width: min(300px, calc(100vw - 32px)); background: #f7f1df; color: #1b2336; box-shadow: 0 10px 35px rgba(0,0,0,.16); }
   .chooser-toggle { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 14px 16px; font-size: 12px; cursor: pointer; list-style: none; }
   .chooser-toggle::-webkit-details-marker { display: none; }
@@ -340,6 +392,16 @@ const choices = [
     .hero:is([data-layout='portic'],[data-layout='serena'],[data-layout='portal']) .hero-photo { inset: 18% 4% 27% 28%; }
     .hero:is([data-layout='tessit'],[data-layout='cadencia']) .hero-photo { inset: 18% 24% 27% 4%; }
     .hero:is([data-layout='aigua'],[data-layout='interiors'],[data-layout='clariana']) .hero-photo { inset: 23% 5% 27%; }
+    .hero:is([data-layout='brisa'],[data-layout='marge'],[data-layout='calma'],[data-layout='llumeta']) .hero-first { top: 27%; left: 5%; }
+    .hero:is([data-layout='brisa'],[data-layout='marge'],[data-layout='calma'],[data-layout='llumeta']) .hero-last { top: calc(27% + clamp(3.3rem, 8.5vw, 8rem)); left: 5%; right: auto; bottom: auto; }
+    .hero:is([data-layout='acollida'],[data-layout='ritual']) .hero-first { top: 27%; }
+    .hero:is([data-layout='acollida'],[data-layout='ritual']) .hero-last { top: calc(27% + clamp(3.3rem, 8.5vw, 8rem)); }
+    .hero[data-layout='clos'] .hero-first { top: 27%; right: 5%; }
+    .hero[data-layout='clos'] .hero-last { top: calc(27% + clamp(3.3rem, 8.5vw, 8rem)); right: 5%; }
+    .hero:is([data-layout='casa'],[data-layout='ordre'],[data-layout='obrir']) .hero-first { top: 24%; left: 5%; }
+    .hero:is([data-layout='casa'],[data-layout='ordre'],[data-layout='obrir']) .hero-last { top: 39%; right: 5%; bottom: auto; }
+    .hero:is([data-layout='brisa'],[data-layout='marge'],[data-layout='llumeta']) .hero-photo { inset: 20% 5% 27% 26%; }
+    .hero:is([data-layout='casa'],[data-layout='acollida'],[data-layout='ritual'],[data-layout='obrir']) .hero-photo { inset: 23% 5% 27%; }
     .hero[data-layout='alba'] .hero-photo { inset: 0 0 0 20%; }
     .hero[data-layout='alba'] .hero-first { top: 30%; left: 5%; }
     .hero[data-layout='alba'] .hero-last { top: calc(30% + clamp(3.5rem, 9vw, 8.5rem)); left: 5%; }
@@ -517,6 +579,16 @@ const choices = [
         clariana: { photo: [{ opacity: 0, clipPath: 'inset(0 0 0 100%)' }, { opacity: 1, clipPath: 'inset(0 0 0 0%)' }], first: [{ opacity: 0, transform: 'translateY(-35px)' }, { opacity: 1, transform: 'translateY(0)' }], last: [{ opacity: 0, transform: 'translateY(35px)' }, { opacity: 1, transform: 'translateY(0)' }], delay: 700 },
         portal: { photo: [{ opacity: 0, clipPath: 'inset(50% 50% 50% 50% round 16px)' }, { opacity: 1, clipPath: 'inset(0% 0% 0% 0% round 0px)' }], first: [{ opacity: 0, transform: 'translateX(-40px)' }, { opacity: 1, transform: 'translateX(0)' }], last: [{ opacity: 0, transform: 'translateY(40px)' }, { opacity: 1, transform: 'translateY(0)' }], delay: 450 },
         primera: { photo: [{ opacity: 0, clipPath: 'inset(100% 0 0 0)' }, { opacity: 1, clipPath: 'inset(0% 0 0 0)' }], first: [{ opacity: 0, transform: 'translateY(25px)' }, { opacity: 1, transform: 'translateY(0)' }], last: [{ opacity: 0, transform: 'translateY(25px)' }, { opacity: 1, transform: 'translateY(0)' }], delay: 950 },
+        brisa: { photo: [{ opacity: 0, clipPath: 'polygon(22% 0,100% 0,100% 100%,0 100%)', transform: 'translateX(35px)' }, { opacity: 1, clipPath: 'polygon(0 0,100% 0,100% 100%,0 100%)', transform: 'translateX(0)' }], first: [{ opacity: 0, transform: 'translateX(-40px)' }, { opacity: 1, transform: 'translateX(0)' }], last: [{ opacity: 0, transform: 'translateX(-65px)' }, { opacity: 1, transform: 'translateX(0)' }], delay: 400 },
+        acollida: { photo: [{ opacity: 0, clipPath: 'inset(22% 28% 22% 28% round 28px)' }, { opacity: 1, clipPath: 'inset(0% 0% 0% 0% round 0px)' }], first: [{ opacity: 0, transform: 'translateY(45px)' }, { opacity: 1, transform: 'translateY(0)' }], last: [{ opacity: 0, transform: 'translateY(45px)' }, { opacity: 1, transform: 'translateY(0)' }], delay: 250 },
+        marge: { photo: [{ opacity: 0, clipPath: 'inset(0 0 0 100%)' }, { opacity: 1, clipPath: 'inset(0 0 0 0%)' }], first: [{ opacity: 0, clipPath: 'inset(0 100% 0 0)' }, { opacity: 1, clipPath: 'inset(0 0% 0 0)' }], last: [{ opacity: 0, transform: 'translateY(36px)' }, { opacity: 1, transform: 'translateY(0)' }], delay: 550 },
+        casa: { photo: [{ opacity: 0, clipPath: 'inset(50% 0 50% 0 round 12px)' }, { opacity: 1, clipPath: 'inset(0% 0 0% 0 round 0px)' }], first: [{ opacity: 0, transform: 'translateX(-35px)' }, { opacity: 1, transform: 'translateX(0)' }], last: [{ opacity: 0, transform: 'translateX(35px)' }, { opacity: 1, transform: 'translateX(0)' }], delay: 550 },
+        ordre: { photo: [{ opacity: 0, clipPath: 'inset(100% 0 0 0)' }, { opacity: 1, clipPath: 'inset(0% 0 0 0)' }], first: [{ opacity: 0, transform: 'translateX(45px)' }, { opacity: 1, transform: 'translateX(0)' }], last: [{ opacity: 0, transform: 'translateX(-45px)' }, { opacity: 1, transform: 'translateX(0)' }], delay: 1000 },
+        calma: { photo: [{ opacity: 0, transform: 'scale(1.06)' }, { opacity: 1, transform: 'scale(1)' }], first: [{ opacity: 0, transform: 'translateY(25px)' }, { opacity: 1, transform: 'translateY(0)' }], last: [{ opacity: 0, transform: 'translateY(25px)' }, { opacity: 1, transform: 'translateY(0)' }], delay: 350 },
+        llumeta: { photo: [{ opacity: 0, clipPath: 'inset(0 0 100% 0 round 14px)' }, { opacity: 1, clipPath: 'inset(0 0 0% 0 round 0px)' }], first: [{ opacity: 0, clipPath: 'inset(0 0 100% 0)' }, { opacity: 1, clipPath: 'inset(0 0 0% 0)' }], last: [{ opacity: 0, clipPath: 'inset(0 0 100% 0)' }, { opacity: 1, clipPath: 'inset(0 0 0% 0)' }], delay: 900 },
+        ritual: { photo: [{ opacity: 0, clipPath: 'circle(8% at 50% 50%)' }, { opacity: 1, clipPath: 'circle(75% at 50% 50%)' }], first: [{ opacity: 0, transform: 'scale(.96) translateY(25px)' }, { opacity: 1, transform: 'scale(1) translateY(0)' }], last: [{ opacity: 0, transform: 'scale(.96) translateY(-25px)' }, { opacity: 1, transform: 'scale(1) translateY(0)' }], delay: 400 },
+        clos: { photo: [{ opacity: 0, clipPath: 'inset(0 0 0 100%)' }, { opacity: 1, clipPath: 'inset(0 0 0 0%)' }], first: [{ opacity: 0, transform: 'translateX(50px)' }, { opacity: 1, transform: 'translateX(0)' }], last: [{ opacity: 0, transform: 'translateX(20px)' }, { opacity: 1, transform: 'translateX(0)' }], delay: 400 },
+        obrir: { photo: [{ opacity: 0, clipPath: 'inset(0 50% 0 50% round 18px)' }, { opacity: 1, clipPath: 'inset(0 0% 0 0% round 0px)' }], first: [{ opacity: 0, transform: 'translateY(-35px)' }, { opacity: 1, transform: 'translateY(0)' }], last: [{ opacity: 0, transform: 'translateY(35px)' }, { opacity: 1, transform: 'translateY(0)' }], delay: 650 },
       };
       const scene = arrivals[id];
       if (!scene) return;

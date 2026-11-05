@@ -25,6 +25,16 @@ const choices = [
   ['ritme', 'Ritme'],
   ['traca', 'Traça'],
   ['sempre', 'Sempre'],
+  ['portic', 'Pòrtic'],
+  ['aigua', 'Aigua'],
+  ['tessit', 'Teixit'],
+  ['aire', 'Aire'],
+  ['cadencia', 'Cadència'],
+  ['serena', 'Serena'],
+  ['interiors', 'Interiors'],
+  ['clariana', 'Clariana'],
+  ['portal', 'Portal'],
+  ['primera', 'Primera llum'],
 ];
 ---
 <!doctype html>
@@ -64,9 +74,9 @@ const choices = [
       </section>
     </main>
     <details class="chooser">
-      <summary class="chooser-toggle"><span>Explora els dissenys</span><span class="chooser-current">01 / 20</span><span class="chooser-icon" aria-hidden="true">+</span></summary>
+      <summary class="chooser-toggle"><span>Explora els dissenys</span><span class="chooser-current">01 / 30</span><span class="chooser-icon" aria-hidden="true">+</span></summary>
       <div class="chooser-content">
-      <div class="chooser-heading"><span>Propostes d'entrada</span><span>01 — 20</span></div>
+      <div class="chooser-heading"><span>Propostes d'entrada</span><span>01 — 30</span></div>
       <div class="chooser-buttons" role="group" aria-label="Escull una entrada">
         {choices.map(([id, label], index) => (
           <button type="button" data-choice={id} aria-pressed={index === 0 ? 'true' : 'false'}><span>{String(index + 1).padStart(2, '0')}</span>{label}</button>
@@ -204,6 +214,50 @@ const choices = [
   .hero[data-layout='sempre'] .hero-shade { background: linear-gradient(90deg, rgba(27,35,54,.8), rgba(27,35,54,.25) 70%), linear-gradient(0deg, rgba(27,35,54,.78), transparent 45%); }
   .hero[data-layout='sempre'] .hero-first { top: 25%; left: auto; right: 4%; }
   .hero[data-layout='sempre'] .hero-last { left: 4%; right: auto; bottom: 27%; }
+  .hero:is([data-layout='portic'],[data-layout='aigua'],[data-layout='tessit'],[data-layout='aire'],[data-layout='cadencia'],[data-layout='serena'],[data-layout='interiors'],[data-layout='clariana'],[data-layout='portal'],[data-layout='primera']) .hero-word { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(3.3rem, 8.5vw, 8rem); line-height: .98; letter-spacing: -.055em; }
+  .hero[data-layout='portic'] .hero-photo { inset: 12% 7% 17% 39%; }
+  .hero[data-layout='portic'] .hero-shade { background: linear-gradient(90deg, #1b2336 16%, rgba(27,35,54,.62) 48%, rgba(27,35,54,.2)); }
+  .hero[data-layout='portic'] .hero-first { top: 29%; left: 4%; }
+  .hero[data-layout='portic'] .hero-last { top: calc(29% + clamp(3.3rem, 8.5vw, 8rem)); left: 4%; right: auto; bottom: auto; color: #deb59b; }
+  .hero[data-layout='aigua'] .hero-photo { inset: 16% 4% 18%; }
+  .hero[data-layout='aigua'] .hero-shade { background: linear-gradient(180deg, #1b2336, rgba(27,35,54,.24) 40%, #1b2336); }
+  .hero[data-layout='aigua'] .hero-first, .hero[data-layout='aigua'] .hero-last { left: 0; right: 0; width: max-content; max-width: 100%; margin-inline: auto; }
+  .hero[data-layout='aigua'] .hero-first { top: 27%; }
+  .hero[data-layout='aigua'] .hero-last { top: calc(27% + clamp(3.3rem, 8.5vw, 8rem)); bottom: auto; }
+  .hero[data-layout='tessit'] .hero-photo { inset: 0 42% 0 0; }
+  .hero[data-layout='tessit'] .hero-shade { background: linear-gradient(90deg, rgba(27,35,54,.25), #1b2336 60%); }
+  .hero[data-layout='tessit'] .hero-first { top: 25%; left: auto; right: 4%; }
+  .hero[data-layout='tessit'] .hero-last { right: 4%; bottom: 27%; color: #deb59b; }
+  .hero[data-layout='aire'] .hero-photo { inset: 30% 0 0; }
+  .hero[data-layout='aire'] .hero-shade { background: linear-gradient(180deg, #1b2336 10%, transparent 50%, #1b2336 100%); }
+  .hero[data-layout='aire'] .hero-first { top: 15%; left: 4%; }
+  .hero[data-layout='aire'] .hero-last { top: 29%; right: 4%; bottom: auto; }
+  .hero[data-layout='cadencia'] .hero-photo { inset: 12% 30% 18% 5%; }
+  .hero[data-layout='cadencia'] .hero-shade { background: linear-gradient(90deg, rgba(27,35,54,.22), rgba(27,35,54,.35) 55%, #1b2336 90%); }
+  .hero[data-layout='cadencia'] .hero-first { top: 22%; left: auto; right: 5%; }
+  .hero[data-layout='cadencia'] .hero-last { top: calc(22% + clamp(3.3rem, 8.5vw, 8rem)); right: 5%; bottom: auto; color: #deb59b; }
+  .hero[data-layout='serena'] .hero-photo { inset: 0 0 0 46%; }
+  .hero[data-layout='serena'] .hero-shade { background: linear-gradient(90deg, #1b2336 20%, rgba(27,35,54,.65) 58%, rgba(27,35,54,.25)); }
+  .hero[data-layout='serena'] .hero-first { top: 24%; left: 5%; }
+  .hero[data-layout='serena'] .hero-last { top: calc(24% + clamp(3.3rem, 8.5vw, 8rem)); left: 5%; right: auto; bottom: auto; }
+  .hero[data-layout='serena'] .hero-bottom { right: auto; flex-direction: column; align-items: flex-start; }
+  .hero[data-layout='interiors'] .hero-photo { inset: 11% 24% 20%; }
+  .hero[data-layout='interiors'] .hero-shade { background: linear-gradient(180deg, rgba(27,35,54,.15), rgba(27,35,54,.35) 50%, #1b2336); }
+  .hero[data-layout='interiors'] .hero-first { top: 24%; left: 4%; }
+  .hero[data-layout='interiors'] .hero-last { right: 4%; bottom: 29%; color: #deb59b; }
+  .hero[data-layout='clariana'] .hero-photo { inset: 20% 4% 24%; }
+  .hero[data-layout='clariana'] .hero-shade { background: linear-gradient(90deg, rgba(27,35,54,.65), rgba(27,35,54,.2) 55%, rgba(27,35,54,.6)); }
+  .hero[data-layout='clariana'] .hero-first { top: 29%; left: auto; right: 7%; }
+  .hero[data-layout='clariana'] .hero-last { top: calc(29% + clamp(3.3rem, 8.5vw, 8rem)); right: 7%; bottom: auto; }
+  .hero[data-layout='portal'] .hero-photo { inset: 15% 5% 21% 50%; }
+  .hero[data-layout='portal'] .hero-shade { background: linear-gradient(90deg, #1b2336 25%, rgba(27,35,54,.55) 62%, rgba(27,35,54,.1)); }
+  .hero[data-layout='portal'] .hero-first { top: 19%; left: 5%; }
+  .hero[data-layout='portal'] .hero-last { left: 5%; right: auto; bottom: 30%; color: #deb59b; }
+  .hero[data-layout='primera'] .hero-photo { inset: 34% 0 0; }
+  .hero[data-layout='primera'] .hero-shade { background: linear-gradient(180deg, #1b2336 22%, rgba(27,35,54,.1) 55%, #1b2336); }
+  .hero[data-layout='primera'] .hero-first, .hero[data-layout='primera'] .hero-last { left: 0; right: 0; width: max-content; max-width: 100%; margin-inline: auto; }
+  .hero[data-layout='primera'] .hero-first { top: 16%; }
+  .hero[data-layout='primera'] .hero-last { top: calc(16% + clamp(3.3rem, 8.5vw, 8rem)); bottom: auto; color: #deb59b; }
   .chooser { position: fixed; z-index: 10; right: 24px; top: 90px; width: min(300px, calc(100vw - 32px)); background: #f7f1df; color: #1b2336; box-shadow: 0 10px 35px rgba(0,0,0,.16); }
   .chooser-toggle { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 14px 16px; font-size: 12px; cursor: pointer; list-style: none; }
   .chooser-toggle::-webkit-details-marker { display: none; }
@@ -275,6 +329,17 @@ const choices = [
     .hero[data-layout='espai'] .hero-photo { inset: 28% 0 27%; }
     .hero[data-layout='espai'] .hero-first { top: 24%; left: 5%; }
     .hero[data-layout='espai'] .hero-last { right: 5%; bottom: 25%; }
+    .hero:is([data-layout='portic'],[data-layout='serena'],[data-layout='portal']) .hero-first { top: 28%; left: 5%; }
+    .hero:is([data-layout='portic'],[data-layout='serena'],[data-layout='portal']) .hero-last { top: calc(28% + clamp(3.3rem, 8.5vw, 8rem)); left: 5%; right: auto; bottom: auto; }
+    .hero:is([data-layout='aigua'],[data-layout='primera']) .hero-first { top: 25%; }
+    .hero:is([data-layout='aigua'],[data-layout='primera']) .hero-last { top: calc(25% + clamp(3.3rem, 8.5vw, 8rem)); }
+    .hero:is([data-layout='tessit'],[data-layout='cadencia'],[data-layout='clariana']) .hero-first { top: 28%; right: 5%; }
+    .hero:is([data-layout='tessit'],[data-layout='cadencia'],[data-layout='clariana']) .hero-last { top: calc(28% + clamp(3.3rem, 8.5vw, 8rem)); right: 5%; bottom: auto; }
+    .hero:is([data-layout='aire'],[data-layout='interiors']) .hero-first { top: 24%; left: 5%; }
+    .hero:is([data-layout='aire'],[data-layout='interiors']) .hero-last { top: 39%; right: 5%; bottom: auto; }
+    .hero:is([data-layout='portic'],[data-layout='serena'],[data-layout='portal']) .hero-photo { inset: 18% 4% 27% 28%; }
+    .hero:is([data-layout='tessit'],[data-layout='cadencia']) .hero-photo { inset: 18% 24% 27% 4%; }
+    .hero:is([data-layout='aigua'],[data-layout='interiors'],[data-layout='clariana']) .hero-photo { inset: 23% 5% 27%; }
     .hero[data-layout='alba'] .hero-photo { inset: 0 0 0 20%; }
     .hero[data-layout='alba'] .hero-first { top: 30%; left: 5%; }
     .hero[data-layout='alba'] .hero-last { top: calc(30% + clamp(3.5rem, 9vw, 8.5rem)); left: 5%; }
@@ -440,13 +505,32 @@ const choices = [
       word(first, [{ opacity: 0, transform: 'translateX(55px)' }, { opacity: 1, transform: 'translateX(0)' }], 1400, 900);
       word(last, [{ opacity: 0, transform: 'translateX(-55px)' }, { opacity: 1, transform: 'translateX(0)' }], 1400, 1150);
       dim(800); ui(2200);
+    } else {
+      const arrivals: Record<string, { photo: Keyframe[]; first: Keyframe[]; last: Keyframe[]; delay: number }> = {
+        portic: { photo: [{ opacity: 0, clipPath: 'inset(0 100% 0 0 round 18px)' }, { opacity: 1, clipPath: 'inset(0 0% 0 0 round 0px)' }], first: [{ opacity: 0, transform: 'translateX(-42px)' }, { opacity: 1, transform: 'translateX(0)' }], last: [{ opacity: 0, transform: 'translateX(-70px)' }, { opacity: 1, transform: 'translateX(0)' }], delay: 300 },
+        aigua: { photo: [{ opacity: 0, clipPath: 'inset(50% 0 50% 0 round 28px)' }, { opacity: 1, clipPath: 'inset(0% 0 0% 0 round 0px)' }], first: [{ opacity: 0, transform: 'translateY(38px)' }, { opacity: 1, transform: 'translateY(0)' }], last: [{ opacity: 0, transform: 'translateY(-38px)' }, { opacity: 1, transform: 'translateY(0)' }], delay: 500 },
+        tessit: { photo: [{ opacity: 0, clipPath: 'inset(0 0 0 100%)' }, { opacity: 1, clipPath: 'inset(0 0 0 0%)' }], first: [{ opacity: 0, transform: 'translateX(55px)' }, { opacity: 1, transform: 'translateX(0)' }], last: [{ opacity: 0, transform: 'translateX(25px)' }, { opacity: 1, transform: 'translateX(0)' }], delay: 450 },
+        aire: { photo: [{ opacity: 0, clipPath: 'inset(100% 0 0 0)' }, { opacity: 1, clipPath: 'inset(0% 0 0 0)' }], first: [{ opacity: 0, transform: 'translateY(-40px)' }, { opacity: 1, transform: 'translateY(0)' }], last: [{ opacity: 0, transform: 'translateY(-20px)' }, { opacity: 1, transform: 'translateY(0)' }], delay: 800 },
+        cadencia: { photo: [{ opacity: 0, transform: 'scale(1.07)' }, { opacity: 1, transform: 'scale(1)' }], first: [{ opacity: 0, clipPath: 'inset(0 0 100% 0)' }, { opacity: 1, clipPath: 'inset(0 0 0% 0)' }], last: [{ opacity: 0, clipPath: 'inset(0 0 100% 0)' }, { opacity: 1, clipPath: 'inset(0 0 0% 0)' }], delay: 250 },
+        serena: { photo: [{ opacity: 0, clipPath: 'inset(0 0 100% 0 round 20px)' }, { opacity: 1, clipPath: 'inset(0 0 0% 0 round 0px)' }], first: [{ opacity: 0, transform: 'translateY(55px)' }, { opacity: 1, transform: 'translateY(0)' }], last: [{ opacity: 0, transform: 'translateY(55px)' }, { opacity: 1, transform: 'translateY(0)' }], delay: 950 },
+        interiors: { photo: [{ opacity: 0, clipPath: 'inset(18% 18% 18% 18% round 28px)' }, { opacity: 1, clipPath: 'inset(0% 0% 0% 0% round 0px)' }], first: [{ opacity: 0, transform: 'translateX(-45px)' }, { opacity: 1, transform: 'translateX(0)' }], last: [{ opacity: 0, transform: 'translateX(45px)' }, { opacity: 1, transform: 'translateX(0)' }], delay: 300 },
+        clariana: { photo: [{ opacity: 0, clipPath: 'inset(0 0 0 100%)' }, { opacity: 1, clipPath: 'inset(0 0 0 0%)' }], first: [{ opacity: 0, transform: 'translateY(-35px)' }, { opacity: 1, transform: 'translateY(0)' }], last: [{ opacity: 0, transform: 'translateY(35px)' }, { opacity: 1, transform: 'translateY(0)' }], delay: 700 },
+        portal: { photo: [{ opacity: 0, clipPath: 'inset(50% 50% 50% 50% round 16px)' }, { opacity: 1, clipPath: 'inset(0% 0% 0% 0% round 0px)' }], first: [{ opacity: 0, transform: 'translateX(-40px)' }, { opacity: 1, transform: 'translateX(0)' }], last: [{ opacity: 0, transform: 'translateY(40px)' }, { opacity: 1, transform: 'translateY(0)' }], delay: 450 },
+        primera: { photo: [{ opacity: 0, clipPath: 'inset(100% 0 0 0)' }, { opacity: 1, clipPath: 'inset(0% 0 0 0)' }], first: [{ opacity: 0, transform: 'translateY(25px)' }, { opacity: 1, transform: 'translateY(0)' }], last: [{ opacity: 0, transform: 'translateY(25px)' }, { opacity: 1, transform: 'translateY(0)' }], delay: 950 },
+      };
+      const scene = arrivals[id];
+      if (!scene) return;
+      image(scene.photo, 2200, scene.delay);
+      word(first, scene.first, 1350, 650);
+      word(last, scene.last, 1350, 900);
+      dim(1000); ui(2200);
     }
   }
 
   buttons.forEach(button => button.addEventListener('click', () => {
     buttons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
     note.textContent = button.textContent?.replace(/^\s*\d+/, '').trim() || '';
-    current.textContent = `${String(Array.from(buttons).indexOf(button) + 1).padStart(2, '0')} / 20`;
+    current.textContent = `${String(Array.from(buttons).indexOf(button) + 1).padStart(2, '0')} / ${buttons.length}`;
     chooser.open = false;
     play(button.dataset.choice || 'llum');
   }));

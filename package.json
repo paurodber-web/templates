@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "build:html": "astro build && node scripts/build-standalone.mjs",
     "preview": "astro preview --host 0.0.0.0"
   },
   "keywords": [],
@@ -21,5 +22,9 @@
     "preact": "^11.1.1",
     "tailwind-merge": "^3.7.0",
     "tailwindcss": "^4.3.4"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.10.6",
+    "vite": "^8.3.6"
   }
 }

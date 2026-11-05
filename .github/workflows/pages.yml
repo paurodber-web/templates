@@ -26,6 +26,7 @@ jobs:
       - run: npm run build
         env:
           ASTRO_BASE_PATH: /templates
+      - run: cp index.html dist/index.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

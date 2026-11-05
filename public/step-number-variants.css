@@ -1,7 +1,0 @@
-.step-number-controls{display:flex;justify-content:flex-end;gap:.2rem;margin:0 0 1rem;font:600 .68rem 'Plus Jakarta Sans',sans-serif}
-.step-number-controls button{padding:.5rem .75rem;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--ink);font:inherit;cursor:pointer}
-.step-number-controls button[aria-pressed="true"]{background:var(--moss);color:var(--ivory)}
-.step-number-controls button:focus-visible{outline:2px solid var(--moss);outline-offset:2px}
-.steps[data-number-variant="2"]{counter-reset:step-number}
-.steps[data-number-variant="2"] .step{position:relative;counter-increment:step-number}
-.steps[data-number-variant="2"] .step::after{content:counter(step-number,decimal-leading-zero);position:absolute;top:1rem;right:0;color:var(--brass);opacity:.18;font-size:clamp(3rem,5vw,4.5rem);font-weight:300;line-height:1;pointer-events:none}

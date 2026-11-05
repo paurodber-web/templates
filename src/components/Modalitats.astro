@@ -1,7 +1,0 @@
-﻿---
-import pricing from "../content/imported/preus.html?raw";
-const section = pricing.match(/<section\b[^>]*id="modalitats"[^>]*>[\s\S]*?<\/section>/)?.[0];
-if (!section) throw new Error("Missing pricing modalities section");
-const shared = section.replace('section alt', 'section alt shared-modalitats').replace('id="modalitats"', 'id="modalidades"').replaceAll(' reveal', '').replaceAll('href="#calculadora"', 'href="/preus/#calculadora"');
----
-<Fragment set:html={shared} />

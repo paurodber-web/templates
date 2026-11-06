@@ -48,43 +48,43 @@ export function Cta() {
   );
 }
 
-const COLS = [
+const footerColumns = (homePath: string) => [
   {
     title: "Serveis",
     links: [
-      ["Neteja estàndard", "#serveis"],
-      ["Neteja profunda", "#serveis"],
-      ["Neteja per a mudances", "#serveis"],
-      ["Preu tancat o per hores", "#preus"],
+      ["Neteja estàndard", `${homePath}#serveis`],
+      ["Neteja profunda", `${homePath}#serveis`],
+      ["Neteja per a mudances", `${homePath}#serveis`],
+      ["Preu tancat o per hores", `${homePath}#preus`],
     ],
   },
   {
     title: "Empresa",
     links: [
-      ["Sobre nosaltres", "#sobre"],
-      ["Com funciona", "#com-funciona"],
-      ["Freqüències", "#frequencies"],
-      ["Garantia", "#garantia"],
+      ["Sobre nosaltres", `${homePath || './'}sobre-nosaltres/`],
+      ["Com funciona", `${homePath}#com-funciona`],
+      ["Freqüències", `${homePath}#frequencies`],
+      ["Garantia", `${homePath}#garantia`],
     ],
   },
   {
     title: "Ajuda",
     links: [
-      ["Preguntes freqüents", "#faq"],
-      ["Cobertura", "#cobertura"],
-      ["Consells de la llar", "#blog"],
-      ["Política de contaminació creuada", "#higiene"],
+      ["Preguntes freqüents", `${homePath}#faq`],
+      ["Cobertura", `${homePath}#cobertura`],
+      ["Consells de la llar", `${homePath}#blog`],
+      ["Política de contaminació creuada", `${homePath}#higiene`],
     ],
   },
 ];
 
-export function Footer() {
+export function Footer({ homePath = '' }: { homePath?: string }) {
   return (
     <footer id="contacte" className="bg-[#161c2c] text-white">
       <Container className="pb-8 pt-20">
         <div className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <a href="#top" className="flex items-center gap-3.5">
+            <a href={`${homePath}#top`} className="flex items-center gap-3.5">
               <span className="flex h-11 w-11 items-center justify-center rounded-md border border-white/25 text-white">
                 <Home size={19} strokeWidth={1.4} />
               </span>
@@ -99,7 +99,7 @@ export function Footer() {
           </div>
 
           <div className="grid grid-cols-2 gap-10 sm:grid-cols-4 lg:col-span-8">
-            {COLS.map((c) => (
+            {footerColumns(homePath).map((c) => (
               <div key={c.title}>
                 <p className="text-[12px] uppercase tracking-[0.24em] text-clay-soft">{c.title}</p>
                 <ul className="mt-6 space-y-3.5">
@@ -140,9 +140,9 @@ export function Footer() {
         <div className="mt-16 flex flex-col justify-between gap-4 border-t border-white/15 pt-7 text-[10.5px] text-white/45 sm:flex-row">
           <p>© {new Date().getFullYear()} El Quart Desig. Tots els drets reservats.</p>
           <div className="flex gap-7">
-            <a href="#top" className="transition-colors hover:text-white">Avís legal</a>
-            <a href="#top" className="transition-colors hover:text-white">Privacitat</a>
-            <a href="#top" className="transition-colors hover:text-white">Cookies</a>
+            <a href={`${homePath}#top`} className="transition-colors hover:text-white">Avís legal</a>
+            <a href={`${homePath}#top`} className="transition-colors hover:text-white">Privacitat</a>
+            <a href={`${homePath}#top`} className="transition-colors hover:text-white">Cookies</a>
           </div>
         </div>
       </Container>

@@ -1,18 +1,12 @@
 import { useEffect, useState } from "preact/hooks";
 import { Home, Menu, X } from "lucide-preact";
 import { Container } from "./ui";
+import { siteNavigation } from "../navigation";
 
-const NAV = [
-  { label: "Serveis", href: "#serveis" },
-  { label: "Preus", href: "#preus" },
-  { label: "Sobre nosaltres", href: "#sobre" },
-  { label: "Preguntes freqüents", href: "#faq" },
-  { label: "Contacte", href: "#contacte" },
-];
-
-export default function Header() {
+export default function Header({ homePath = '', currentPage = '' }: { homePath?: string; currentPage?: string }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const nav = siteNavigation(homePath);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -30,7 +24,7 @@ export default function Header() {
       }`}
     >
       <Container className="flex h-[76px] items-center justify-between gap-6">
-        <a href="#top" className="flex items-center gap-3.5">
+        <a href={`${homePath}#top`} className="flex items-center gap-3.5">
           <span
             className={`flex h-11 w-11 items-center justify-center rounded-md border transition-colors duration-500 ${
               solid ? "border-line bg-white text-ink" : "border-white/35 bg-white/5 text-white"
@@ -49,10 +43,11 @@ export default function Header() {
         </a>
 
         <nav className="hidden items-center gap-9 lg:flex">
-          {NAV.map((n) => (
+          {nav.map((n) => (
             <a
               key={n.href}
               href={n.href}
+              aria-current={currentPage === 'about' && n.label === 'Sobre nosaltres' ? 'page' : undefined}
               className={`text-[13px] tracking-[0.035em] transition-colors duration-300 ${
                 solid ? "text-ink/75 hover:text-ink" : "text-white/80 hover:text-white"
               }`}
@@ -64,7 +59,7 @@ export default function Header() {
 
         <div className="flex items-center gap-3">
           <a
-            href="#reserva"
+            href={`${homePath}#reserva`}
             className={`hidden rounded-sm px-6 py-3 text-[14px] transition-colors duration-500 sm:inline-flex ${
               solid ? "bg-ink text-white hover:bg-ink-soft" : "bg-white text-ink hover:bg-sand"
             }`}
@@ -73,6 +68,8 @@ export default function Header() {
           </a>
           <button
             aria-label="Menú"
+            aria-expanded={open}
+            aria-controls="site-mobile-menu"
             onClick={() => setOpen((o) => !o)}
             className={`flex h-11 w-11 items-center justify-center rounded-md border lg:hidden ${
               solid ? "border-line text-ink" : "border-white/35 text-white"
@@ -84,12 +81,13 @@ export default function Header() {
       </Container>
 
       {open && (
-        <div className="border-t border-line bg-white lg:hidden">
+        <div id="site-mobile-menu" className="border-t border-line bg-white lg:hidden">
           <Container className="flex flex-col py-3">
-            {NAV.map((n) => (
+            {nav.map((n) => (
               <a
                 key={n.href}
                 href={n.href}
+                aria-current={currentPage === 'about' && n.label === 'Sobre nosaltres' ? 'page' : undefined}
                 onClick={() => setOpen(false)}
                 className="border-b border-line py-4 text-[15px] text-ink last:border-0"
               >
@@ -97,7 +95,7 @@ export default function Header() {
               </a>
             ))}
             <a
-              href="#reserva"
+              href={`${homePath}#reserva`}
               onClick={() => setOpen(false)}
               className="my-4 rounded-sm bg-ink py-3.5 text-center text-[14px] text-white"
             >

@@ -45,10 +45,10 @@ export default function About() {
             </ul>
 
             <a
-              href="#serveis"
+              href="./sobre-nosaltres/"
               className="group mt-10 inline-flex items-center gap-3 text-[14px] text-ink"
             >
-              <span className="border-b border-ink/30 pb-1 transition-colors group-hover:border-ink">Descobreix els serveis</span>
+              <span className="border-b border-ink/30 pb-1 transition-colors group-hover:border-ink">Coneix-nos millor</span>
               <ArrowRight size={16} strokeWidth={1.4} className="transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </div>

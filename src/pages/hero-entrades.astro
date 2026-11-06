@@ -2,8 +2,10 @@
 import '@fontsource/plus-jakarta-sans/latin-400.css';
 import '@fontsource/plus-jakarta-sans/latin-ext-400.css';
 import { IMG } from '../data';
+import { siteNavigation } from '../navigation';
 
-const home = import.meta.env.BASE_URL;
+const home = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const navigation = siteNavigation(home);
 const choices = [
   ['llum', 'Línia de llum'],
   ['oberta', 'Llar oberta'],
@@ -65,11 +67,10 @@ const choices = [
         <header class="hero-header">
           <a class="hero-brand" href={home} aria-label="El Quart Desig, inici">EQD<span>·</span></a>
           <nav aria-label="Navegació principal">
-            <a href={`${home}#serveis`}>Serveis</a>
-            <a href={`${home}#sobre`}>Nosaltres</a>
-            <a href={`${home}#contacte`}>Contacte</a>
+            {navigation.map(({ href, label }) => <a href={href}>{label}</a>)}
             <a class="hero-button" href={`${home}#reserva`}>Parlem-ne <span aria-hidden="true">↗</span></a>
           </nav>
+          <details class="hero-mobile"><summary>Menú</summary><nav aria-label="Navegació mòbil">{navigation.map(({ href, label }) => <a href={href}>{label}</a>)}</nav></details>
         </header>
         <h1 id="hero-title" class="sr-only">El Quart Desig. Cuidem els detalls perquè puguis gaudir de casa teva.</h1>
         <div class="hero-word hero-first" aria-hidden="true">EL QUART</div>
@@ -115,6 +116,7 @@ const choices = [
   .hero-brand { font-family: Georgia, serif; font-size: 20px; letter-spacing: -.08em; }
   .hero-brand span { color: #e1a88e; }
   nav { display: flex; align-items: center; gap: 30px; font-size: 13px; }
+  .hero-mobile { display: none; }
   nav a:not(.hero-button) { border-bottom: 1px solid transparent; padding-block: 8px; transition: border-color .2s ease; }
   @media (hover: hover) { nav a:hover { border-color: currentColor; } }
   .hero-button { padding: 14px 19px; background: #f7f1df; color: #1b2336 !important; }
@@ -329,6 +331,10 @@ const choices = [
     .hero-header { padding: 24px 5%; }
     nav { gap: 0; }
     nav a:not(.hero-button) { display: none; }
+    .hero-mobile { display: block; position: relative; font-size: 13px; }
+    .hero-mobile summary { cursor: pointer; padding: 10px; }
+    .hero-mobile nav { position: absolute; right: 0; top: 100%; display: grid; min-width: 210px; padding: 12px; background: #1b2336; }
+    .hero-mobile nav a:not(.hero-button) { display: block; padding: 10px; }
     .hero-button { padding: 12px 14px; }
     .hero-word { font-size: clamp(3.1rem, 13vw, 6rem); }
     .hero-first { left: 5%; top: 28%; }
